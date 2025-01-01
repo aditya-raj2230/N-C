@@ -243,73 +243,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="work" id="work">
-          <div className="container">
-            <div className="work-header">
-              <HiArrowRight size={13} />
-              <p>Selected projects</p>
-            </div>
-
-            <div className="projects">
-              <div className="project-col">
-                {projects
-                  .filter((project) => project.column === 1)
-                  .map((project) => (
-                    <Link to="/work" key={project.id}>
-                      <div className="project">
-                        <div className="project-img">
-                          <img src={project.image} alt="Project Thumbnail" />
-                        </div>
-                        <div className="project-name">
-                          <h2>{project.title}</h2>
-                        </div>
-                        <div className="project-description">
-                          <p>{project.description}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-              </div>
-
-              <div className="project-col">
-                {projects
-                  .filter((project) => project.column === 2)
-                  .map((project) => (
-                    <Link to="/work" key={project.id}>
-                      <div className="project">
-                        <div className="project-img">
-                          <img src={project.image} alt="Project Thumbnail" />
-                        </div>
-                        <div className="project-name">
-                          <h2>{project.title}</h2>
-                        </div>
-                        <div className="project-description">
-                          <p>{project.description}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="cta">
-          <div className="cta-bg-img">
-            <img src="/cta/cta-bg.png" alt="" />
-          </div>
-          <div className="cta-title">
-            <p>Trusted by visionaries</p>
-          </div>
-          <div className="cta-header">
-            <h2>
-             YETI, SPECIALIZED, RAPHA, CANNONDALE, HUNT, WTB, CAT & CLOUD, ABUS-USA, GUAVA FAMILY, VERB COFFEE ROASTERS
-            </h2>
-          </div>
-          <div className="cta-btn">
-            <button>Discover more at neer&cronin.co</button>
-          </div>
-        </section>
+      
 
         <section className="manifesto" id="manifesto" ref={manifestoRef}>
           <div className="container">
@@ -391,9 +325,85 @@ const Home = () => {
           </div>
         </section>
 
+        <section className="cta">
+          <div className="cta-bg-img">
+            <img src="/cta/cta-bg.png" alt="" />
+          </div>
+          <div className="cta-title">
+            <p>Trusted by visionaries</p>
+          </div>
+          <div className="cta-header">
+            <h2>
+             YETI, SPECIALIZED, RAPHA, CANNONDALE, HUNT, WTB, CAT & CLOUD, ABUS-USA, GUAVA FAMILY, VERB COFFEE ROASTERS
+            </h2>
+          </div>
+          <div className="cta-btn">
+            <button>Discover more at neer&cronin.co</button>
+          </div>
+        </section>
+
+        
+
+        <section className="work" id="work">
+          <div className="container">
+            <div className="work-header">
+              <HiArrowRight size={13} />
+              <p>Selected projects</p>
+            </div>
+
+            <div className="projects">
+              <div className="project-col">
+                {projects
+                  .filter((project) => project.column === 1)
+                  .map((project) => (
+                    <Link to="/work" key={project.id}>
+                      <div className="project">
+                        <div className="project-img">
+                          <img src={project.image} alt="Project Thumbnail" />
+                        </div>
+                        <div className="project-name">
+                          <h2>{project.title}</h2>
+                        </div>
+                        <div className="project-description">
+                          <p>{project.description}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+
+              <div className="project-col">
+                {projects
+                  .filter((project) => project.column === 2)
+                  .map((project) => (
+                    <Link to="/work" key={project.id}>
+                      <div className="project">
+                        <div className="project-img">
+                          <img src={project.image} alt="Project Thumbnail" />
+                        </div>
+                        <div className="project-name">
+                          <h2>{project.title}</h2>
+                        </div>
+                        <div className="project-description">
+                          <p>{project.description}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+      
+
+        
+
+      
+
         <div className="marquee">
           <div className="marquee-text">
-            <h1>See what we can build...   of the essence of neer&cronin</h1>
+            <h1>See what we can build...   the essence of neer&cronin</h1>
           </div>
         </div>
 
