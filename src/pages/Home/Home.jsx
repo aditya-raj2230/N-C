@@ -393,7 +393,7 @@ const Home = () => {
 
         <div className="marquee">
           <div className="marquee-text">
-            <h1>Explore the essence of neer&cronin</h1>
+            <h1>See what we can build...   of the essence of neer&cronin</h1>
           </div>
         </div>
 
