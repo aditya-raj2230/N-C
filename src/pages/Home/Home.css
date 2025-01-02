@@ -37,6 +37,7 @@ section.hero {
   margin: 0;
   transform: translateY(40px);
   opacity: 0;
+  font-size: 4.5rem;
 }
 
 .h-1 {
@@ -316,13 +317,13 @@ section.work {
 }
 
 .marquee-text {
-  width: 300vw;
+  width: 225vw;
   will-change: transform;
   transform: translateX(0);
 }
 
 .marquee-text h1 {
-  font-size: 12rem;
+  font-size: 10rem;
   text-align: center;
 }
 
@@ -439,6 +440,7 @@ section.work {
 
 .team-member-name p {
   font-size: 3rem;
+  color: var(--light3);
 }
 
 .team-member-toggle {
@@ -555,6 +557,13 @@ section.work {
   color: var(--light2);
 }
 
+
+.location a {
+  text-decoration: none;
+   color: var(--light1);
+}
+
+
 .location p:last-child {
   margin: 2em 0 1em 0;
   color: var(--light1);
@@ -578,6 +587,12 @@ section.work {
 
 .footer-col:nth-child(2) .footer-sub-col p {
   font-size: 1.25rem;
+}
+
+.footer-sub-col a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color:#000;
 }
 
 /* light mode */

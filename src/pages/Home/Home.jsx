@@ -154,7 +154,7 @@ const Home = () => {
         scrub: 1,
         markers: false,
         onUpdate: (self) => {
-          const moveAmount = self.progress * -1000;
+          const moveAmount = self.progress * -1200;
           gsap.set(".marquee-text", {
             x: moveAmount,
           });
@@ -403,7 +403,7 @@ const Home = () => {
 
         <div className="marquee">
           <div className="marquee-text">
-            <h1>See what we can build...   the essence of neer&cronin</h1>
+            <h1>See what we can build.. <span> </span></h1>
           </div>
         </div>
 
@@ -507,7 +507,7 @@ const Home = () => {
             <div className="team-intro">
               <h1>
                We are
-                united by &nbsp;&nbsp;&nbsp; creativity
+                united by creativity
               </h1>
             </div>
 
@@ -615,7 +615,7 @@ const Home = () => {
                       <p>USA</p>
 
                       <p>
-                        <HiArrowRight /> View on map
+                      <a href="https://www.bouldercoloradousa.com/" target="_blank noreferrer"> <HiArrowRight /> View on map</a>
                       </p>
                     </div>
 
@@ -631,9 +631,9 @@ const Home = () => {
                   <p>Follow Us</p>
                 </div>
                 <div className="footer-sub-col">
-                  <p>Instagram</p>
-                  <p>LinkedIn</p>
-                  <p>Twitter</p>
+                <a href="https://www.instagram.com/shawnneer/" target="_blank noreferrer">Instagram</a>
+                  <a href="https://www.linkedin.com/in/danecronin/" target="_blank noreferrer">LinkedIn</a>
+                  <a href="https://github.com/DaneCronin" target="_blank noreferrer">GitHub</a>
                   <p>Behance</p>
                 
                 </div>

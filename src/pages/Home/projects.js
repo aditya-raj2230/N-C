@@ -57,3 +57,5 @@ export const projects = [
     column: 2,
   },
 ];
+
+export default projects; 

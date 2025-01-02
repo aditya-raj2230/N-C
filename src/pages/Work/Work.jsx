@@ -3,6 +3,7 @@ import "./Work.css";
 import { Link } from "react-router";
 
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
+// import projects from "../Home/projects.js"
 import Cursor from "../../components/Cursor/Cursor";
 // import Transition from "../../components/Transition/Transition";
 import BackButton from "../../components/BackButton/BackButton";
@@ -29,10 +30,12 @@ const Work = () => {
       <Cursor />
       <div className="sample-project">
         <BackButton />
+        
+        
 
         <section className="sp-title">
           <div className="container">
-            <h1>Shadow Beacon by Lightforms</h1>
+            <h1>CLIFFHANGER</h1>
           </div>
         </section>
 
