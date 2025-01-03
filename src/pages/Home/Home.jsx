@@ -443,52 +443,52 @@ const Home = () => {
                 <img src="/marquee/img1.jpeg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/img2.jpeg" alt="" />
+                <img src="/marquee/CafeAmericano.jpg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/img3.jpeg" alt="" />
+                <img src="/marquee/Taliesin-4.jpg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/img4.jpeg" alt="" />
-              </div>
-            </div>
-            <div className="row">
-              <div className="img">
-                <img src="/marquee/img5.jpeg" alt="" />
-              </div>
-              <div className="img">
-                <img src="/marquee/img6.jpeg" alt="" />
-              </div>
-              <div className="img">
-                <img src="/marquee/img7.jpeg" alt="" />
-              </div>
-              <div className="img">
-                <img src="/marquee/img8.jpeg" alt="" />
+                <img src="/marquee/Guava-2.jpg" alt="" />
               </div>
             </div>
             <div className="row">
               <div className="img">
-                <img src="/marquee/img9.jpeg" alt="" />
+                <img src="/marquee/DustToDust.jpg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/img10.jpeg" alt="" />
+                <img src="/marquee/Smith-Yeti.jpg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/img11.jpeg" alt="" />
+                <img src="/marquee/DustToDust.jpg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/img12.jpeg" alt="" />
+                <img src="/marquee/Abus-1.jpg" alt="" />
               </div>
             </div>
             <div className="row">
               <div className="img">
-                <img src="/marquee/img13.jpeg" alt="" />
+                <img src="/marquee/SBTGRVL.jpg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/img14.jpeg" alt="" />
+                <img src="/marquee/Capri-1.jpg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/img15.jpeg" alt="" />
+                <img src="/marquee/GreenRiver.jpg" alt="" />
+              </div>
+              <div className="img">
+                <img src="/marquee/TransBC23-2.jpg" alt="" />
+              </div>
+            </div>
+            <div className="row">
+              <div className="img">
+                <img src="/marquee/Taliesin-3.jpg" alt="" />
+              </div>
+              <div className="img">
+                <img src="/marquee/Monument-1.jpg" alt="" />
+              </div>
+              <div className="img">
+                <img src="/marquee/Monument-2.jpg" alt="" />
               </div>
               <div className="img">
                 <img src="/marquee/img16.jpeg" alt="" />

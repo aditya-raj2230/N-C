@@ -592,7 +592,7 @@ section.work {
 .footer-sub-col a {
   text-decoration: none;
   font-size: 1.25rem;
-  color:#000;
+  color:var(--light1);
 }
 
 /* light mode */
