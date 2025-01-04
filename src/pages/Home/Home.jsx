@@ -62,7 +62,7 @@ const Home = () => {
     });
 
     if (!isMobile) {
-      gsap.set(".project", { opacity: 0.35 });
+      gsap.set(".project", { opacity: 0.45 });
     }
 
     if (!isMobile) {
@@ -225,20 +225,20 @@ const Home = () => {
           <HeroGradient />
           <div className="header-container">
             <div className="header h-1">
-              <h1>Web Development</h1>
-              <h1>And Design</h1>
+              <h1>Web Development | </h1>
+              <h1>Design</h1>
             </div>
             <div className="header h-2">
-              <h1>Shopify Wordpress</h1>
-              <h1>Webflow VS Code</h1>
+              <h1>Shopify | Wordpress |</h1>
+              <h1>Webflow | React</h1>
             </div>
             <div className="header h-3">
-              <h1>Photograpghy</h1>
-              <h1>and Film Production</h1>
+              <h1>Photography | </h1>
+              <h1>Film Production</h1>
             </div>
             <div className="header h-4">
               <h1>Welcome to </h1>
-              <h1>Neer & Cronin</h1>
+              <h1>Neer&Cronin</h1>
             </div>
           </div>
         </section>
@@ -354,12 +354,12 @@ const Home = () => {
             <div className="projects">
               <div className="project-col">
                 {projects
-                  .filter((project) => project.column === 1)
+                  .filter((project) => project.column === 1) // Filter projects based on their column value
                   .map((project) => (
-                    <Link to="/work" key={project.id}>
+                    <Link to={project.projectLink} key={project.id}>
                       <div className="project">
                         <div className="project-img">
-                          <img src={project.image} alt="Project Thumbnail" />
+                          <img src={project.image} alt={project.title} />
                         </div>
                         <div className="project-name">
                           <h2>{project.title}</h2>
@@ -374,12 +374,12 @@ const Home = () => {
 
               <div className="project-col">
                 {projects
-                  .filter((project) => project.column === 2)
+                  .filter((project) => project.column === 2) // Filter projects based on their column value
                   .map((project) => (
-                    <Link to="/work" key={project.id}>
+                    <Link to={project.projectLink} key={project.id}>
                       <div className="project">
                         <div className="project-img">
-                          <img src={project.image} alt="Project Thumbnail" />
+                          <img src={project.image} alt={project.title}/>
                         </div>
                         <div className="project-name">
                           <h2>{project.title}</h2>

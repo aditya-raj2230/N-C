@@ -40,23 +40,23 @@ const Work = () => {
         </section>
 
         <section className="sp-banner">
-          <img src="/work/work1.jpg" alt="" />
+          <img src="/projects/Cliffhanger.jpg" alt="" />
         </section>
 
         <section className="sp-details">
           <div className="container">
             <div className="sp-details-col">
-              <p className="sp-details-name">Shadow Beacon</p>
+              <p className="sp-details-name">CLIFFHANGER</p>
 
               <div className="sp-tags">
                 <p>Motion Capture</p>
                 <p>Creative Direction</p>
-                <p>3D</p>
+                <p>Creative Campaign</p>
                 <p>Post Production</p>
               </div>
 
               <div className="sp-date">
-                <p>February 2021</p>
+                <p>February 2022</p>
               </div>
 
               <div className="sp-link">
@@ -73,12 +73,10 @@ const Work = () => {
             <div className="sp-details-col">
               <p>Challenge</p>
               <p>
-                Shadow Beacon is a tribute to the interplay between light and
+                Cliffhanger is a tribute to the interplay between light and
                 form. During a time when the world seemed paused, we set out to
                 create a piece that celebrates movement, space, and emotion.
-                Combining motion capture with imaginative 3D landscapes, the
-                project envisions a dreamlike realm where light becomes a
-                storyteller. Through thoughtful creative direction and intricate
+                Through thoughtful creative direction and intricate
                 post-production, we crafted a narrative that feels both intimate
                 and expansive—a beacon for those searching for connection and
                 inspiration in uncertain times.
@@ -99,7 +97,7 @@ const Work = () => {
 
             <div className="sp-info-desc">
               <p>
-                Shadow Beacon explores the idea of finding clarity in moments of
+                Cliffhanger explores the idea of finding clarity in moments of
                 obscurity. Inspired by the duality of light and shadow, we
                 imagined a character who navigates a surreal world, guided by
                 beams of light that reveal hidden paths and truths. This
@@ -113,7 +111,7 @@ const Work = () => {
 
         <section className="sp-img">
           <div className="container">
-            <img src="/work/work2.jpg" alt="" />
+            <img src="/marquee/GreenRiver.jpg" alt="" />
           </div>
         </section>
 
@@ -125,7 +123,7 @@ const Work = () => {
 
             <div className="sp-info-desc">
               <p>
-                To bring Shadow Beacon to life, we focused on creating a
+                To bring Cliffhanger to life, we focused on creating a
                 seamless blend of reality and surrealism. Escapism became our
                 guiding principle, leading us to juxtapose real-life moments
                 with ethereal 3D landscapes. Shot on the quiet streets of
@@ -140,7 +138,7 @@ const Work = () => {
 
         <section className="sp-img">
           <div className="container">
-            <img src="/work/work3.jpg" alt="" />
+            <img src="/marquee/DustToDust.jpg" alt="" />
           </div>
         </section>
 
@@ -154,7 +152,7 @@ const Work = () => {
                   <p>Project</p>
                 </div>
                 <div className="credits-copy">
-                  <p>Shadow Beacon</p>
+                  <p>CLIFFHANGER</p>
                 </div>
               </div>
               <div className="credits-col">
@@ -163,7 +161,7 @@ const Work = () => {
                 </div>
                 <div className="credits-copy">
                   <p>
-                    Motion Capture, Creative Direction, 3D Design, Atmospheric
+                    Film Production, Creative Direction, Creative Campaign,
                     Post-Production
                   </p>
                 </div>
@@ -183,7 +181,7 @@ const Work = () => {
                   <p>Directors</p>
                 </div>
                 <div className="credits-copy">
-                  <p>Lila Morrin (Lightforms), Kai Rivers (Lightforms)</p>
+                  <p>Shawn Neer (neer&cronin)</p>
                 </div>
               </div>
             </div>
@@ -195,7 +193,7 @@ const Work = () => {
                   <p>Creative Producer</p>
                 </div>
                 <div className="credits-copy">
-                  <p>Eli Dawson</p>
+                  <p>Shawn Neer</p>
                 </div>
               </div>
             </div>
@@ -207,7 +205,7 @@ const Work = () => {
                   <p>Art Direction & Animation</p>
                 </div>
                 <div className="credits-copy">
-                  <p>Lila Morrin (Lightforms)</p>
+                  <p>Shawn Neer (neer&cronin)</p>
                 </div>
               </div>
             </div>
@@ -219,7 +217,7 @@ const Work = () => {
                   <p>Editing & Compositing</p>
                 </div>
                 <div className="credits-copy">
-                  <p>Kai Rivers (Lightforms)</p>
+                  <p>Craig Grant </p>
                 </div>
               </div>
             </div>
@@ -231,22 +229,12 @@ const Work = () => {
                   <p>Cinematography & Color Grading</p>
                 </div>
                 <div className="credits-copy">
-                  <p>Rhea Clarke</p>
+                  <p>Craig Grant</p>
                 </div>
               </div>
             </div>
 
-            <div className="credits-row">
-              <div className="credits-col"></div>
-              <div className="credits-col">
-                <div className="credits-header">
-                  <p>Choreography</p>
-                </div>
-                <div className="credits-copy">
-                  <p>Juno Evers</p>
-                </div>
-              </div>
-            </div>
+       
 
             <div className="credits-row">
               <div className="credits-col"></div>
@@ -279,7 +267,7 @@ const Work = () => {
                   <p>Acknowledgments</p>
                 </div>
                 <div className="credits-copy">
-                  <p>Mira Solis, Adrian Wren, & Camille Trest</p>
+                  <p>Yeti Cycles, Smith, Craig Grant</p>
                 </div>
               </div>
             </div>
@@ -288,7 +276,7 @@ const Work = () => {
 
         <section className="next-project">
           <div className="next-project-img">
-            <img src="/projects/project4.jpg" alt="" />
+            <img src="/projects/Taliesin-1.jpg" alt="" />
           </div>
 
           <div className="container">
@@ -299,7 +287,7 @@ const Work = () => {
                 </h1>
               </div>
               <div className="next-project-title">
-                <h1>The Machina Chronicles by Narratives Studio</h1>
+                <h1>Next Project</h1>
               </div>
             </div>
           </div>
