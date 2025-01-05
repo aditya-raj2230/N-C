@@ -79,7 +79,7 @@ const Home = () => {
           });
 
           gsap.to(projectImg, {
-            scale: 1.2,
+            scale: 1.05,
             duration: 0.5,
             ease: "power2.out",
           });
@@ -87,7 +87,7 @@ const Home = () => {
 
         project.addEventListener("mouseleave", () => {
           gsap.to(project, {
-            opacity: 0.35,
+            opacity: 0.45,
             duration: 0.5,
             ease: "power2.out",
           });
@@ -233,7 +233,7 @@ const Home = () => {
               <h1>Webflow | React</h1>
             </div>
             <div className="header h-3">
-              <h1>Photography | </h1>
+              <h1>Photography + </h1>
               <h1>Film Production</h1>
             </div>
             <div className="header h-4">
@@ -244,7 +244,7 @@ const Home = () => {
         </section>
 
       
-
+{/* Manifesto Section */}
         <section className="manifesto" id="manifesto" ref={manifestoRef}>
           <div className="container">
             <div className="manifesto-header">
@@ -258,6 +258,7 @@ const Home = () => {
           </div>
         </section>
 
+{/* Processes Section */}
         <section className="processes">
           <div className="container">
             <div className="process">
@@ -325,6 +326,8 @@ const Home = () => {
           </div>
         </section>
 
+
+{/* Brand Partners Section */}
         <section className="cta">
           <div className="cta-bg-img">
             <img src="/cta/cta-bg.png" alt="" />
@@ -336,15 +339,17 @@ const Home = () => {
             
             <h2>
              YETI, SPECIALIZED, RAPHA, CANNONDALE, HUNT, WTB, CAT & CLOUD, ABUS-USA, GUAVA FAMILY, VERB COFFEE ROASTERS
-             {/* <img src="/logos/YetiLogo.png" alt="Yeti Cycles Logo"/> */}
+            <img src="/logos/YET Logo.svg" alt="Yeti Cycles Logo"/>
             </h2>
           </div>
-          <div className="cta-btn">
+          {/* <div className="cta-btn">
             <button>Discover more at neer&cronin.co</button>
-          </div>
+          </div> */}
         </section>
 
         
+
+        {/* Selected Work Projects */}
 
         <section className="work" id="work">
           <div className="container">
@@ -405,7 +410,7 @@ const Home = () => {
 
         <div className="marquee">
           <div className="marquee-text">
-            <h1>See what we can build.. <span> </span></h1>
+            <h1>See what we can build.. </h1>
           </div>
         </div>
 
@@ -438,6 +443,8 @@ const Home = () => {
           </div>
         </section>
 
+
+        {/* Marquee Gallery Section */}
         <section className="gallery">
           <div className="gallery-wrapper">
             <div className="row">
@@ -445,10 +452,10 @@ const Home = () => {
                 <img src="/marquee/img1.jpeg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/CafeAmericano.jpg" alt="" />
+                <img src="/marquee/CafeAmericano.jpg" alt="Image of Shawn Neer with a coffee in Italy" />
               </div>
               <div className="img">
-                <img src="/marquee/Taliesin-4.jpg" alt="" />
+                <img src="/marquee/Taliesin-4.jpg" alt="Exterior photo of Taliesin West by Frank Lloyd Wright" />
               </div>
               <div className="img">
                 <img src="/marquee/Guava-2.jpg" alt="" />
@@ -465,18 +472,18 @@ const Home = () => {
                 <img src="/marquee/DustToDust.jpg" alt="" />
               </div>
               <div className="img">
-                <img src="/marquee/Abus-1.jpg" alt="" />
+                <img src="/marquee/Abus-1.jpg" alt="Portrait of Shawn Neer with Abus bike helmet" />
               </div>
             </div>
             <div className="row">
               <div className="img">
-                <img src="/marquee/SBTGRVL.jpg" alt="" />
+                <img src="/marquee/SBTGRVL.jpg" alt="Gravel cycling riders during SBTGRVL Race" />
               </div>
               <div className="img">
-                <img src="/marquee/Capri-1.jpg" alt="" />
+                <img src="/marquee/Capri-1.jpg" alt="Midcentury Modern Hotel, The Capri, in Scottsdale, AZ" />
               </div>
               <div className="img">
-                <img src="/marquee/GreenRiver.jpg" alt="" />
+                <img src="/marquee/GreenRiver.jpg" alt="Shawn Neer riding Green River, UT." />
               </div>
               <div className="img">
                 <img src="/marquee/TransBC23-2.jpg" alt="" />
@@ -499,6 +506,8 @@ const Home = () => {
           </div>
         </section>
 
+
+        {/* TEAM Info Section */}
         <section className="team" id="team">
           <div className="container">
             <div className="team-header">
@@ -519,7 +528,7 @@ const Home = () => {
               </div>
               <div className="team-member-profile">
                 <div className="team-member-img">
-                  <img src="/team/Shawn Neer.jpg" alt="Shawn Neer" />
+                  <img src="/team/Shawn Neer.jpg" alt="Shawn Neer Portrait" />
                 </div>
                 <div className="team-member-info">
                   <div className="team-member-name">
@@ -554,7 +563,7 @@ const Home = () => {
               </div>
               <div className="team-member-profile">
                 <div className="team-member-img">
-                  <img src="/team/Dane Cronin.jpg" alt="Dane Cronin" />
+                  <img src="/team/Dane Cronin.jpg" alt="Dane Cronin Portrait" />
                 </div>
                 <div className="team-member-info">
                   <div className="team-member-name">
@@ -581,12 +590,11 @@ const Home = () => {
                 <h1>Dane Cronin</h1>
               </div>
             </div>
-
-            
-           
           </div>
         </section>
 
+
+        {/* Footer/Contact Section */}
         <section className="footer" id="contact">
           <div className="container">
             <div className="footer-header">
@@ -638,7 +646,7 @@ const Home = () => {
                 <a href="https://www.instagram.com/shawnneer/" target="_blank noreferrer">Instagram</a>
                   <a href="https://www.linkedin.com/in/danecronin/" target="_blank noreferrer">LinkedIn</a>
                   <a href="https://github.com/DaneCronin" target="_blank noreferrer">GitHub</a>
-                  <p>Behance</p>
+           
                 
                 </div>
               </div>
@@ -646,6 +654,7 @@ const Home = () => {
           </div>
         </section>
       </div>
+
     </ReactLenis>
   );
 };

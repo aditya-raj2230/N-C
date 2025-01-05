@@ -4,7 +4,6 @@ import "./Work.css";
 import { useParams } from "react-router-dom"; // To get the project id from the URL
 
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
-// import projects from "../Home/projects.js"
 import Cursor from "../../components/Cursor/Cursor";
 // import Transition from "../../components/Transition/Transition";
 import BackButton from "../../components/BackButton/BackButton";
@@ -74,7 +73,7 @@ const Work = () => {
               </div>
 
               <div className="sp-link">
-              <a href={project.projectLink}>
+              <a href={project.liveLink} target="_blank noreferrer">
                   <button>
                     <div className="icon">
                       <IoIosArrowRoundForward size={16} />
@@ -87,9 +86,9 @@ const Work = () => {
 
              {/* Project Challenge */}
             <div className="sp-details-col">
-              <p>Challenge</p>
+              <p>Brief</p>
               <p>
-               {project.challenge}
+               {project.brief}
               </p>
             </div>
           </div>

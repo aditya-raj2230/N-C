@@ -509,6 +509,7 @@ section.work {
   text-decoration: none;
 }
 
+
 .footer-email h2 {
   font-size: 2.5rem;
   background: #958151;
@@ -597,6 +598,14 @@ section.work {
   text-decoration: none;
   font-size: 1.25rem;
   color:var(--light1);
+}
+
+.footer-sub-col a:hover {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color:var(--light1);
+  transform: scale(1.05);
+  transition-duration: 0.3ms;
 }
 
 /* light mode */
