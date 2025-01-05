@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Work.css";
-import { Link } from "react-router";
+// import { Link } from "react-router";
+import { useParams } from "react-router-dom"; // To get the project id from the URL
 
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 // import projects from "../Home/projects.js"
@@ -9,11 +10,20 @@ import Cursor from "../../components/Cursor/Cursor";
 import BackButton from "../../components/BackButton/BackButton";
 
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { projects } from "../Home/projects"; // Import the projects array
 
 import { IoMdArrowForward } from "react-icons/io";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Work = () => {
+  const { id } = useParams(); // Get the project id from the URL
+  const project = projects.find((project) => project.id === parseInt(id)); // Find the project by id
+
+    // If no project is found, return a "Not Found" message
+    if (!project) {
+      return <div>Project Not Found</div>;
+    }
+
   useEffect(() => {
     const scrollTimeout = setTimeout(() => {
       window.scrollTo({
@@ -32,63 +42,65 @@ const Work = () => {
         <BackButton />
         
         
-
+{/* Project Title Section */}
         <section className="sp-title">
           <div className="container">
-            <h1>CLIFFHANGER</h1>
+            <h1>{project.title}</h1>
           </div>
         </section>
 
+        {/* Project Banner Section */}
         <section className="sp-banner">
-          <img src="/projects/Cliffhanger.jpg" alt="" />
+          <img src={project.bannerImage} alt={project.title} />
         </section>
 
+{/* Project Details Section */}
         <section className="sp-details">
           <div className="container">
             <div className="sp-details-col">
-              <p className="sp-details-name">CLIFFHANGER</p>
+              <p className="sp-details-name">{project.name}</p>
 
+{/* Project Tags */}
               <div className="sp-tags">
-                <p>Motion Capture</p>
-                <p>Creative Direction</p>
-                <p>Creative Campaign</p>
-                <p>Post Production</p>
+              {project.tags.map((tag, idx) => (
+                  <p key={idx}>{tag}</p>
+                ))}
               </div>
 
               <div className="sp-date">
-                <p>February 2022</p>
+                <p>{project.date}</p>
               </div>
 
               <div className="sp-link">
-                <Link to="/">
+              <a href={project.projectLink}>
                   <button>
                     <div className="icon">
                       <IoIosArrowRoundForward size={16} />
                     </div>
                     View Project
                   </button>
-                </Link>
+                  </a>
               </div>
             </div>
+
+             {/* Project Challenge */}
             <div className="sp-details-col">
               <p>Challenge</p>
               <p>
-                Cliffhanger is a tribute to the interplay between light and
-                form. During a time when the world seemed paused, we set out to
-                create a piece that celebrates movement, space, and emotion.
-                Through thoughtful creative direction and intricate
-                post-production, we crafted a narrative that feels both intimate
-                and expansive—a beacon for those searching for connection and
-                inspiration in uncertain times.
+               {project.challenge}
               </p>
             </div>
           </div>
         </section>
 
+
+
+        {/* Video Showreel Section */}
         <section className="showreel">
           <VideoPlayer />
         </section>
 
+{/* Challenge Description Section */}
         <section className="sp-info">
           <div className="container">
             <div className="sp-info-title">
@@ -97,24 +109,20 @@ const Work = () => {
 
             <div className="sp-info-desc">
               <p>
-                Cliffhanger explores the idea of finding clarity in moments of
-                obscurity. Inspired by the duality of light and shadow, we
-                imagined a character who navigates a surreal world, guided by
-                beams of light that reveal hidden paths and truths. This
-                character, free from physical constraints, embodies the
-                liberation from everyday burdens, moving fluidly through spaces
-                that are both familiar and otherworldly.
+                {project.challengeDesc}
               </p>
             </div>
           </div>
         </section>
 
+ {/* Project Image 1 Section */}
         <section className="sp-img">
           <div className="container">
-            <img src="/marquee/GreenRiver.jpg" alt="" />
+            <img src={project.image1} alt={project.title}  />
           </div>
         </section>
 
+  {/* Creative Solution Description Section */}
         <section className="sp-info">
           <div className="container">
             <div className="sp-info-title">
@@ -123,28 +131,24 @@ const Work = () => {
 
             <div className="sp-info-desc">
               <p>
-                To bring Cliffhanger to life, we focused on creating a
-                seamless blend of reality and surrealism. Escapism became our
-                guiding principle, leading us to juxtapose real-life moments
-                with ethereal 3D landscapes. Shot on the quiet streets of
-                Saigon, our Director of Photography, Ray Lavers, captured
-                fleeting glimpses of reality in just two hours during
-                quarantine. These grounded visuals set the stage for the
-                dreamlike sequences that followed.
+              {project.creativeSolution}
               </p>
             </div>
           </div>
         </section>
 
+{/* Project Image 2 Section */}
         <section className="sp-img">
           <div className="container">
-            <img src="/marquee/DustToDust.jpg" alt="" />
+            <img src={project.image2} alt={project.title}  />
           </div>
         </section>
 
+{/* Project Credits Section */}
         <section className="credits">
           <div className="container">
             <h2>Credits</h2>
+
 
             <div className="credits-row">
               <div className="credits-col">
@@ -152,17 +156,18 @@ const Work = () => {
                   <p>Project</p>
                 </div>
                 <div className="credits-copy">
-                  <p>CLIFFHANGER</p>
+                  <p>{project.name}</p>
                 </div>
               </div>
+
+              
               <div className="credits-col">
                 <div className="credits-header">
                   <p>Our Role</p>
                 </div>
                 <div className="credits-copy">
                   <p>
-                    Film Production, Creative Direction, Creative Campaign,
-                    Post-Production
+                   {project.role}
                   </p>
                 </div>
               </div>
@@ -176,102 +181,31 @@ const Work = () => {
                   <p>Team</p>
                 </div>
               </div>
-              <div className="credits-col">
-                <div className="credits-header">
-                  <p>Directors</p>
-                </div>
-                <div className="credits-copy">
-                  <p>Shawn Neer (neer&cronin)</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="credits-row">
-              <div className="credits-col"></div>
-              <div className="credits-col">
-                <div className="credits-header">
-                  <p>Creative Producer</p>
-                </div>
-                <div className="credits-copy">
-                  <p>Shawn Neer</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="credits-row">
-              <div className="credits-col"></div>
-              <div className="credits-col">
-                <div className="credits-header">
-                  <p>Art Direction & Animation</p>
-                </div>
-                <div className="credits-copy">
-                  <p>Shawn Neer (neer&cronin)</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="credits-row">
-              <div className="credits-col"></div>
-              <div className="credits-col">
-                <div className="credits-header">
-                  <p>Editing & Compositing</p>
-                </div>
-                <div className="credits-copy">
-                  <p>Craig Grant </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="credits-row">
-              <div className="credits-col"></div>
-              <div className="credits-col">
-                <div className="credits-header">
-                  <p>Cinematography & Color Grading</p>
-                </div>
-                <div className="credits-copy">
-                  <p>Craig Grant</p>
-                </div>
-              </div>
+             
             </div>
 
        
 
-            <div className="credits-row">
-              <div className="credits-col"></div>
-              <div className="credits-col">
-                <div className="credits-header">
-                  <p>Sound Design</p>
-                </div>
-                <div className="credits-copy">
-                  <p>Echo Chamber Studios</p>
-                </div>
-              </div>
-            </div>
+        
+     
 
-            <div className="credits-row">
-              <div className="credits-col"></div>
-              <div className="credits-col">
-                <div className="credits-header">
-                  <p>Label</p>
-                </div>
-                <div className="credits-copy">
-                  <p>Lightforms Collective</p>
-                </div>
-              </div>
-            </div>
 
-            <div className="credits-row">
+{/* Credits  */}
+            {project.credits.map((credit, idx) => (
+            <div key={idx} className="credits-row">
               <div className="credits-col"></div>
               <div className="credits-col">
                 <div className="credits-header">
-                  <p>Acknowledgments</p>
+                  <p>{credit.role}</p>
                 </div>
                 <div className="credits-copy">
-                  <p>Yeti Cycles, Smith, Craig Grant</p>
+                  <p>{credit.name}</p>
                 </div>
               </div>
             </div>
+            ))}
           </div>
+           
         </section>
 
         <section className="next-project">
