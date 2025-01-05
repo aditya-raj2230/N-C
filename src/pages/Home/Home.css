@@ -505,6 +505,10 @@ section.work {
   color: var(--light2);
 }
 
+.footer-email a {
+  text-decoration: none;
+}
+
 .footer-email h2 {
   font-size: 2.5rem;
   background: #958151;

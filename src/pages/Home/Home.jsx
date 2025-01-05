@@ -333,8 +333,10 @@ const Home = () => {
             <p>Trusted by visionaries</p>
           </div>
           <div className="cta-header">
+            
             <h2>
              YETI, SPECIALIZED, RAPHA, CANNONDALE, HUNT, WTB, CAT & CLOUD, ABUS-USA, GUAVA FAMILY, VERB COFFEE ROASTERS
+             {/* <img src="/logos/YetiLogo.png" alt="Yeti Cycles Logo"/> */}
             </h2>
           </div>
           <div className="cta-btn">
@@ -598,7 +600,9 @@ const Home = () => {
 
             <div className="footer-email">
               <p>We’d love to hear from you</p>
-              <h2>hello@neer&cronin.co</h2>
+              <a href="mailto:danecronin@gmail.com">
+                <h2>hello@neer&cronin.co</h2>
+                </a>
             </div>
 
             <div className="footer-content">

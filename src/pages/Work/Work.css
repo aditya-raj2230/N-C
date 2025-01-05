@@ -219,6 +219,11 @@ p.sp-details-name {
   line-height: 1.25;
 }
 
+.next-project-title a {
+  text-decoration: none;
+  color: white;
+}
+
 .next-project-icon {
   position: relative;
   top: 8px;

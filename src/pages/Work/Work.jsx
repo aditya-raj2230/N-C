@@ -17,12 +17,14 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Work = () => {
   const { id } = useParams(); // Get the project id from the URL
-  const project = projects.find((project) => project.id === parseInt(id)); // Find the project by id
+  const projectIndex = projects.findIndex((project) => project.id === parseInt(id));
+  const project = projects[projectIndex]; // Get the current project
+  const nextProject = projects[(projectIndex + 1) % projects.length]; // Get the next project, loop back to the start if at the end
 
-    // If no project is found, return a "Not Found" message
-    if (!project) {
-      return <div>Project Not Found</div>;
-    }
+  // If no project is found, return a "Not Found" message
+  if (!project) {
+    return <div>Project Not Found</div>;
+  }
 
   useEffect(() => {
     const scrollTimeout = setTimeout(() => {
@@ -205,12 +207,13 @@ const Work = () => {
             </div>
             ))}
           </div>
-           
         </section>
 
+
+        {/* Next Project Section */}
         <section className="next-project">
           <div className="next-project-img">
-            <img src="/projects/Taliesin-1.jpg" alt="" />
+          <img src={nextProject.bannerImage} alt={nextProject.title} />
           </div>
 
           <div className="container">
@@ -221,7 +224,9 @@ const Work = () => {
                 </h1>
               </div>
               <div className="next-project-title">
-                <h1>Next Project</h1>
+              <a href={nextProject.projectLink}>
+                <h1>{nextProject.title}</h1>
+                </a>
               </div>
             </div>
           </div>
