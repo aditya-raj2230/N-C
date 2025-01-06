@@ -23,7 +23,7 @@ const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   // Link to Static videoUrl for Homepage
-  const staticVideoUrl = "/video/showreel.mov";
+  const staticVideoUrl = "/video/Cliffhanger.mp4";
 
   useEffect(() => {
     const scrollTimeout = setTimeout(() => {
@@ -219,8 +219,28 @@ const Home = () => {
     };
   }, [isMobile]);
 
+
+  // New Event listener to prevent automatic scroll restoration
+  useEffect(() => {
+    const preventScroll = () => {
+      if (window.scrollRestoration) {
+        window.scrollRestoration = "manual";
+      }
+    };
+    
+    preventScroll();
+  
+    return () => {
+      if (window.scrollRestoration) {
+        window.scrollRestoration = "auto";
+      }
+    };
+  }, []);
+
   return (
+    
     <ReactLenis root>
+
       <div className="home">
         <Cursor />
         <NavBar />
@@ -448,9 +468,9 @@ const Home = () => {
               </div>
             </div>
             <div className="about-col">
-              <div className="cta-btn">
+              {/* <div className="cta-btn">
                 <button>Discover more at neer&cronin.co</button>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
