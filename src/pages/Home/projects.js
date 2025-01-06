@@ -5,6 +5,7 @@ export const projects = [
     title: "CLIFFHANGER",
     name: "Cliffhanger",
     bannerImage: "/projects/Cliffhanger/Cliffhanger.jpg",
+    videoUrl: "/video/Cliffhanger.mp4",
     tags: ["Film Production", "Creative Direction", "Creative Campaign", "Post Production"],
     date: "February 2021",
     projectLink: "/work/1", // Use a unique route for each project
@@ -42,6 +43,7 @@ The result? The ABUS Cliffhanger launched not as an accessory, but as a direct c
     title: "Verb Coffee Roasters",
     name: "Verb Coffee Roasters",
     bannerImage: "/projects/Verb/Verb-IDIDO-Poster.jpg",
+    videoUrl: "/video/Verb.mp4",
     tags: ["Creative Campaign, Web Development, Interactive Design, ECommerce"],
     date: "October 2024",
     projectLink: "/work/2", // Use a unique route for each project
@@ -73,6 +75,7 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     title: "Taliesin West",
     name: "Taliesin West",
     bannerImage: "/projects/Taliesin/Taliesin-1.jpg",
+    videoUrl: "",
     tags: ["Architecture Design, Editorial, Photography"],
     date: "Dec 2024",
     projectLink: "/work/3", // Use a unique route for each project
@@ -103,6 +106,7 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     title: "Cafe Americano",
     name: "Cafe Americano",
     bannerImage: "/projects/Americano/Cafe Americano.jpg",
+    videoUrl: "/video/Americano.mp4",
     tags: ["Film Production", "Creative Direction", "Creative Campaign", "Post Production"],
     date: "April 2023",
     projectLink: "/work/4", // Use a unique route for each project
@@ -136,6 +140,7 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     title: "Good Company",
     name: "Good Company",
     bannerImage: "/projects/GoodCompany/GoodCompany.jpg",
+    videoUrl: "/video/GoodCompany.mp4",
     tags: ["Film Production", "Creative Direction", "Creative Campaign"],
     date: "May 2022",
     projectLink: "/work/5", // Use a unique route for each project
@@ -168,6 +173,7 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     title: "DUST TO DUST",
     name: "DUST TO DUST",
     bannerImage: "/projects/Dust/DustToDust-1.jpg",
+    videoUrl: "/video/DustToDust.mp4",
     tags: ["Creative Campaign, Color Grading, Film Production"],
     date: "May 2021",
     projectLink: "/work/6", // Use a unique route for each project
@@ -201,6 +207,7 @@ During filming, we battled unpredictable winds and shifting desert light to capt
     title: "GUAVA Family",
     name: "GUAVA Family",
     bannerImage: "/projects/Guava/Guava-1.jpg",
+    videoUrl: "",
     tags: ["Commercial Photography, Lifestyle, Photography Production"],
     date: "June 2022",
     projectLink: "/work/7", // Use a unique route for each project
@@ -232,6 +239,7 @@ During filming, we battled unpredictable winds and shifting desert light to capt
     title: "Espresso Forge",
     name: "Espresso Forge",
     bannerImage: "/projects/Espresso/EspressoForge-1.jpg",
+    videoUrl: "/video/EspressoForge.mp4",
     tags: ["Web Design, ECommerce, UX/UI"],
     date: "June 2021",
     projectLink: "/work/8", // Use a unique route for each project
@@ -240,7 +248,7 @@ During filming, we battled unpredictable winds and shifting desert light to capt
     challengeDesc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
     creativeSolution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
     image1: "/projects/Espresso/EspressoForge-Base.jpg",
-    image2: "/projects/Espresso/",
+    image2: "/projects/Espresso/EspressoForge-3-StokoeJ.jpg",
     role: "Web Design, ECommerce, UX/UI",
     credits: [
       { role: "Project", name: "Espresso Forge" },

@@ -22,6 +22,9 @@ const Home = () => {
   const manifestoRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Link to Static videoUrl for Homepage
+  const staticVideoUrl = "/video/showreel.mov";
+
   useEffect(() => {
     const scrollTimeout = setTimeout(() => {
       window.scrollTo({
@@ -424,7 +427,7 @@ const Home = () => {
         </div>
 
         <section className="showreel">
-          <VideoPlayer />
+        <VideoPlayer staticVideoUrl={staticVideoUrl} />
         </section>
 
         <section className="about" id="about">

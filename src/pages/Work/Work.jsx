@@ -98,7 +98,7 @@ const Work = () => {
 
         {/* Video Showreel Section */}
         <section className="showreel">
-          <VideoPlayer />
+        <VideoPlayer projectId={project.id} />
         </section>
 
 {/* Challenge Description Section */}
