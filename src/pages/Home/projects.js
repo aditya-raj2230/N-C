@@ -8,29 +8,15 @@ export const projects = [
     tags: ["Film Production", "Creative Direction", "Creative Campaign", "Post Production"],
     date: "February 2021",
     projectLink: "/work/1", // Use a unique route for each project
-    liveLink: "",
-    brief: `Cliffhanger is a tribute to the interplay between light and
-                form. During a time when the world seemed paused, we set out to
-                create a piece that celebrates movement, space, and emotion.
-                Through thoughtful creative direction and intricate
-                post-production, we crafted a narrative that feels both intimate
-                and expansive—a beacon for those searching for connection and
-                inspiration in uncertain times.`,
-    challengeDesc: `Cliffhanger explores the idea of finding clarity in moments of
-                obscurity. Inspired by the duality of light and shadow, we
-                imagined a character who navigates a surreal world, guided by
-                beams of light that reveal hidden paths and truths. This
-                character, free from physical constraints, embodies the
-                liberation from everyday burdens, moving fluidly through spaces
-                that are both familiar and otherworldly.`,
-    creativeSolution: `To bring Cliffhanger to life, we focused on creating a
-                seamless blend of reality and surrealism. Escapism became our
-                guiding principle, leading us to juxtapose real-life moments
-                with ethereal 3D landscapes. Shot on the quiet streets of
-                Saigon, our Director of Photography, Ray Lavers, captured
-                fleeting glimpses of reality in just two hours during
-                quarantine. These grounded visuals set the stage for the
-                dreamlike sequences that followed.`,
+    liveLink: "https://www.youtube.com/watch?v=l9RRBKEpi94",
+    brief: `ABUS, a brand known for world-class bike locks, turned to us to launch their Cliffhanger helmet and break into the competitive protection market. By showcasing the helmet in the rugged Utah desert—on massive ridgelines, jumps, and exposed freeride terrain—we positioned it as a serious contender for seasoned riders, going toe-to-toe with the industry's best.`,
+    challengeDesc: `ABUS, a company renowned for its top-tier bike locks, sought to expand its footprint into the helmet and protection market. With their strong reputation among cyclists, they needed a bold launch for the Cliffhanger helmet—a product aimed at solidifying their place in a highly competitive market.
+While ABUS had created content targeting new riders, they wanted to position the Cliffhanger as a helmet that could go head-to-head with the industry’s leading protection brands. The challenge? Capturing the attention of seasoned riders who demand both style and performance in the most dangerous conditions.
+`,
+    creativeSolution: `To introduce the Cliffhanger, we chose the freeride mecca of the Utah desert. This iconic desert terrain, known for its unforgiving ridgelines and massive jumps, provided the perfect backdrop to showcase the helmet’s capabilities. The high-risk environment underscored the Cliffhanger’s durability, design, and ability to perform under extreme conditions.
+We tailored the visuals and narrative for riders who live and breathe the sport—those who push limits and value gear they can trust. By featuring dramatic ridge lines, big exposure, and jaw-dropping jumps, we aligned the Cliffhanger with the kind of energy and credibility that seasoned riders expect from top-tier protection brands.
+The result? The ABUS Cliffhanger launched not as an accessory, but as a direct competitor to the best helmets in the segment—earning its place on the heads of riders who demand the most from their gear.
+`,
     image1: "/projects/Cliffhanger/Abus Cliffhanger-1.jpg",
     image2: "/projects/Cliffhanger/Abus Cliffhanger-StokoeJ.jpg",
     role: "Motion Capture, Creative Direction, Post-Production",
@@ -60,9 +46,10 @@ export const projects = [
     date: "October 2024",
     projectLink: "/work/2", // Use a unique route for each project
     liveLink: "https://www.verbcoffeeroasters.com/",
-    brief: `Design an inspiring and interactive Ecommerce web store for a boutique coffee store in Boulder, CO.`,
-    challengeDesc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-    creativeSolution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    brief: `Verb Coffee Roasters, one of Boulder’s most celebrated cafes, needed an online presence that matched the vibrancy and expertise of their in-shop experience. We crafted a website that brought their passion for coffee education to life, while engaging customers with features that mirrored the journey they offered in-store.`,
+    challengeDesc: `Verb Coffee Roasters had perfected the cafe experience, with baristas educating customers about the origins, varietals, and nuances and terroir of their coffee. While their cafe was one of Boulder’s best, their online presence didn’t reflect the same level of expertise, beauty, or customer engagement. They needed a website that showcased their story, elevated their e-commerce game, and connected with customers on a deeper level.`,
+    creativeSolution: `We immersed ourselves in Verb’s in-store process, studying how they educated customers and brought each coffee to life. From this, we created "Talk Coffee With Me," a dynamic section on every product page that provided detailed insights into each coffee—its origin, flavor notes, elevation, and why it’s special.
+To spark excitement for the launch, we introduced a treasure hunt, hiding a year-long coffee subscription within the 404 error page. Reward the customers that took our advice to “get lost” to find this one. This playful element encouraged customers to explore the site, mirroring the curiosity and discovery that Verb cultivates in-store with having 5-7 different you can try at any moment. The result was a website that didn’t just sell coffee but captured the essence of Verb’s café ethos, delivering an experience as rich as their coffees...`,
     image1: "/projects/Verb/bombe-poster.jpg",
     image2: "/projects/Verb/Verb-2.jpeg",
     role: "Web Development, ECommerce, UX/UI, Interactive Design",
@@ -185,9 +172,10 @@ export const projects = [
     date: "May 2021",
     projectLink: "/work/6", // Use a unique route for each project
     liveLink: "https://yeticycles.com/en-us/stories/dust-to-dust-adolf-silva?srsltid=AfmBOorvGq6X8pm3H16g8lTonJBR3x7vX2LKaeDkt-AHBc8YBme3Nnk9",
-    brief: "Dust to Dust...",
-    challengeDesc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-    creativeSolution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    brief: "When Yeti Cycles welcomed Adolf Silva, a freestyle mountain bike prodigy from Barcelona, they needed a powerful brand debut. Tasked with creating a film worthy of Adolf's talent, we crafted Dust to Dust—a freeride masterpiece filmed in the rugged terrain of Green River, Utah, designed to showcase his skills and help him cement his spot at Red Bull Rampage.",
+    challengeDesc: `Adolf Silva’s arrival at Yeti Cycles presented a unique challenge: creating a standout film that not only introduced him to the brand but also amplified his chances of securing a coveted spot at Red Bull Rampage—the pinnacle event of his sport. With tight timelines, Adolf’s European schedule, and the need for terrain that matched Rampage’s intensity, the stakes couldn’t have been higher.`,
+    creativeSolution: `Green River, Utah, became our stage, offering dramatic landscapes and Rampage-caliber terrain within reach of Yeti’s HQ. To prepare for Adolf’s arrival, we brought in a Yeti teammate a month early to build lines tailored to Adolf’s moto inspired tricks and riding style.
+During filming, we battled unpredictable winds and shifting desert light to capture Adolf pushing the limits of freeride mountain biking. Alongside filmmaker Craig Grant, we crafted Dust to Dust—a visually stunning, adrenaline-packed introduction that earned Adolf a well-deserved spot at Red Bull Rampage that year, solidifying his place as one of the sport’s brightest stars.`,
     image1: "/projects/Dust/DustToDust-3.jpg",
     image2: "/projects/Dust/DustToDust.jpg",
     role:  "Creative Campaign, Color Grading, Film Production",
