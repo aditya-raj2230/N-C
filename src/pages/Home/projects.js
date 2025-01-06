@@ -85,19 +85,19 @@ export const projects = [
     column: 1,
     title: "Taliesin West",
     name: "Taliesin West",
-    bannerImage: "/projects/Taliesin-2.jpg",
+    bannerImage: "/projects/Taliesin/Taliesin-1.jpg",
     tags: ["Architecture Design, Editorial, Photography"],
     date: "Dec 2024",
     projectLink: "/work/3", // Use a unique route for each project
     liveLink: "https://www.danecronin.com",
     brief: `Create stunning imagery documenting the mid-century modern project "Taliesin West" by legendary architect Frank Lloyd Wright`,
-    challengeDesc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-    creativeSolution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-    image1: "/marquee/Taliesin-3.jpg",
-    image2: "/marquee/Taliesin-4.jpg",
+    challengeDesc: ` Photographing Taliesin West requires mastering the interplay of light and shadow, as the harsh desert lighting can obscure details or overpower the design’s subtle textures. Thoughtful compositions must balance the building's geometric complexity with its seamless integration into the surrounding landscape, emphasizing Wright's philosophy of organic architecture. Capturing transitions between interior and exterior spaces, along with the harmony of materials and nature, ensures the imagery reflects the timeless essence of this mid-century modern masterpiece.`,
+    creativeSolution: `Leveraging years of experience and a deep understanding of working with natural light helps to highlight Taliesin West’s textures and the interplay with the desert landscape. Addressing these challenges thoughtfully ensures imagery that reflects both the architectural beauty of Taliesin West and the innovative spirit of Frank Lloyd Wright’s mid-century modern vision.`,
+    image1: "/projects/Taliesin/Taliesin-3.jpg",
+    image2: "/projects/Taliesin/Taliesin-5.jpg",
     role: "Architecture Design, Editorial, Photography",
     credits: [
-      { role: "Project", name: "Taliesin West" },
+      { role: "Project", name: "Taliesin West by Frank Lloyd Wright" },
       { role: "Photographer", name: "Dane Cronin (neer&cronin)" },
       { role: "Creative Producer", name: "Dane Cronin" },
       { role: "Art Direction", name: "Dane Cronin" },
@@ -105,7 +105,7 @@ export const projects = [
     
       { role: "Acknowledgments", name: "Taliesin West, Dane Cronin" },
     ],
-    image: "/projects/Taliesin-2.jpg", // Thumbnail image for the project
+    image: "/projects/Taliesin/Taliesin-1.jpg", // Thumbnail image for the project
     description: "Architecture Design, Editorial, Photography"
   },
 
@@ -217,11 +217,11 @@ export const projects = [
     date: "June 2022",
     projectLink: "/work/7", // Use a unique route for each project
     liveLink: "https://www.runnersworld.com/runners-stories/a44410261/neely-gracey-world-record-stroller-mile/",
-    brief: `Create stunning imagery for the Guava Family brand featuring runner Neely Gracey in advance of a World Record Attempt`,
-    challengeDesc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-    creativeSolution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-    image1: "/marquee/Guava-2.jpg",
-    image2: "/marquee/Guava-2.jpg",
+    brief: `Create stunning imagery for the Guava Family brand featuring runner Neely Gracey in advance of a Guinness World Record attempt and document the effort.`,
+    challengeDesc: `Capturing a Guinness World Record attempt for the fastest mile is a unique blend of storytelling, technical precision, and artistic vision. The goal is not just to document the event but to encapsulate the intensity, speed, and emotion of Neely Gracey's pursuit in a way that aligns with the Guava Family brand. The constraints of a live, fast-moving event demand split-second timing, adaptability to unpredictable conditions, and mastery of dynamic compositions.`,
+    creativeSolution: `Capturing Neely Gracey’s world record attempt for the fastest mile pushing a stroller requires thorough preparation and the ability to adapt in real time. Proper scouting of the location is essential to identify the best vantage points, anticipate lighting conditions, and avoid potential obstacles. Years of shooting has prepared us with an in-depth knowledge of our equipment and creative storytelling to deliver images that authentically reflect the spirit of the attempt while staying true to Guava Family’s brand.`,
+    image1: "/projects/Guava/Guava-5.jpg",
+    image2: "/projects/Guava/Guava-3.jpg",
     role: "Commercial Photography, Lifestyle, Photography Production",
     credits: [
       { role: "Project", name: "GUAVA Family World Record Attempt" },
@@ -229,8 +229,8 @@ export const projects = [
       { role: "Creative Producer", name: "Dane Cronin" },
       { role: "Art Direction", name: "Reed @Guava Family" },
       { role: "Athlete", name: "Neely Gracey" },
-    
-      { role: "Acknowledgments", name: "Guava Family, Dane Cronin, Neely Gracey" },
+      { role: "Appeared In", name: "Runner's World, Guava Family, Denver Post, MUSH" },
+      { role: "Acknowledgments", name: "Guava Family, Runner's World, Dane Cronin, Neely Gracey, MUSH" },
     ],
     image: "/projects/Guava/Guava-1.jpg", // Thumbnail image for the project
     description: "Commercial Photography, Lifestyle, Photography Production"

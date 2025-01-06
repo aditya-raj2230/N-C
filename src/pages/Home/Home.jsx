@@ -337,10 +337,19 @@ const Home = () => {
           </div>
           <div className="cta-header">
             
-            <h2>
-             YETI, SPECIALIZED, RAPHA, CANNONDALE, HUNT, WTB, CAT & CLOUD, ABUS-USA, GUAVA FAMILY, VERB COFFEE ROASTERS
+            <div className="brands-container">
+           
             <img src="/logos/YET Logo.svg" alt="Yeti Cycles Logo"/>
-            </h2>
+            <img src="/logos/Specialized Logo.svg" alt="Specialized Bicycles Logo"/>
+            <img src="/logos/rapha.svg" alt="Rapha Logo" style={{ width: '70%', height: 'auto' }} />
+            <img src="/logos/cannondale-rebranded-1.svg" alt="Cannondale Logo" style={{ width: '130%', height: 'auto' }}/>
+            <img src="/logos/Verb Logo.svg" alt="Verb Coffee Roasters Logo" style={{ width: '60%', height: 'auto' }} />
+            <img src="/logos/WTB.svg" alt="WTB Logo"/>
+            <img src="/logos/Guava Logo.svg" alt="Guava Family Logo"/>
+            <img src="/logos/ABUS White Logo.svg" alt="ABUS Logo" />
+            <img src="/logos/Espresso Forge White Logo.svg" alt="Espresso Forge Logo" style={{ width: '200%', height: 'auto' }}/>
+            <img src="/logos/Cat and Cloud White.svg" alt="Cat and Cloud Logo"/>
+            </div>
           </div>
           {/* <div className="cta-btn">
             <button>Discover more at neer&cronin.co</button>
