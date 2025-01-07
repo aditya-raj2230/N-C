@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./Work.css";
 // import { Link } from "react-router";
 import { useParams } from "react-router-dom"; // To get the project id from the URL
 
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import Cursor from "../../components/Cursor/Cursor";
-// import Transition from "../../components/Transition/Transition";
+
 import BackButton from "../../components/BackButton/BackButton";
 
 import { ReactLenis } from "@studio-freight/react-lenis";
@@ -15,15 +15,11 @@ import { IoMdArrowForward } from "react-icons/io";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Work = () => {
+
   const { id } = useParams(); // Get the project id from the URL
   const projectIndex = projects.findIndex((project) => project.id === parseInt(id));
   const project = projects[projectIndex]; // Get the current project
   const nextProject = projects[(projectIndex + 1) % projects.length]; // Get the next project, loop back to the start if at the end
-
-  // If no project is found, return a "Not Found" message
-  if (!project) {
-    return <div>Project Not Found</div>;
-  }
 
   useEffect(() => {
     const scrollTimeout = setTimeout(() => {
@@ -35,6 +31,16 @@ const Work = () => {
 
     return () => clearTimeout(scrollTimeout);
   }, []);
+
+
+
+  // If no project is found, return a "Not Found" message
+  if (!project) {
+    return <div>Project Not Found</div>;
+  }
+
+
+ 
 
   return (
     <ReactLenis root>

@@ -147,11 +147,12 @@ p.sp-details-name {
 }
 
 .sp-img {
-  height: max-content;
+ height: max-content; 
 }
 
 .sp-img .container {
   padding: 1em 1em;
+  
 }
 
 .credits {

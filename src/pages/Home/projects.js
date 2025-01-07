@@ -22,7 +22,6 @@ The result? The ABUS Cliffhanger launched not as an accessory, but as a direct c
     image2: "/projects/Cliffhanger/Abus Cliffhanger-StokoeJ.jpg",
     role: "Motion Capture, Creative Direction, Post-Production",
     credits: [
-      { role: "Project", name: "Cliffhanger" },
       { role: "Directors", name: "Shawn Neer (neer&cronin)" },
       { role: "Creative Producer", name: "Shawn Neer" },
       { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
@@ -56,7 +55,6 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     image2: "/projects/Verb/Verb-2.jpeg",
     role: "Web Development, ECommerce, UX/UI, Interactive Design",
     credits: [
-      { role: "Project", name: "Verb Coffee Roasters" },
       { role: "Site Design", name: "Shawn Neer (neer&cronin)" },
       { role: "Creative Producer", name: "Shawn Neer" },
       { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
@@ -87,12 +85,10 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     image2: "/projects/Taliesin/Taliesin-5.jpg",
     role: "Architecture Design, Editorial, Photography",
     credits: [
-      { role: "Project", name: "Taliesin West by Frank Lloyd Wright" },
       { role: "Photographer", name: "Dane Cronin (neer&cronin)" },
       { role: "Creative Producer", name: "Dane Cronin" },
       { role: "Art Direction", name: "Dane Cronin" },
       { role: "Architectural Design", name: "Frank Lloyd Wright" },
-    
       { role: "Acknowledgments", name: "Taliesin West, Dane Cronin" },
     ],
     image: "/projects/Taliesin/Taliesin-1.jpg", // Thumbnail image for the project
@@ -118,13 +114,11 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     image2: "/projects/Americano/Americano-2.jpg",
     role:  "Motion Capture, Creative Direction, Post-Production, Color-Grading",
     credits: [
-      { role: "Project", name: "Cafe Americano" },
       { role: "Directors", name: "Joey Schusler" },
       { role: "Creative Producer", name: "Shawn Neer" },
       { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
       { role: "Editing & Compositing", name: "Tory Powers" },
       { role: "Cinematography & Color Grading", name: "Joey Schusler, Thomas Woodson" },
-  
       { role: "Sound Design", name: "Echo Chamber Studios" },
       { role: "Label", name: "Moniker Productions" },
       { role: "Acknowledgments", name: "Yeti Cycles, Shawn Neer, Joey Schusler, Tory Powers" },
@@ -152,13 +146,11 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     image2: "/projects/GoodCompany/GoodCompany-3.jpg",
     role:  "Film Production, Creative Campaign",
     credits: [
-      { role: "Project", name: "Good Company" },
       { role: "Directors", name: "Shawn Neer" },
       { role: "Creative Producer", name: "Shawn Neer" },
       { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
       { role: "Editing & Compositing", name: "Craig Grant" },
       { role: "Cinematography & Color Grading", name: "Craig Grant" },
-  
       { role: "Sound Design", name: "Echo Chamber Studios" },
       { role: "Label", name: "Moniker Productions" },
       { role: "Acknowledgments", name: "Yeti Cycles, Shawn Neer, Jubal Davis, Craig Grant" },
@@ -186,14 +178,11 @@ During filming, we battled unpredictable winds and shifting desert light to capt
     image2: "/projects/Dust/DustToDust.jpg",
     role:  "Creative Campaign, Color Grading, Film Production",
     credits: [
-      { role: "Project", name: "Dust To Dust" },
       { role: "Directors", name: "Shawn Neer" },
       { role: "Creative Producer", name: "Shawn Neer" },
       { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
       { role: "Editing & Compositing", name: "Craig Grant" },
       { role: "Cinematography & Color Grading", name: "Craig Grant" },
-  
-      {  },
       { role: "Label", name: "Moniker Productions" },
       { role: "Acknowledgments", name: "Yeti Cycles, Shawn Neer, Adolf Silva, Craig Grant" },
     ],
@@ -219,7 +208,6 @@ During filming, we battled unpredictable winds and shifting desert light to capt
     image2: "/projects/Guava/Guava-3.jpg",
     role: "Commercial Photography, Lifestyle, Photography Production",
     credits: [
-      { role: "Project", name: "GUAVA Family World Record Attempt" },
       { role: "Photographer", name: "Dane Cronin (neer&cronin)" },
       { role: "Creative Producer", name: "Dane Cronin" },
       { role: "Art Direction", name: "Reed @Guava Family" },
@@ -251,7 +239,6 @@ During filming, we battled unpredictable winds and shifting desert light to capt
     image2: "/projects/Espresso/EspressoForge-3-StokoeJ.jpg",
     role: "Web Design, ECommerce, UX/UI",
     credits: [
-      { role: "Project", name: "Espresso Forge" },
       { role: "Site Design", name: "Shawn Neer (neer&cronin)" },
       { role: "Creative Producer", name: "Shawn Neer" },
       { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },

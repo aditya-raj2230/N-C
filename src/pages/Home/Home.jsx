@@ -6,7 +6,7 @@ import HeroGradient from "../../components/HeroGradient/HeroGradient";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import NavBar from "../../components/NavBar/NavBar";
 import Cursor from "../../components/Cursor/Cursor";
-// import Transition from "../../components/Transition/Transition";
+
 
 import { projects } from "./projects";
 
@@ -35,6 +35,25 @@ const Home = () => {
 
     return () => clearTimeout(scrollTimeout);
   }, []);
+
+
+    //  // New Event listener to prevent automatic scroll restoration
+    //  useEffect(() => {
+    //   const preventScroll = () => {
+    //     if (window.scrollRestoration) {
+    //       window.scrollRestoration = "manual";
+    //     }
+    //   };
+      
+    //   preventScroll();
+    
+    //   return () => {
+    //     if (window.scrollRestoration) {
+    //       window.scrollRestoration = "auto";
+    //     }
+    //   };
+    // }, []);
+
 
   useEffect(() => {
     const checkMobile = () => {
@@ -209,6 +228,8 @@ const Home = () => {
                 x: moveAmount,
               });
             },
+
+            
           },
         });
       });
@@ -219,23 +240,9 @@ const Home = () => {
     };
   }, [isMobile]);
 
+ 
 
-  // New Event listener to prevent automatic scroll restoration
-  useEffect(() => {
-    const preventScroll = () => {
-      if (window.scrollRestoration) {
-        window.scrollRestoration = "manual";
-      }
-    };
-    
-    preventScroll();
-  
-    return () => {
-      if (window.scrollRestoration) {
-        window.scrollRestoration = "auto";
-      }
-    };
-  }, []);
+
 
   return (
     
@@ -362,16 +369,16 @@ const Home = () => {
             
             <div className="brands-container">
            
-            <img src="/logos/YET Logo.svg" alt="Yeti Cycles Logo"/>
-            <img src="/logos/Specialized Logo.svg" alt="Specialized Bicycles Logo"/>
-            <img src="/logos/rapha.svg" alt="Rapha Logo" style={{ width: '70%', height: 'auto' }} />
-            <img src="/logos/cannondale-rebranded-1.svg" alt="Cannondale Logo" style={{ width: '130%', height: 'auto' }}/>
-            <img src="/logos/Verb Logo.svg" alt="Verb Coffee Roasters Logo" style={{ width: '60%', height: 'auto' }} />
-            <img src="/logos/WTB.svg" alt="WTB Logo"/>
-            <img src="/logos/Guava Logo.svg" alt="Guava Family Logo"/>
-            <img src="/logos/ABUS White Logo.svg" alt="ABUS Logo" />
-            <img src="/logos/Espresso Forge White Logo.svg" alt="Espresso Forge Logo" style={{ width: '200%', height: 'auto' }}/>
-            <img src="/logos/Cat and Cloud White.svg" alt="Cat and Cloud Logo"/>
+           <a href="https://yeticycles.com" target="_blank noreferrer"> <img src="/logos/Yeti.png" alt="Yeti Cycles Logo" /></a>
+           <a href="https://www.specialized.com" target="_blank noreferrer">  <img src="/logos/Specialized.png" alt="Specialized Bicycles Logo"/> </a>
+           <a href="https://www.rapha.cc" target="_blank noreferrer"> <img src="/logos/rapha.png" alt="Rapha Logo" /></a>
+           <a href="https://www.cannondale.com" target="_blank noreferrer"> <img src="/logos/Cannondale.png" alt="Cannondale Logo" /></a>
+           <a href="https://www.verbcoffeeroasters.com" target="_blank noreferrer"> <img src="/logos/Verb.png" alt="Verb Coffee Roasters Logo"  /></a>
+           <a href="https://www.wtb.com" target="_blank noreferrer"> <img src="/logos/WTB.png" alt="WTB Logo"/></a>
+           <a href="https://www.guavafamily.com" target="_blank noreferrer"> <img src="/logos/Guava.png" alt="Guava Family Logo"/></a>
+           <a href="https://www.abus.com" target="_blank noreferrer"> <img src="/logos/Abus.png" alt="ABUS Logo" /></a>
+           <a href="https://www.espressoforge.com" target="_blank noreferrer"> <img src="/logos/Forge.png" alt="Espresso Forge Logo"/></a>
+           <a href="https://www.catandcloud.com" target="_blank noreferrer">  <img src="/logos/CatandCloud.png" alt="Cat and Cloud Logo"/></a>
             </div>
           </div>
           {/* <div className="cta-btn">
