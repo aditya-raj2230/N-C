@@ -25,6 +25,9 @@ const Home = () => {
   // Link to Static videoUrl for Homepage
   const staticVideoUrl = "/video/Cliffhanger.mp4";
 
+ 
+
+
   useEffect(() => {
     const scrollTimeout = setTimeout(() => {
       window.scrollTo({
@@ -37,22 +40,8 @@ const Home = () => {
   }, []);
 
 
-    //  // New Event listener to prevent automatic scroll restoration
-    //  useEffect(() => {
-    //   const preventScroll = () => {
-    //     if (window.scrollRestoration) {
-    //       window.scrollRestoration = "manual";
-    //     }
-    //   };
-      
-    //   preventScroll();
+
     
-    //   return () => {
-    //     if (window.scrollRestoration) {
-    //       window.scrollRestoration = "auto";
-    //     }
-    //   };
-    // }, []);
 
 
   useEffect(() => {
@@ -71,6 +60,7 @@ const Home = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.create({
+      markers: true,
       trigger: ".footer",
       start: "top 80%",
       onEnter: () => {
@@ -82,6 +72,8 @@ const Home = () => {
         document.querySelector(".footer").classList.remove("light");
       },
     });
+
+   
 
     if (!isMobile) {
       gsap.set(".project", { opacity: 0.45 });
@@ -240,7 +232,15 @@ const Home = () => {
     };
   }, [isMobile]);
 
- 
+  // New use effect to reset scrollTrigger after navigating back
+  useEffect(() => {
+    if (window.location.pathname !== "/") {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    }
+  }, []);
+
+     
+
 
 
 
@@ -378,7 +378,7 @@ const Home = () => {
            <a href="https://www.guavafamily.com" target="_blank noreferrer"> <img src="/logos/Guava.png" alt="Guava Family Logo"/></a>
            <a href="https://www.abus.com" target="_blank noreferrer"> <img src="/logos/Abus.png" alt="ABUS Logo" /></a>
            <a href="https://www.espressoforge.com" target="_blank noreferrer"> <img src="/logos/Forge.png" alt="Espresso Forge Logo"/></a>
-           <a href="https://www.catandcloud.com" target="_blank noreferrer">  <img src="/logos/CatandCloud.png" alt="Cat and Cloud Logo"/></a>
+           <a href="https://www.catandcloudnpm .com" target="_blank noreferrer">  <img src="/logos/CatandCloud.png" alt="Cat and Cloud Logo"/></a>
             </div>
           </div>
           {/* <div className="cta-btn">

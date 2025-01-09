@@ -56,8 +56,8 @@ const BackButton = () => {
           ref={fillRef}
           style={{ clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }}
         />
-        <div className="back-btn-icon" ref={iconRef}>
-          <IoMdArrowBack size={26} />
+        <div className="back-btn-icon" ref={iconRef} alt="back button">
+          <IoMdArrowBack size={26} alt="back button"/>
         </div>
       </Link>
     </div>

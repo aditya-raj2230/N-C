@@ -21,6 +21,10 @@ const Work = () => {
   const project = projects[projectIndex]; // Get the current project
   const nextProject = projects[(projectIndex + 1) % projects.length]; // Get the next project, loop back to the start if at the end
 
+ 
+
+
+
   useEffect(() => {
     const scrollTimeout = setTimeout(() => {
       window.scrollTo({
@@ -32,6 +36,8 @@ const Work = () => {
     return () => clearTimeout(scrollTimeout);
   }, []);
 
+ 
+
 
 
   // If no project is found, return a "Not Found" message
@@ -40,7 +46,7 @@ const Work = () => {
   }
 
 
- 
+
 
   return (
     <ReactLenis root>
@@ -50,7 +56,7 @@ const Work = () => {
         
         
 {/* Project Title Section */}
-        <section className="sp-title">
+        <section className="sp-title" id={project.Id}>
           <div className="container">
             <h1>{project.title}</h1>
           </div>
