@@ -2,11 +2,11 @@ export const projects = [
   {
     id: 1, // Unique identifier for each project
     column: 1,
-    title: "CLIFFHANGER",
-    name: "Cliffhanger",
+    title: "ABUS CLIFFHANGER",
+    name: "ABUS Cliffhanger",
     bannerImage: "/projects/Cliffhanger/Cliffhanger.jpg",
     videoUrl: "/video/Cliffhanger.mp4",
-    tags: ["Film Production", "Creative Direction", "Creative Campaign", "Post Production"],
+    tags: ["Creative Direction", "Production Management", "Post-Production Coordination"],
     date: "February 2021",
     projectLink: "/work/1", // Use a unique route for each project
     liveLink: "https://www.youtube.com/watch?v=l9RRBKEpi94",
@@ -16,24 +16,24 @@ While ABUS had created content targeting new riders, they wanted to position the
 `,
     creativeSolution: `To introduce the Cliffhanger, we chose the freeride mecca of the Utah desert. This iconic desert terrain, known for its unforgiving ridgelines and massive jumps, provided the perfect backdrop to showcase the helmet’s capabilities. The high-risk environment underscored the Cliffhanger’s durability, design, and ability to perform under extreme conditions.
 We tailored the visuals and narrative for riders who live and breathe the sport—those who push limits and value gear they can trust. By featuring dramatic ridge lines, big exposure, and jaw-dropping jumps, we aligned the Cliffhanger with the kind of energy and credibility that seasoned riders expect from top-tier protection brands.
-The result? The ABUS Cliffhanger launched not as an accessory, but as a direct competitor to the best helmets in the segment—earning its place on the heads of riders who demand the most from their gear.
+The result? The ABUS Cliffhanger launched not as an accessory, but as a direct competitor to the best helmets in the segment— earning its place on the heads of riders who demand the most from their gear.
 `,
     image1: "/projects/Cliffhanger/Abus Cliffhanger-1.jpg",
     image2: "/projects/Cliffhanger/Abus Cliffhanger-StokoeJ.jpg",
-    role: "Motion Capture, Creative Direction, Post-Production",
+    role: "Creative Direction, Production Management, Post-Production Coordination",
     credits: [
       { role: "Directors", name: "Shawn Neer (neer&cronin)" },
-      { role: "Creative Producer", name: "Shawn Neer" },
+      { role: "Creative Producer", name: "Shawn Neer (neer&cronin)" },
       { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
-      { role: "Editing & Compositing", name: "Craig Grant" },
-      { role: "Cinematography & Color Grading", name: "Craig Grant" },
-  
-      { role: "Sound Design", name: "Echo Chamber Studios" },
-      { role: "Label", name: "neer&cronin" },
-      { role: "Acknowledgments", name: "Yeti Cycles, Smith, Shawn Neer, Craig Grant" },
+      { role: "Editing & Compositing", name: "Troy Fairbanks, Shawn Neer" },
+      { role: "Cinematography & Color Grading", name: "Troy Fairbanks" },
+      { role: "Sound Design", name: "Keith White Audio" },
+      { role: "Soundtrack", name: "Music Bed" },  
+   
+      { role: "Acknowledgments", name: "ABUS International, Neer and Cronin, Makeda Creative, Keith White" },
     ],
     image: "/projects/Cliffhanger/Cliffhanger.jpg", // Thumbnail image for the project
-    description: "Film Production, Photography, Creative Campaign"
+    description: "Creative Direction, Production Management, Post-Production Coordination"
   },
 
   {
@@ -103,28 +103,35 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     name: "Cafe Americano",
     bannerImage: "/projects/Americano/Cafe Americano.jpg",
     videoUrl: "/video/Americano.mp4",
-    tags: ["Film Production", "Creative Direction", "Creative Campaign", "Post Production"],
+    tags: ["Featured Talent: Rider/Actor, Branded Content"],
     date: "April 2023",
     projectLink: "/work/4", // Use a unique route for each project
     liveLink: "https://yeticycles.com/en-us/stories/video-cafe-americano",
-    brief: "Cafe Americano is a tribute to the interplay between light and form...",
-    challengeDesc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-    creativeSolution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    brief: "When filmmakers Joey Schusler, Thomas Woodson, and Ben Page pitched the idea of a film blending mountain biking, Italian culture, and the search for the perfect espresso, the answer was an immediate yes. Café Americano would be a film that blurred the line between a short film and an action-packed edit, celebrating the joy of riding and the culture surrounding it.",
+    challengeDesc: `The trip was already a logistical feat, with plans to travel from Rome to the Dolomites, capturing moments that ranged from urban riding in Cinque Terre to epic freeride descents. But just two weeks before departure, Shawn Neer—the rider and focal point of the film—fractured his T9 and T10 vertebrae. With tickets bought, an Alfa Romeo reserved, and the crew ready to roll, Shawn made the call to push through his injury, relying on his experience as a professional athlete to navigate his limits and keep the project on track.`,
+    creativeSolution: `The journey began in Rome with Shawn savoring his first espresso before embarking on a caffeine-fueled adventure through Italy. As the Alfa Romeo carried him north, the team captured breathtaking moments of urban stair sets, singletrack through the Dolomites, and candid, unscripted interactions that brought the story to life.
+The narrative is filled with grit and humor, from 11 espressos during a car breakdown to a hallucinatory night ride that epitomizes the playful, surreal tone of the film.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
     image1: "/projects/Americano/Americano-1.jpg",
     image2: "/projects/Americano/Americano-2.jpg",
-    role:  "Motion Capture, Creative Direction, Post-Production, Color-Grading",
+    role:  "Featured Talent: Rider/Actor",
     credits: [
-      { role: "Directors", name: "Joey Schusler" },
-      { role: "Creative Producer", name: "Shawn Neer" },
-      { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
+      { role: "Directors", name: "Joey Schusler, Ben Page" },
+      { role: "Cinematography", name: "Joey Schusler, Ben Page, Thomas Woodson" },
+      { role: "Assitant Camera", name: "Thomas Woodson" },
+      { role: "Featured Talent: Rider/Actor", name: "Shawn Neer" },
       { role: "Editing & Compositing", name: "Tory Powers" },
-      { role: "Cinematography & Color Grading", name: "Joey Schusler, Thomas Woodson" },
-      { role: "Sound Design", name: "Echo Chamber Studios" },
-      { role: "Label", name: "Moniker Productions" },
-      { role: "Acknowledgments", name: "Yeti Cycles, Shawn Neer, Joey Schusler, Tory Powers" },
+      { role: "Motion and Graphics", name: "Walt Gerald" },
+      { role: "Writing Support", name: "Paddy O'Connell" },
+      { role: "Narrator", name: "Cristina Soria" },
+      { role: "Colorist", name: "Dylan Hageman" },
+      { role: "Sound Design and Mix", name: "Keith White Audio" },
+      
+      
+      { role: "Acknowledgments", name: "Yeti Cycles, Joey Schusler, Tory Powers, Thomas Woodson, Ben Page, Shawn Neer" },
     ],
     image: "/projects/Americano/Cafe Americano.jpg", // Thumbnail image for the project
-    description: "Experimental Film, Creative Campaign, Film Production"
+    description: "Featured Talent: Rider/Actor"
   },
 
 
@@ -135,28 +142,31 @@ To spark excitement for the launch, we introduced a treasure hunt, hiding a year
     name: "Good Company",
     bannerImage: "/projects/GoodCompany/GoodCompany.jpg",
     videoUrl: "/video/GoodCompany.mp4",
-    tags: ["Film Production", "Creative Direction", "Creative Campaign"],
+    tags: ["Producer", "Featured Talent: Rider"],
     date: "May 2022",
     projectLink: "/work/5", // Use a unique route for each project
     liveLink: "https://yeticycles.com/en-us/stories/video-good-company",
-    brief: "Good Company...",
-    challengeDesc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-    creativeSolution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    brief: 'Yeti Cycles, a brand rooted in racing excellence, needed to balance their high-performance "Race" pillar with an equally compelling voice for their "Rip" pillar—bikes built for playful, freestyle riding. To reach this audience, we created Good Company, a film that celebrates the joy of riding with friends, where the moments off the bike are just as important as the laps themselves.',
+    challengeDesc: `Yeti’s identity as a “race-bred” company is deeply ingrained, with much of their content fueled by the success of their race team. While this worked for their Race bikes, the Rip pillar needed its own unique voice—something that spoke to the core mountain biking community who ride for fun, flow, and connection rather than podium finishes. The challenge was creating content that felt authentic to this audience while standing out as distinctly "Yeti."`,
+    creativeSolution: `We crafted Good Company to showcase the essence of the Rip ethos: the joy of mountain biking with friends. To capture this, we used a RED camera mounted on a backpack rig, enabling us to shoot immersive, first-person footage that brought viewers into the ride. To complement this, we handed the riders a $90 "dad cam," encouraging them to document their week with candid, unscripted moments.
+The result? A mix of stunning high-quality footage and authentic, raw clips of riders laughing, joking, and sharing stories. This blend brought to life the camaraderie, shit-talking, and simple joys that define the best days on the mountain.
+`,
     image1: "/projects/GoodCompany/GoodCompany-2.jpg",
     image2: "/projects/GoodCompany/GoodCompany-3.jpg",
-    role:  "Film Production, Creative Campaign",
+    role:  "Producer, Featured Talent: Rider",
     credits: [
-      { role: "Directors", name: "Shawn Neer" },
-      { role: "Creative Producer", name: "Shawn Neer" },
-      { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
+      { role: "Director", name: "Craig Grant" },
+      { role: "Director of Photograpny", name: "Craig Grant" },
+      { role: "Featured Talent", name: "Warren Kniss, Jubal Davis, Shawn Neer" },
       { role: "Editing & Compositing", name: "Craig Grant" },
-      { role: "Cinematography & Color Grading", name: "Craig Grant" },
-      { role: "Sound Design", name: "Echo Chamber Studios" },
-      { role: "Label", name: "Moniker Productions" },
-      { role: "Acknowledgments", name: "Yeti Cycles, Shawn Neer, Jubal Davis, Craig Grant" },
+      { role: "Cinematography", name: "Craig Grant" },
+      { role: "Sound Design", name: "Keith White Audio" },
+      
+      { role: "Production", name: "Shawn Neer (neer&cronin)" },
+      { role: "Acknowledgments", name: "Yeti Cycles, Craig Grant, Shawn Neer, Jubal Davis, Warren Kniss" },
     ],
     image: "/projects/GoodCompany/GoodCompany.jpg", // Thumbnail image for the project
-    description: "Film Production, Creative Campaign"
+    description: "Film Production, Creative Campaign, Producer"
   },
 
   {
@@ -178,12 +188,13 @@ During filming, we battled unpredictable winds and shifting desert light to capt
     image2: "/projects/Dust/DustToDust.jpg",
     role:  "Creative Campaign, Color Grading, Film Production",
     credits: [
-      { role: "Directors", name: "Shawn Neer" },
-      { role: "Creative Producer", name: "Shawn Neer" },
-      { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
+      { role: "Director", name: "Craig Grant" },
+      { role: "Director of Photography", name: "Craig Grant" },
+      { role: "Featured Talent", name: "Adolf Silva" },
+      { role: "Production", name: "Shawn Neer (neer&cronin)" },
       { role: "Editing & Compositing", name: "Craig Grant" },
       { role: "Cinematography & Color Grading", name: "Craig Grant" },
-      { role: "Label", name: "Moniker Productions" },
+      { role: "Sound Design", name: "Keith White Audio" },
       { role: "Acknowledgments", name: "Yeti Cycles, Shawn Neer, Adolf Silva, Craig Grant" },
     ],
     image: "/projects/Dust/DustToDust-1.jpg", // Thumbnail image for the project
@@ -232,20 +243,28 @@ During filming, we battled unpredictable winds and shifting desert light to capt
     date: "June 2021",
     projectLink: "/work/8", // Use a unique route for each project
     liveLink: "https://espressoforge.com/",
-    brief: `Design a fully custom and integrated ECommerce website for Espresso Forge.`,
-    challengeDesc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
-    creativeSolution: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    brief: `Espresso Forge started as a passion project in a North Carolina garage, gaining a loyal following for its hand-built, commercial-grade manual espresso machines. When new owners took over, they needed to transform the brand from a grassroots look into a luxury, boutique identity—one worthy of its premium, hand-crafted products made in the USA.`,
+    challengeDesc: `While Espresso Forge had a cult following, the brand's garage-project aesthetic didn’t align with its new vision or price point. The challenge was two-fold:
+    Redefine the brand’s image to reflect luxury and craftsmanship. Simplify the complex process of using the Forge to make it approachable for new customers without sacrificing its appeal to espresso enthusiasts.
+`,
+    creativeSolution: `We elevated the Espresso Forge brand through high-quality visuals, thoughtful design, and clear communication:
+Brand Refresh: Studio shoots and café sessions captured the Forge in action, highlighting its handmade quality and blending its rugged origins with a refined, boutique feel.
+Website Overhaul: A new website showcased the Forge as a luxury product, with clean, modern design and storytelling that emphasized craftsmanship, quality, and its USA-made pedigree.
+Educational Media: We created step-by-step videos and intuitive product page layouts to demystify the Forge, making it easier for customers to understand and engage with the product.
+The result was a seamless blend of craftsmanship and sophistication, giving Espresso Forge the premium identity needed to match its high-performance machines and premium price point.
+`,
     image1: "/projects/Espresso/EspressoForge-Base.jpg",
     image2: "/projects/Espresso/EspressoForge-3-StokoeJ.jpg",
     role: "Web Design, ECommerce, UX/UI",
     credits: [
       { role: "Site Design", name: "Shawn Neer (neer&cronin)" },
       { role: "Creative Producer", name: "Shawn Neer" },
-      { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" },
+      { role: "Art Direction & Animation", name: "Shawn Neer (neer&cronin)" }, 
       { role: "Web Development", name: "Shawn Neer" },
       { role: "E-Commerce", name: "Shawn Neer" },
       { role: "UX/UI Design", name: "Shawn Neer" },
-      { role: "Acknowledgments", name: "Espresso Forge, Shawn Neer" },
+      { role: "Photography", name: "Dane Cronin" },
+      { role: "Acknowledgments", name: "Espresso Forge, Shawn Neer, Dane Cronin" },
     ],
     image:"/projects/Espresso/EspressoForge-1.jpg", // Thumbnail image for the project
     description: "Creative Campaign, Web Development, Interactive Design, ECommerce"

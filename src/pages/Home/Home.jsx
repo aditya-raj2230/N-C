@@ -60,7 +60,6 @@ const Home = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.create({
-      markers: true,
       trigger: ".footer",
       start: "top 80%",
       onEnter: () => {
@@ -232,12 +231,7 @@ const Home = () => {
     };
   }, [isMobile]);
 
-  // New use effect to reset scrollTrigger after navigating back
-  useEffect(() => {
-    if (window.location.pathname !== "/") {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    }
-  }, []);
+
 
      
 
@@ -283,84 +277,18 @@ const Home = () => {
             </div>
             <div className="manifesto-title">
               <h1>
-              Web development is our craft, and helping brands achieve growth and visibility in the digital world is our passion.              </h1>
+              We build beautiful, functional websites that help businesses grow and stand out with the best online.           </h1>
             </div>
           </div>
         </section>
 
-{/* Processes Section */}
-        <section className="processes">
-          <div className="container">
-            <div className="process">
-              <div className="process-title">
-                <RiArrowRightDownLine />
-                <p>Integrate</p>
-              </div>
-              <div className="process-info">
-                <div className="process-icon">
-                  <div className="process-icon-wrapper">
-                    {/* <img src="/processes/icon-1.png" alt="" /> */}
-                  </div>
-                </div>
-                <div className="process-description">
-                  <p>
-                    Rooted in creativity, neer&cronin bridge cultures to craft
-                    designs that transcend time and place. We thrive at the
-                    intersection of ideas, uniting diverse perspectives into a
-                    seamless vision.
-                  </p>
-                </div>
-              </div>
-            </div>
 
-            <div className="process">
-              <div className="process-title">
-                <RiArrowRightDownLine />
-                <p>Collaborate</p>
-              </div>
-              <div className="process-info">
-                <div className="process-icon">
-                  <div className="process-icon-wrapper">
-                    {/* <img src="/processes/icon-2.png" alt="" /> */}
-                  </div>
-                </div>
-                <div className="process-description">
-                  <p>
-                    Creativity is a collective process. At neer&cronin, collaboration
-                    is our foundation— merging ideas, talents, and visions to
-                    create experiences that resonate universally.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="process">
-              <div className="process-title">
-                <RiArrowRightDownLine />
-                <p>Challenge</p>
-              </div>
-              <div className="process-info">
-                <div className="process-icon">
-                  <div className="process-icon-wrapper">
-                    {/* <img src="/processes/icon-3.png" alt="" /> */}
-                  </div>
-                </div>
-                <div className="process-description">
-                  <p>
-                    We challenge conventions and redefine possibilities. We dare to push boundaries, delivering solutions
-                    that are as bold as they are impactful.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
 
 {/* Brand Partners Section */}
         <section className="cta">
           <div className="cta-bg-img">
-            <img src="/cta/cta-bg.png" alt="" />
+            <img src="/cta/cta-bg.png" alt="graphic for background" />
           </div>
           <div className="cta-title">
             <p>Trusted by visionaries</p>
@@ -381,9 +309,7 @@ const Home = () => {
            <a href="https://www.catandcloudnpm .com" target="_blank noreferrer">  <img src="/logos/CatandCloud.png" alt="Cat and Cloud Logo"/></a>
             </div>
           </div>
-          {/* <div className="cta-btn">
-            <button>Discover more at neer&cronin.co</button>
-          </div> */}
+         
         </section>
 
         
@@ -441,11 +367,74 @@ const Home = () => {
           </div>
         </section>
 
+        {/* Processes Section */}
+        <section className="processes">
+          <div className="container">
+            <div className="process">
+              <div className="process-title">
+                <RiArrowRightDownLine />
+                <p>Built For You</p>
+              </div>
+              <div className="process-info">
+                <div className="process-icon">
+                  <div className="process-icon-wrapper">
+                    {/* <img src="/processes/icon-1.png" alt="" /> */}
+                  </div>
+                </div>
+                <div className="process-description">
+                  <p>
+                  Whether you're a neighborhood coffee shop or a thriving national brand, we treat every project with the same care and dedication. From refreshing a Shopify site to building a fully custom-coded platform, we're here to get in the weeds with you and create something truly beautiful. We're approachable, collaborative, and ready to bring your vision to life.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="process">
+              <div className="process-title">
+                <RiArrowRightDownLine />
+                <p>Crafting Your Vision</p>
+              </div>
+              <div className="process-info">
+                <div className="process-icon">
+                  <div className="process-icon-wrapper">
+                    {/* <img src="/processes/icon-2.png" alt="" /> */}
+                  </div>
+                </div>
+                <div className="process-description">
+                  <p>
+                  Every business has a story, and every community is unique. That’s why we take the time to dive deep into understanding your company, your message, and your tone. Our mission is to translate your brand into a website that feels like a true extension of your voice— a space where your customers feel heard and connected.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="process">
+              <div className="process-title">
+                <RiArrowRightDownLine />
+                <p>Start the Conversation</p>
+              </div>
+              <div className="process-info">
+                <div className="process-icon">
+                <div className="cta-btn">
+            <button><a href="#contact">Reach Out To Us.</a></button>
+          </div>
+                </div>
+                <div className="process-description">
+                  <p>
+                  We know that starting something new can feel overwhelming, and that’s why we offer free consultations. No pressure, no strings attached— just a chance to talk about your journey and explore how we can help. Building websites isn’t just our craft; it’s our passion. We’d love to hear your story and figure out how we can support you in taking the next step. 
+                  </p>
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </section>
+
       
 
         
 
-      
+      {/* See What We Can Build Scroll and Video Link */}
 
         <div className="marquee">
           <div className="marquee-text">
@@ -666,7 +655,7 @@ const Home = () => {
                       <p>USA</p>
 
                       <p>
-                      <a href="https://www.bouldercoloradousa.com/" target="_blank noreferrer"> <HiArrowRight /> View on map</a>
+                      <a href="https://www.google.com/maps/dir//Boulder,+CO/@40.015044,-105.3118308,15072m/data=!3m2!1e3!4b1!4m9!4m8!1m0!1m5!1m1!1s0x876b8d4e278dafd3:0xc8393b7ca01b8058!2m2!1d-105.2705456!2d40.0149856!3e0?entry=ttu&g_ep=EgoyMDI1MDEwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank noreferrer"> <HiArrowRight /> View on map</a>
                       </p>
                     </div>
 
