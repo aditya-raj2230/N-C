@@ -102,6 +102,15 @@ p.sp-details-name {
   font-size: 300;
 }
 
+.sp-link button:hover {
+  outline: none;
+  color: var(--light2);
+  background: white;
+  transition-duration: 3ms;
+  
+}
+
+
 .sp-link .icon {
   position: relative;
   top: 2px;
