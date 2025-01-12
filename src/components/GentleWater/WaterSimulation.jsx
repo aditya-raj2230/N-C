@@ -87,7 +87,7 @@ const WaterSimulation = () => {
       ctx.fillRect(0, 0, width, height);
 
       const isMobile = window.innerWidth < 768;
-      const fontMultiplier = isMobile ? 0.15 : 0.34;
+      const fontMultiplier = isMobile ? 0.15 : 0.25;
       const fontSize = Math.min(width, height) * fontMultiplier;
 
       ctx.fillStyle = "#fef4b8";
