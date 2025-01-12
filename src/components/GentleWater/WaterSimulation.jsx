@@ -181,9 +181,9 @@ const WaterSimulation = () => {
         <p
           style={{
             maxWidth: "40%",
-            fontSize: "2rem",
+            fontSize: "2.5rem",
             margin: 0,
-            lineHeight: 1.5,
+            lineHeight: 1,
             ...(window.innerWidth <= 768 && {
               maxWidth: "80%",
               fontSize: "1.5rem",
