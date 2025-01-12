@@ -9,9 +9,9 @@ import {
 
 const WaterSimulation = () => {
   const containerRef = useRef(null);
-  const rendererRef = useRef(null);
 
   useEffect(() => {
+    const container = containerRef.current;
     const scene = new THREE.Scene();
     const simScene = new THREE.Scene();
 
@@ -22,16 +22,11 @@ const WaterSimulation = () => {
       alpha: true,
       preserveDrawingBuffer: true,
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    containerRef.current.appendChild(renderer.domElement);
-    rendererRef.current = renderer;
+    container.appendChild(renderer.domElement);
 
     const mouse = new THREE.Vector2();
     let frame = 0;
 
-    const width = window.innerWidth * window.devicePixelRatio;
-    const height = window.innerHeight * window.devicePixelRatio;
     const options = {
       format: THREE.RGBAFormat,
       type: THREE.FloatType,
@@ -40,14 +35,15 @@ const WaterSimulation = () => {
       stencilBuffer: false,
       depthBuffer: false,
     };
-    let rtA = new THREE.WebGLRenderTarget(width, height, options);
-    let rtB = new THREE.WebGLRenderTarget(width, height, options);
+
+    let rtA = new THREE.WebGLRenderTarget(1, 1, options);
+    let rtB = new THREE.WebGLRenderTarget(1, 1, options);
 
     const simMaterial = new THREE.ShaderMaterial({
       uniforms: {
         textureA: { value: null },
         mouse: { value: mouse },
-        resolution: { value: new THREE.Vector2(width, height) },
+        resolution: { value: new THREE.Vector2(1, 1) },
         time: { value: 0 },
         frame: { value: 0 },
       },
@@ -73,52 +69,48 @@ const WaterSimulation = () => {
     scene.add(renderQuad);
 
     const canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = height;
     const ctx = canvas.getContext("2d", { alpha: true });
 
-    ctx.fillStyle = "#fb7427";
-    ctx.fillRect(0, 0, width, height);
-
-    const fontSize = Math.round(250 * window.devicePixelRatio);
-    ctx.fillStyle = "#fef4b8";
-    ctx.font = `bold ${fontSize}px Test Söhne`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("neer&cronin", width / 2, height / 2);
-
-    const textTexture = new THREE.CanvasTexture(canvas);
-    textTexture.minFilter = THREE.LinearFilter;
-    textTexture.magFilter = THREE.LinearFilter;
-    textTexture.format = THREE.RGBAFormat;
-
     const resize = () => {
-      const newWidth = window.innerWidth * window.devicePixelRatio;
-      const newHeight = window.innerHeight * window.devicePixelRatio;
+      const width = container.offsetWidth * window.devicePixelRatio;
+      const height = container.offsetHeight * window.devicePixelRatio;
 
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      rtA.setSize(newWidth, newHeight);
-      rtB.setSize(newWidth, newHeight);
-      simMaterial.uniforms.resolution.value.set(newWidth, newHeight);
+      renderer.setSize(container.offsetWidth, container.offsetHeight);
+      rtA.setSize(width, height);
+      rtB.setSize(width, height);
+      simMaterial.uniforms.resolution.value.set(width, height);
 
-      canvas.width = newWidth;
-      canvas.height = newHeight;
+      // Adjust canvas size and text
+      canvas.width = width;
+      canvas.height = height;
+      ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = "#fb7427";
-      ctx.fillRect(0, 0, newWidth, newHeight);
+      ctx.fillRect(0, 0, width, height);
 
-      const newFontSize = Math.round(250 * window.devicePixelRatio);
+      // Determine if the screen is mobile-sized
+      const isMobile = window.innerWidth < 768;
+
+      // Font size scaling
+      const fontMultiplier = isMobile ? 0.20 : 0.40; // Use 0.15 for mobile, 0.38 for larger screens
+      const fontSize = Math.min(width, height) * fontMultiplier;
+
       ctx.fillStyle = "#fef4b8";
-      ctx.font = `bold ${newFontSize}px Test Söhne`;
+      ctx.font = `bold ${Math.round(fontSize)}px "Test Söhne"`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillText("softhorizon", newWidth / 2, newHeight / 2);
+      ctx.fillText("neer&cronin", width / 2, height / 2);
 
-      textTexture.needsUpdate = true;
+      const textTexture = new THREE.CanvasTexture(canvas);
+      textTexture.minFilter = THREE.LinearFilter;
+      textTexture.magFilter = THREE.LinearFilter;
+      textTexture.format = THREE.RGBAFormat;
+      renderMaterial.uniforms.textureB.value = textTexture;
     };
 
     const mouseMove = (e) => {
-      mouse.x = e.clientX * window.devicePixelRatio;
-      mouse.y = (window.innerHeight - e.clientY) * window.devicePixelRatio;
+      const bounds = renderer.domElement.getBoundingClientRect();
+      mouse.x = (e.clientX - bounds.left) * window.devicePixelRatio;
+      mouse.y = (bounds.height - (e.clientY - bounds.top)) * window.devicePixelRatio;
     };
 
     const mouseLeave = () => {
@@ -134,7 +126,6 @@ const WaterSimulation = () => {
       renderer.render(simScene, camera);
 
       renderMaterial.uniforms.textureA.value = rtB.texture;
-      renderMaterial.uniforms.textureB.value = textTexture;
       renderer.setRenderTarget(null);
       renderer.render(scene, camera);
 
@@ -145,6 +136,7 @@ const WaterSimulation = () => {
       requestAnimationFrame(animate);
     };
 
+    resize();
     animate();
 
     window.addEventListener("resize", resize);
@@ -158,7 +150,7 @@ const WaterSimulation = () => {
       simMaterial.dispose();
       renderMaterial.dispose();
       plane.dispose();
-      containerRef.current.removeChild(renderer.domElement);
+      container.removeChild(renderer.domElement);
 
       window.removeEventListener("resize", resize);
       renderer.domElement.removeEventListener("mousemove", mouseMove);
@@ -166,7 +158,7 @@ const WaterSimulation = () => {
     };
   }, []);
 
-  return <div ref={containerRef} />;
+  return <div ref={containerRef} style={{ width: "100%", height: "100vh" }} />;
 };
 
 export default WaterSimulation;
