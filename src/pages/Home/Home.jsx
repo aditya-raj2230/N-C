@@ -17,6 +17,7 @@ import ReactLenis from "@studio-freight/react-lenis";
 
 import { HiArrowRight } from "react-icons/hi";
 import { RiArrowRightDownLine } from "react-icons/ri";
+import GentleWater from "../../components/GentleWater/GentleWater";
 
 const Home = () => {
   const manifestoRef = useRef(null);
@@ -245,26 +246,9 @@ const Home = () => {
       <div className="home">
         <Cursor />
         <NavBar />
-        <section className="hero" id="hero">
-          <HeroGradient />
-          <div className="header-container">
-            <div className="header h-1">
-              <h1>Web Development | </h1>
-              <h1>Design</h1>
-            </div>
-            <div className="header h-2">
-              <h1>Shopify | Wordpress |</h1>
-              <h1>Webflow | React</h1>
-            </div>
-            <div className="header h-3">
-              <h1>Photography + </h1>
-              <h1>Film Production</h1>
-            </div>
-            <div className="header h-4">
-              <h1>Welcome to </h1>
-              <h1>Neer&Cronin</h1>
-            </div>
-          </div>
+       
+        <section className="hero disable-cursor" id="hero">
+         <GentleWater/>
         </section>
 
       

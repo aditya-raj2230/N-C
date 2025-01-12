@@ -11,14 +11,10 @@ const Cursor = () => {
     const cursor = cursorRef.current;
     const icon = iconRef.current;
     const projects = document.querySelectorAll(".project");
+    const disableCursorComponents = document.querySelectorAll(".disable-cursor");
 
-    gsap.set(cursor, {
-      scale: 0.1,
-    });
-
-    gsap.set(icon, {
-      scale: 0,
-    });
+    gsap.set(cursor, { scale: 0.1 });
+    gsap.set(icon, { scale: 0 });
 
     const moveCursor = (e) => {
       gsap.to(cursor, {
@@ -27,6 +23,14 @@ const Cursor = () => {
         duration: 0.5,
         ease: "power2.out",
       });
+    };
+
+    const enableCursor = () => {
+      gsap.to(cursor, { opacity: 1, duration: 0.3 });
+    };
+
+    const disableCursor = () => {
+      gsap.to(cursor, { opacity: 0, duration: 0.3 });
     };
 
     projects.forEach((project) => {
@@ -61,6 +65,11 @@ const Cursor = () => {
       });
     });
 
+    disableCursorComponents.forEach((component) => {
+      component.addEventListener("mouseenter", disableCursor);
+      component.addEventListener("mouseleave", enableCursor);
+    });
+
     window.addEventListener("mousemove", moveCursor);
 
     return () => {
@@ -68,6 +77,10 @@ const Cursor = () => {
       projects.forEach((project) => {
         project.removeEventListener("mouseenter", () => {});
         project.removeEventListener("mouseleave", () => {});
+      });
+      disableCursorComponents.forEach((component) => {
+        component.removeEventListener("mouseenter", disableCursor);
+        component.removeEventListener("mouseleave", enableCursor);
       });
     };
   }, []);
