@@ -18,6 +18,7 @@ import ReactLenis from "@studio-freight/react-lenis";
 import { HiArrowRight } from "react-icons/hi";
 import { RiArrowRightDownLine } from "react-icons/ri";
 import GentleWater from "../../components/GentleWater/GentleWater";
+import ScrollAnimations from "../../components/NewProjects/ScrollAnimation";
 
 const Home = () => {
   const manifestoRef = useRef(null);
@@ -300,7 +301,7 @@ const Home = () => {
 
         {/* Selected Work Projects */}
 
-        <section className="work" id="work">
+        {/* <section className="work" id="work">
           <div className="container">
             <div className="work-header">
               <HiArrowRight size={13} />
@@ -349,8 +350,8 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </section>
-
+        </section> */}
+        <ScrollAnimations/>
         {/* Processes Section */}
         <section className="processes">
           <div className="container">

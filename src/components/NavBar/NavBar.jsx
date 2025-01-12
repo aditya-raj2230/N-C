@@ -23,16 +23,24 @@ const NavBar = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+    // Initially hide the navbar
+    gsap.to(navbarRef.current, {
+      opacity: 0,
+      duration: 0,
+    });
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY.current) {
+        // Scrolling down: hide the navbar
         gsap.to(navbarRef.current, {
           opacity: 0,
           duration: 0.3,
           ease: "power2.out",
         });
       } else {
+        // Scrolling up: show the navbar
         gsap.to(navbarRef.current, {
           opacity: 1,
           duration: 0.3,
@@ -130,9 +138,7 @@ const NavBar = () => {
         </div>
 
         <div className="nav-items">
-          <div className="langs">
-          
-          </div>
+          <div className="langs"></div>
 
           <div className="nav-links">
             <a href="#work">
