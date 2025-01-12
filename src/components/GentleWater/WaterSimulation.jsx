@@ -87,14 +87,17 @@ const WaterSimulation = () => {
       ctx.fillRect(0, 0, width, height);
 
       const isMobile = window.innerWidth < 768;
-      const fontMultiplier = isMobile ? 0.20 : 0.40;
+      const fontMultiplier = isMobile ? 0.20 : 0.34;
       const fontSize = Math.min(width, height) * fontMultiplier;
 
       ctx.fillStyle = "#fef4b8";
       ctx.font = `bold ${Math.round(fontSize)}px "Test Söhne"`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillText("neer&cronin", width / 2, height / 2);
+
+      const centerX = width / 2;
+      const centerY = height / 2;
+      ctx.fillText("neer&cronin", centerX, centerY);
 
       const textTexture = new THREE.CanvasTexture(canvas);
       textTexture.minFilter = THREE.LinearFilter;
@@ -156,49 +159,48 @@ const WaterSimulation = () => {
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100vh" }}>
-    <div
-      ref={containerRef}
-      style={{ width: "100%", height: "100vh", zIndex: 1 }}
-    />
-    <div
-      style={{
-        position: "absolute",
-        bottom: 0,
-        width: "100%",
-        textAlign: "start",
-        backgroundColor: "rgba(0, 0, 0, 0)",
-        color: "#fef4b8",
-        padding: "1rem",
-        paddingLeft: "2rem",
-        fontFamily: "Test Söhne",
-        marginBottom: "3rem",
-        zIndex: 2,
-      }}
-    >
-      <p
+      <div
+        ref={containerRef}
+        style={{ width: "100%", height: "100vh", zIndex: 1 }}
+      />
+      <div
         style={{
-          maxWidth: "40%",
-          fontSize: "2rem",
-          margin: 0,
-          lineHeight: 1.5,
-          ...(window.innerWidth <= 768 && {
-            maxWidth: "80%",
-            fontSize: "1.5rem",
-            paddingLeft: "1rem",
-          }),
-          ...(window.innerWidth <= 480 && {
-            maxWidth: "90%",
-            fontSize: "1.2rem",
-            paddingLeft: "0.5rem",
-          }),
+          position: "absolute",
+          bottom: 0,
+          width: "100%",
+          textAlign: "start",
+          backgroundColor: "rgba(0, 0, 0, 0)",
+          color: "#fef4b8",
+          padding: "1rem",
+          paddingLeft: "2rem",
+          fontFamily: "Test Söhne",
+          marginBottom: "3rem",
+          zIndex: 2,
         }}
       >
-        We build beautiful, functional websites that help businesses grow and
-        stand out with the best online.
-      </p>
+        <p
+          style={{
+            maxWidth: "40%",
+            fontSize: "2rem",
+            margin: 0,
+            lineHeight: 1.5,
+            ...(window.innerWidth <= 768 && {
+              maxWidth: "80%",
+              fontSize: "1.5rem",
+              paddingLeft: "1rem",
+            }),
+            ...(window.innerWidth <= 480 && {
+              maxWidth: "90%",
+              fontSize: "1.2rem",
+              paddingLeft: "0.5rem",
+            }),
+          }}
+        >
+          We build beautiful, functional websites that help businesses grow and
+          stand out with the best online.
+        </p>
+      </div>
     </div>
-  </div>
-  
   );
 };
 
