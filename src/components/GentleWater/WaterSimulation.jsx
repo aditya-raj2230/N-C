@@ -80,18 +80,14 @@ const WaterSimulation = () => {
       rtB.setSize(width, height);
       simMaterial.uniforms.resolution.value.set(width, height);
 
-      // Adjust canvas size and text
       canvas.width = width;
       canvas.height = height;
       ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = "#fb7427";
       ctx.fillRect(0, 0, width, height);
 
-      // Determine if the screen is mobile-sized
       const isMobile = window.innerWidth < 768;
-
-      // Font size scaling
-      const fontMultiplier = isMobile ? 0.20 : 0.40; // Use 0.15 for mobile, 0.38 for larger screens
+      const fontMultiplier = isMobile ? 0.20 : 0.40;
       const fontSize = Math.min(width, height) * fontMultiplier;
 
       ctx.fillStyle = "#fef4b8";
@@ -158,7 +154,52 @@ const WaterSimulation = () => {
     };
   }, []);
 
-  return <div ref={containerRef} style={{ width: "100%", height: "100vh" }} />;
+  return (
+    <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+    <div
+      ref={containerRef}
+      style={{ width: "100%", height: "100vh", zIndex: 1 }}
+    />
+    <div
+      style={{
+        position: "absolute",
+        bottom: 0,
+        width: "100%",
+        textAlign: "start",
+        backgroundColor: "rgba(0, 0, 0, 0)",
+        color: "#fef4b8",
+        padding: "1rem",
+        paddingLeft: "2rem",
+        fontFamily: "Test Söhne",
+        marginBottom: "3rem",
+        zIndex: 2,
+      }}
+    >
+      <p
+        style={{
+          maxWidth: "40%",
+          fontSize: "2rem",
+          margin: 0,
+          lineHeight: 1.5,
+          ...(window.innerWidth <= 768 && {
+            maxWidth: "80%",
+            fontSize: "1.5rem",
+            paddingLeft: "1rem",
+          }),
+          ...(window.innerWidth <= 480 && {
+            maxWidth: "90%",
+            fontSize: "1.2rem",
+            paddingLeft: "0.5rem",
+          }),
+        }}
+      >
+        We build beautiful, functional websites that help businesses grow and
+        stand out with the best online.
+      </p>
+    </div>
+  </div>
+  
+  );
 };
 
 export default WaterSimulation;
