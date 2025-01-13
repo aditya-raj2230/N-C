@@ -301,7 +301,7 @@ const Home = () => {
 
         {/* Selected Work Projects */}
 
-        {/* <section className="work" id="work">
+        <section className="work" id="work">
           <div className="container">
             <div className="work-header">
               <HiArrowRight size={13} />
@@ -350,8 +350,8 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </section> */}
-        <ScrollAnimations/>
+        </section>
+        
         {/* Processes Section */}
         <section className="processes">
           <div className="container">

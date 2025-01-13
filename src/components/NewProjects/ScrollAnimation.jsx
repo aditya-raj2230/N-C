@@ -71,11 +71,11 @@ const ScrollAnimation = () => {
       const updateInfoContent = (index) => {
         if (index < 0 || index >= data.length) return;
 
-        const infoItems = document.querySelectorAll(
-          ".scroll-animation-info > div p"
+        const infoItems = sectionRef.current.querySelectorAll(
+          ".scroll-animation__info > div p"
         );
-        const link = document.querySelector(
-          ".scroll-animation-info .scroll-animation-link a"
+        const link = sectionRef.current.querySelector(
+          ".scroll-animation__link a"
         );
 
         if (!infoItems || !link) return;
@@ -122,37 +122,32 @@ const ScrollAnimation = () => {
             });
           }
         },
+        id: "ScrollAnimationTrigger", // Unique ID for this trigger
       });
     }, sectionRef);
 
     return () => {
-      ctx.revert();
-      gsap.ticker.remove(animateLenis);
+      ctx.revert(); // Revert GSAP context on cleanup
+      ScrollTrigger.getById("ScrollAnimationTrigger")?.kill(); // Kill the specific trigger
+      gsap.ticker.remove(animateLenis); // Remove Lenis ticker
     };
   }, [currentCycle]);
 
   return (
     <div>
       <style>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        html, body {
+        .scroll-animation {
           width: 100%;
-          height: 1200vh;
-          font-family: "Akkurat Mono";
+          height: 100%;
         }
 
-        section.scroll-animation-pinned {
+        .scroll-animation__pinned {
           position: relative;
           width: 100vw;
           height: 100vh;
         }
 
-        .scroll-animation-info {
+        .scroll-animation__info {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
@@ -162,11 +157,11 @@ const ScrollAnimation = () => {
           padding: 1em;
         }
 
-        .scroll-animation-info > div {
+        .scroll-animation__info > div {
           flex: 1;
         }
 
-        .scroll-animation-link a {
+        .scroll-animation__link a {
           padding: 0.5em 1em;
           border: 1px solid rgba(255, 255, 255, 0.25);
           border-radius: 4px;
@@ -174,7 +169,7 @@ const ScrollAnimation = () => {
           color: white;
         }
 
-        .scroll-animation-progress-bar {
+        .scroll-animation__progress-bar {
           position: absolute;
           top: 50%;
           left: 75%;
@@ -184,7 +179,7 @@ const ScrollAnimation = () => {
           background-color: rgb(40, 40, 40);
         }
 
-        .scroll-animation-progress {
+        .scroll-animation__progress {
           position: absolute;
           top: 0;
           left: 0;
@@ -194,7 +189,7 @@ const ScrollAnimation = () => {
           background-color: #fff;
         }
 
-        .scroll-animation-img {
+        .scroll-animation__img {
           position: absolute;
           top: 50%;
           left: 50%;
@@ -204,11 +199,9 @@ const ScrollAnimation = () => {
           z-index: -1;
           clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
         }
-
-        }
       `}</style>
-      <section className="scroll-animation-pinned" ref={sectionRef}>
-        <div className="scroll-animation-info">
+      <section className="scroll-animation__pinned" ref={sectionRef}>
+        <div className="scroll-animation__info">
           <div className="title">
             <p></p>
           </div>
@@ -221,18 +214,21 @@ const ScrollAnimation = () => {
           <div className="tag">
             <p></p>
           </div>
-          <div className="scroll-animation-link">
+          <div className="scroll-animation__link">
             <a href="#" target="_blank" rel="noopener noreferrer">
               Explore
             </a>
           </div>
         </div>
-        <div className="scroll-animation-progress-bar">
-          <div className="scroll-animation-progress" ref={progressBarRef}></div>
+        <div className="scroll-animation__progress-bar">
+          <div
+            className="scroll-animation__progress"
+            ref={progressBarRef}
+          ></div>
         </div>
         {data.map((item, index) => (
           <div
-            className="scroll-animation-img"
+            className="scroll-animation__img"
             key={index}
             ref={(el) => (imagesRef.current[index] = el)}
           >
