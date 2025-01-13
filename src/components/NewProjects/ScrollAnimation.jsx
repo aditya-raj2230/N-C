@@ -127,9 +127,10 @@ const ScrollAnimation = () => {
     }, sectionRef);
 
     return () => {
-      ctx.revert(); // Revert GSAP context on cleanup
+      ctx.revert(); // Revert GSAP context
       ScrollTrigger.getById("ScrollAnimationTrigger")?.kill(); // Kill the specific trigger
       gsap.ticker.remove(animateLenis); // Remove Lenis ticker
+      lenis.destroy(); // Destroy Lenis instance
     };
   }, [currentCycle]);
 

@@ -301,7 +301,7 @@ const Home = () => {
 
         {/* Selected Work Projects */}
 
-        <section className="work" id="work">
+        {/* <section className="work" id="work">
           <div className="container">
             <div className="work-header">
               <HiArrowRight size={13} />
@@ -328,7 +328,6 @@ const Home = () => {
                     </Link>
                   ))}
               </div>
-
               <div className="project-col">
                 {projects
                   .filter((project) => project.column === 2) // Filter projects based on their column value
@@ -350,7 +349,12 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </section>
+       
+        </section> */}
+      <section className="anim" >
+          <ScrollAnimations/>
+        
+          </section>
         
         {/* Processes Section */}
         <section className="processes">

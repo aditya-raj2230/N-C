@@ -141,6 +141,9 @@ section.hero {
 section.work {
   height: 100%;
 }
+section.anim{
+  margin-bottom: 600vh;
+}
 
 .work-header,
 .manifesto-header,
