@@ -190,6 +190,15 @@ const ScrollAnimation = () => {
           z-index: 2;
           background-color: #fff;
         }
+          @media screen and (max-width: 768px) {
+  .scroll-animation__img {
+    width: 80%;  /* Increase width to fit smaller screens */
+    height: auto;  /* Maintain aspect ratio */
+    transform: translate(-50%, -50%) scale(1);  /* Adjust scaling */
+    clip-path: none;  /* Disable clip-path on small screens */
+  }
+}
+
          
 
         .scroll-animation__img {
@@ -197,8 +206,8 @@ const ScrollAnimation = () => {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%) scale(1.25);
-          width: 45%;
-          height: 60%;
+          width: 35%;
+          height: 70%;
           z-index: -1;
           clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
         
