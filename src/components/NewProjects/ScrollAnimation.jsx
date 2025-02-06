@@ -192,10 +192,9 @@ const ScrollAnimation = () => {
         }
           @media screen and (max-width: 768px) {
   .scroll-animation__img {
-    width: 80%;  /* Increase width to fit smaller screens */
-    height: auto;  /* Maintain aspect ratio */
-    transform: translate(-50%, -50%) scale(1);  /* Adjust scaling */
-    clip-path: none;  /* Disable clip-path on small screens */
+    width: 90%;
+    height:70%;
+  
   }
 }
 
