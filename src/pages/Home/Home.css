@@ -703,6 +703,9 @@ section.anim{
 }
 
 @media (max-width: 900px) {
+  section.anim{
+    margin-bottom: 600vh;
+  }
   .header {
     flex-direction: column;
     text-align: center;

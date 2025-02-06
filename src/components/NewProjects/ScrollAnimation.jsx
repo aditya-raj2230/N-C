@@ -137,6 +137,7 @@ const ScrollAnimation = () => {
   return (
     <div>
       <style>{`
+      
         .scroll-animation {
           width: 100%;
           height: 100%;
@@ -189,16 +190,18 @@ const ScrollAnimation = () => {
           z-index: 2;
           background-color: #fff;
         }
+         
 
         .scroll-animation__img {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%) scale(1.25);
-          width: 35%;
-          height: 70%;
+          width: 45%;
+          height: 60%;
           z-index: -1;
           clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+        
         }
       `}</style>
       <section className="scroll-animation__pinned" ref={sectionRef}>
