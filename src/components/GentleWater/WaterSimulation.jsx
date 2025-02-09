@@ -83,14 +83,14 @@ const WaterSimulation = () => {
       canvas.width = width;
       canvas.height = height;
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = "#fb7427";
+      ctx.fillStyle = "black";
       ctx.fillRect(0, 0, width, height);
 
       const isMobile = window.innerWidth < 768;
       const fontMultiplier = isMobile ? 0.15 : 0.25;
       const fontSize = Math.min(width, height) * fontMultiplier;
 
-      ctx.fillStyle = "#fef4b8";
+      ctx.fillStyle = "white";
       ctx.font = `bold ${Math.round(fontSize)}px "Test Söhne"`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
@@ -170,7 +170,7 @@ const WaterSimulation = () => {
           width: "100%",
           textAlign: "start",
           backgroundColor: "rgba(0, 0, 0, 0)",
-          color: "#fef4b8",
+          color: "white",
           padding: "1rem",
           paddingLeft: "2rem",
           fontFamily: "Test Söhne",

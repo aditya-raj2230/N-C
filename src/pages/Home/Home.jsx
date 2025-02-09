@@ -18,6 +18,7 @@ import ReactLenis from "@studio-freight/react-lenis";
 import { HiArrowRight } from "react-icons/hi";
 import { RiArrowRightDownLine } from "react-icons/ri";
 import GentleWater from "../../components/GentleWater/GentleWater";
+import QuindustrialScroll from "../../components/Cg-qindustrial-scroll/QuindustrialScroll.jsx";
 import ScrollAnimations from "../../components/NewProjects/ScrollAnimation";
 
 const Home = () => {
@@ -355,9 +356,13 @@ const Home = () => {
           <ScrollAnimations/>
         
           </section>
-        
+          <section className="anim">
+          <QuindustrialScroll/>
+          </section>
+
+
         {/* Processes Section */}
-        <section className="processes">
+        {/* <section className="processes">
           <div className="container">
             <div className="process">
               <div className="process-title">
@@ -367,7 +372,7 @@ const Home = () => {
               <div className="process-info">
                 <div className="process-icon">
                   <div className="process-icon-wrapper">
-                    {/* <img src="/processes/icon-1.png" alt="" /> */}
+                    
                   </div>
                 </div>
                 <div className="process-description">
@@ -386,7 +391,7 @@ const Home = () => {
               <div className="process-info">
                 <div className="process-icon">
                   <div className="process-icon-wrapper">
-                    {/* <img src="/processes/icon-2.png" alt="" /> */}
+                   
                   </div>
                 </div>
                 <div className="process-description">
@@ -417,7 +422,7 @@ const Home = () => {
       
             </div>
           </div>
-        </section>
+        </section> */}
 
       
 
