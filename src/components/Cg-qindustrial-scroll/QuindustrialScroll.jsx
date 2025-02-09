@@ -4,51 +4,13 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "./Quind.css";
 
-const servicesData = [
-  {
-    title: "Custom Web Development",
-    description:
-      "We provide bespoke web development solutions tailored to your business needs. Our team ensures top-notch performance and scalability.",
-    imgSrc: "./quindustrial/img1.jpg",
-    imgAlt: "Web Development",
-  },
-  {
-    title: "Mobile App Development",
-    description:
-      "Crafting intuitive and engaging mobile applications for both Android and iOS platforms. Enhance your user experience with our expert team.",
-    imgSrc: "./quindustrial/img2.jpg",
-    imgAlt: "App Development",
-  },
-  {
-    title: "Digital Marketing",
-    description:
-      "Comprehensive digital marketing services to boost your online presence. From SEO to social media campaigns, we cover it all.",
-    imgSrc: "./quindustrial/img3.jpg",
-    imgAlt: "Digital Marketing",
-  },
-  {
-    title: "Cloud Solutions",
-    description:
-      "Reliable and secure cloud solutions to streamline your business operations. Leverage the power of the cloud with our expertise.",
-    imgSrc: "./quindustrial/img4.jpg",
-    imgAlt: "Cloud Solutions",
-  },
-  {
-    title: "IT Consultancy",
-    description:
-      "Expert IT consultancy services to guide your business through digital transformation. Optimize your IT infrastructure with our insights.",
-    imgSrc: "./quindustrial/img5.jpg",
-    imgAlt: "IT Consultancy",
-  },
-];
-
 const QuindustriallScroll = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const lenis = new Lenis({
-      lerp: 0.1, // Adjusts smoothness
-      smoothTouch: true, // Ensures smooth scrolling on mobile
+      lerp: 0.1,
+      smoothTouch: true,
     });
 
     function raf(time) {
@@ -72,18 +34,48 @@ const QuindustriallScroll = () => {
 
     services.forEach((service, index) => {
       const imgContainer = service.querySelector(".quind-img");
+      const img = imgContainer.querySelector("img");
 
-      gsap.timeline({
+      let prevService = index === 0 ? null : services[index - 1];
+
+      // Height Animation
+      const heightAnimation = gsap.timeline({
         scrollTrigger: {
           trigger: service,
-          start: "top 80%", // Ensures animation starts before reaching center
-          end: "bottom top", // Prevents premature stopping
+          start: prevService ? `top+=100% bottom` : "bottom bottom", // Ensures next service starts AFTER previous one is fully in view
+          end: "top center",
           scrub: 1,
+          toggleActions: "play none none reverse",
         },
-      })
-        .to(service, { height: "450px", duration: 1, ease: "none" })
-        .to(imgContainer, { height: "100%", duration: 1, ease: "none" }, "-=0.5")
-        .to(imgContainer, { width: "100%", duration: 1, ease: "none" }, "+=0.5");
+      });
+
+      heightAnimation.to(service, { height: "300px", duration: 1, ease: "none" });
+      heightAnimation.to(imgContainer, { height: "270px", width: "150px", duration: 1, ease: "none" }, "<");
+      heightAnimation.to(img, { objectFit: "cover", duration: 1, ease: "none" }, "<");
+
+      // Width Animation
+      const widthAnimation = gsap.timeline({
+        scrollTrigger: {
+          trigger: service,
+          start: "top center",
+          end: "top top",
+          scrub: 1,
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      widthAnimation.to(imgContainer, { width: "800px", duration: 1, ease: "none" });
+
+      // Prevent progressive early triggers
+      if (prevService) {
+        ScrollTrigger.create({
+          trigger: prevService,
+          start: "top+=100% bottom",
+          onEnter: () => {
+            ScrollTrigger.refresh();
+          },
+        });
+      }
     });
 
     return () => {
@@ -101,15 +93,15 @@ const QuindustriallScroll = () => {
             <h1>All Services</h1>
           </div>
         </div>
-        {servicesData.map((service, index) => (
+        {["Custom Web Development", "Mobile App Development", "Digital Marketing", "Cloud Solutions", "IT Consultancy"].map((title, index) => (
           <div key={index} className="quind-service">
             <div className="quind-service-info">
-              <h1>{service.title}</h1>
-              <p>{service.description}</p>
+              <h1>{title}</h1>
+              <p>Description for {title}</p>
             </div>
             <div className="quind-service-img">
               <div className="quind-img">
-                <img src={service.imgSrc} alt={service.imgAlt} />
+                <img src={`./quindustrial/img${index + 1}.jpg`} alt={title} />
               </div>
             </div>
           </div>

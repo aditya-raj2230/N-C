@@ -142,7 +142,10 @@ section.work {
   height: 100%;
 }
 section.anim{
-  margin-bottom: 600vh;
+  margin-bottom: 550vh;
+}
+section.anim2{
+  margin-bottom: 300vh;
 }
 
 .work-header,
@@ -364,6 +367,7 @@ section.anim{
 .process-description {
   flex: 3;
 }
+
 
 .marquee {
   width: 100vw;

@@ -354,75 +354,16 @@ const Home = () => {
         </section> */}
       <section className="anim" >
           <ScrollAnimations/>
+          
+          </section>
+       <section className="anim2">
+       <QuindustrialScroll/>
+       </section>
+       
+          
+          
+
         
-          </section>
-          <section className="anim">
-          <QuindustrialScroll/>
-          </section>
-
-
-        {/* Processes Section */}
-        {/* <section className="processes">
-          <div className="container">
-            <div className="process">
-              <div className="process-title">
-                <RiArrowRightDownLine />
-                <p>Built For You</p>
-              </div>
-              <div className="process-info">
-                <div className="process-icon">
-                  <div className="process-icon-wrapper">
-                    
-                  </div>
-                </div>
-                <div className="process-description">
-                  <p>
-                  Whether you're a neighborhood coffee shop or a thriving national brand, we treat every project with the same care and dedication. From refreshing a Shopify site to building a fully custom-coded platform, we're here to get in the weeds with you and create something truly beautiful. We're approachable, collaborative, and ready to bring your vision to life.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="process">
-              <div className="process-title">
-                <RiArrowRightDownLine />
-                <p>Crafting Your Vision</p>
-              </div>
-              <div className="process-info">
-                <div className="process-icon">
-                  <div className="process-icon-wrapper">
-                   
-                  </div>
-                </div>
-                <div className="process-description">
-                  <p>
-                  Every business has a story, and every community is unique. That’s why we take the time to dive deep into understanding your company, your message, and your tone. Our mission is to translate your brand into a website that feels like a true extension of your voice— a space where your customers feel heard and connected.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="process">
-              <div className="process-title">
-                <RiArrowRightDownLine />
-                <p>Start the Conversation</p>
-              </div>
-              <div className="process-info">
-                <div className="process-icon">
-                <div className="cta-btn">
-            <button><a href="#contact">Reach Out To Us.</a></button>
-          </div>
-                </div>
-                <div className="process-description">
-                  <p>
-                  We know that starting something new can feel overwhelming, and that’s why we offer free consultations. No pressure, no strings attached— just a chance to talk about your journey and explore how we can help. Building websites isn’t just our craft; it’s our passion. We’d love to hear your story and figure out how we can support you in taking the next step. 
-                  </p>
-                </div>
-              </div>
-      
-            </div>
-          </div>
-        </section> */}
 
       
 
