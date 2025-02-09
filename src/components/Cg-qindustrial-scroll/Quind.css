@@ -37,7 +37,7 @@
   .quind-hero {
     width: 100vw;
     height: 100vh;
-    background: url(./assets/hero.jpg) no-repeat 50% 50%;
+    background: url(./quindustrial/hero.jpg) no-repeat 50% 50%;
     background-size: cover;
     padding: 2em;
   }
@@ -45,7 +45,7 @@
   .quind-footer {
     width: 100%;
     height: 100vh;
-    background: url(./assets/footer.jpg) no-repeat 50% 50%;
+    
     background-size: cover;
   }
   

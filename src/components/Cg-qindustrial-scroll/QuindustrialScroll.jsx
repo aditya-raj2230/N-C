@@ -85,7 +85,9 @@ const QuindustriallScroll = () => {
 
   return (
     <div className="quind-container">
-      <section className="quind-hero"></section>
+      <section className="quind-hero">
+        
+      </section>
       <section className="quind-services">
         <div className="quind-services-header">
           <div className="quind-col"></div>

@@ -142,11 +142,12 @@ section.work {
   height: 100%;
 }
 section.anim{
-  margin-bottom: 550vh;
+  margin-bottom: 600vh;
 }
 section.anim2{
   margin-bottom: 300vh;
 }
+
 
 .work-header,
 .manifesto-header,
@@ -540,6 +541,7 @@ section.anim2{
 
 .footer {
   height: max-content;
+  margin-bottom: 40vh;
 }
 
 .footer-header {
@@ -709,6 +711,9 @@ section.anim2{
 @media (max-width: 900px) {
   section.anim{
     margin-bottom: 600vh;
+  }
+  section.anim2{
+    margin-bottom: 100vh;
   }
   .header {
     flex-direction: column;
