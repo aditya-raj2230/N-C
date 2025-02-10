@@ -20,6 +20,7 @@ import { RiArrowRightDownLine } from "react-icons/ri";
 import GentleWater from "../../components/GentleWater/GentleWater";
 import QuindustrialScroll from "../../components/Cg-qindustrial-scroll/QuindustrialScroll.jsx";
 import ScrollAnimations from "../../components/NewProjects/ScrollAnimation";
+import RadgaHorizontalScroll from "../../components/Radga/Radga.jsx";
 
 const Home = () => {
   const manifestoRef = useRef(null);
@@ -298,64 +299,10 @@ const Home = () => {
          
         </section>
 
-        
+        <section className="anim">
 
-        {/* Selected Work Projects */}
-
-        {/* <section className="work" id="work">
-          <div className="container">
-            <div className="work-header">
-              <HiArrowRight size={13} />
-              <p>Selected projects</p>
-            </div>
-
-            <div className="projects">
-              <div className="project-col">
-                {projects
-                  .filter((project) => project.column === 1) // Filter projects based on their column value
-                  .map((project) => (
-                    <Link to={project.projectLink} key={project.id}>
-                      <div className="project">
-                        <div className="project-img">
-                          <img src={project.image} alt={project.title} />
-                        </div>
-                        <div className="project-name">
-                          <h2>{project.title}</h2>
-                        </div>
-                        <div className="project-description">
-                          <p>{project.description}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-              </div>
-              <div className="project-col">
-                {projects
-                  .filter((project) => project.column === 2) // Filter projects based on their column value
-                  .map((project) => (
-                    <Link to={project.projectLink} key={project.id}>
-                      <div className="project">
-                        <div className="project-img">
-                          <img src={project.image} alt={project.title}/>
-                        </div>
-                        <div className="project-name">
-                          <h2>{project.title}</h2>
-                        </div>
-                        <div className="project-description">
-                          <p>{project.description}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-              </div>
-            </div>
-          </div>
-       
-        </section> */}
-      <section className="anim" >
-          <ScrollAnimations/>
-          
-          </section>
+       <RadgaHorizontalScroll/>
+       </section>
        <section className="anim2">
        <QuindustrialScroll/>
        </section>
