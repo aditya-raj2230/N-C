@@ -21,10 +21,13 @@ const RadgaHorizontalScroll = () => {
     const slidesContainer = slidesContainerRef.current;
     const slides = slidesRef.current;
 
-    const slideWidth = slides[0].offsetWidth;
+    const slideWidth = slides[0]?.offsetWidth || 0;
     const stickyHeight = slideWidth * slides.length;
 
-    // 🔹 Move the whole container smoothly (NO BACKGROUND GAPS)
+    // 🔹 Fix: Ensure all slides are visible at start
+    gsap.set(slides, { opacity: 1 });
+
+    // 🔹 Horizontal Scroll Animation
     gsap.to(slidesContainer, {
       x: () => -slideWidth * (slides.length - 1),
       ease: "none",
@@ -43,14 +46,14 @@ const RadgaHorizontalScroll = () => {
       },
     });
 
-    // 🔹 Overlapping Effect: Each image slides OVER the previous one
+    // 🔹 Image Slide-in Overlapping Effect
     slides.forEach((slide, index) => {
-      if (index === 0) return; // First image stays in place
+      if (index === 0) return; // First slide stays visible
 
       const prevSlide = slides[index - 1];
       const image = slide.querySelector(".radga-img img");
 
-      gsap.set(slide, { zIndex: slides.length - index }); // Correct stacking
+      gsap.set(slide, { zIndex: slides.length - index });
 
       gsap.fromTo(
         slide,
@@ -65,10 +68,15 @@ const RadgaHorizontalScroll = () => {
             end: "top top",
             scrub: 1.5,
             invalidateOnRefresh: true,
+            onEnterBack: () => {
+              // 🔹 Fix: Ensure previous slides fade back in
+              gsap.to(prevSlide, { opacity: 1, duration: 0.3 });
+            },
           },
         }
       );
 
+      // 🔹 Image Scaling Effect
       gsap.to(image, {
         scale: 1.8,
         ease: "none",
