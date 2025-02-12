@@ -24,7 +24,6 @@ const RadgaHorizontalScroll = () => {
 
   useEffect(() => {
     if (isMobile) {
-      // Remove GSAP ScrollTrigger effects when switching to mobile
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       return;
     }
@@ -36,7 +35,6 @@ const RadgaHorizontalScroll = () => {
     if (!section || !slidesContainer || slides.length === 0) return;
 
     gsap.registerPlugin(ScrollTrigger);
-
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
@@ -55,57 +53,64 @@ const RadgaHorizontalScroll = () => {
       },
     });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: slidesContainer,
-        start: "left center",
-        end: "right center",
-        scrub: true,
-        id: "slide-animation",
-      },
-    });
-
-    slides.forEach((slide, index) => {
-      tl.fromTo(
-        slide,
-        { scale: 0.8, opacity: 1 },
-        { scale: 0.8, opacity: 1, duration: 1.2, ease: "power2.out" },
-        index * 1
-      );
-    });
-
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [isMobile]);
 
   return (
-    <section ref={sectionRef} className={`radga-section ${isMobile ? "mobile" : ""}`}>
-      <div
-        ref={slidesContainerRef}
-        className="radga-slides"
-        style={isMobile ? { overflowX: "auto", scrollSnapType: "x mandatory" } : {}}
-      >
-        {[1, 2, 3, 4, 5].map((num, index) => (
-          <div
-            ref={(el) => (slidesRef.current[index] = el)}
-            key={index}
-            className="radga-slide"
-            style={isMobile ? { scrollSnapAlign: "start", flexShrink: 0, width: "90vw" } : {}}
-          >
-            <div className="radga-img-container">
-              <div className="radga-img">
-                <img src={`./radga/img${num}.jpeg`} alt={`Slide ${num}`} />
+    <section ref={sectionRef} className="radga-section">
+      {!isMobile ? (
+        // Desktop Version with Horizontal Scroll (Unchanged)
+        <div ref={slidesContainerRef} className="radga-slides">
+          {[1, 2, 3, 4, 5].map((num, index) => (
+            <div
+              ref={(el) => (slidesRef.current[index] = el)}
+              key={index}
+              className="radga-slide"
+            >
+              <div className="radga-img-container">
+                <div className="radga-img">
+                  <img src={`./radga/img${num}.jpeg`} alt={`Slide ${num}`} />
+                </div>
+              </div>
+              <div className="radga-middle-texts">
+                <span>Text 1</span>
+                <span>Text 2</span>
+                <span>Text 3</span>
+                <span>Text 4</span>
+              </div>
+              <button className="radga-view-project">View Project</button>
+              <div className="radga-title">
+                <h1>
+                  {num === 1 && "Verb Coffee Roasters"}
+                  {num === 2 && "Yeti Cycles Dust To Dust"}
+                  {num === 3 && "Abus Security"}
+                  {num === 4 && "Curved Elements Modern Flow"}
+                  {num === 5 && "Minimal Design Natural Light"}
+                </h1>
+                <h2>
+                  {num === 1 && "Coffee Roasters"}
+                  {num === 2 && "Cycles Dust"}
+                  {num === 3 && "Security"}
+                  {num === 4 && "Modern Flow"}
+                  {num === 5 && "Natural Light"}
+                </h2>
+              </div>
+              <div className="radga-extra-info">
+                Extra Information Here <span>text 2</span>
               </div>
             </div>
-            <div className="radga-middle-texts">
-              <span>Text 1</span>
-              <span>Text 2</span>
-              <span>Text 3</span>
-              <span>Text 4</span>
-            </div>
-            <button className="radga-view-project">View Project</button>
-            <div className="radga-title">
+          ))}
+        </div>
+      ) : (
+        // Mobile Version with Image, Title, and Button
+        <div className="radga-mobile-list">
+          {[1, 2, 3, 4, 5].map((num) => (
+            <div key={num} className="radga-mobile-item">
+              <div className="radga-mobile-img">
+                <img src={`./radga/img${num}.jpeg`} alt={`Slide ${num}`} />
+              </div>
               <h1>
                 {num === 1 && "Verb Coffee Roasters"}
                 {num === 2 && "Yeti Cycles Dust To Dust"}
@@ -113,20 +118,11 @@ const RadgaHorizontalScroll = () => {
                 {num === 4 && "Curved Elements Modern Flow"}
                 {num === 5 && "Minimal Design Natural Light"}
               </h1>
-              <h2>
-                {num === 1 && "Coffee Roasters"}
-                {num === 2 && "Cycles Dust"}
-                {num === 3 && "Security"}
-                {num === 4 && "Modern Flow"}
-                {num === 5 && "Natural Light"}
-              </h2>
+              <button className="radga-view-project">View Project</button>
             </div>
-            <div className="radga-extra-info">
-              Extra Information Here <span>text 2</span>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };
