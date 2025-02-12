@@ -23,7 +23,11 @@ const RadgaHorizontalScroll = () => {
   }, []);
 
   useEffect(() => {
-    if (isMobile) return;
+    if (isMobile) {
+      // Remove GSAP ScrollTrigger effects when switching to mobile
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      return;
+    }
 
     const section = sectionRef.current;
     const slidesContainer = slidesContainerRef.current;
@@ -33,19 +37,17 @@ const RadgaHorizontalScroll = () => {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // 🔥 Kill all previous ScrollTriggers before applying new ones
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
 
-    // ✅ Horizontal Scroll Effect
     gsap.to(slidesContainer, {
       x: () => -totalWidth,
       ease: "none",
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: `+=${totalWidth * 1.2}`, // 🔥 Slightly larger to allow smooth scroll
+        end: `+=${totalWidth * 1.2}`,
         pin: true,
         scrub: true,
         anticipatePin: 1,
@@ -53,7 +55,6 @@ const RadgaHorizontalScroll = () => {
       },
     });
 
-    // ✅ Staggered Scaling Effect (One After Another)
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: slidesContainer,
@@ -69,23 +70,28 @@ const RadgaHorizontalScroll = () => {
         slide,
         { scale: 0.8, opacity: 1 },
         { scale: 0.8, opacity: 1, duration: 1.2, ease: "power2.out" },
-        index * 1 // 🔥 Stagger effect to animate one after another
+        index * 1
       );
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Cleanup
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [isMobile]);
 
   return (
     <section ref={sectionRef} className={`radga-section ${isMobile ? "mobile" : ""}`}>
-      <div ref={slidesContainerRef} className="radga-slides">
+      <div
+        ref={slidesContainerRef}
+        className="radga-slides"
+        style={isMobile ? { overflowX: "auto", scrollSnapType: "x mandatory" } : {}}
+      >
         {[1, 2, 3, 4, 5].map((num, index) => (
           <div
             ref={(el) => (slidesRef.current[index] = el)}
             key={index}
             className="radga-slide"
+            style={isMobile ? { scrollSnapAlign: "start", flexShrink: 0, width: "90vw" } : {}}
           >
             <div className="radga-img-container">
               <div className="radga-img">

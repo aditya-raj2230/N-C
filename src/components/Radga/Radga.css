@@ -129,6 +129,25 @@
 
 /* Small Tablets & Mobile */
 /* Small Tablets & Mobile */
+.radga-section.mobile .radga-slides {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.radga-section.mobile .radga-slide {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 90vw; /* Adjust width for a good fit */
+  margin-right: 5vw; /* Adds spacing between slides */
+}
+
+.radga-section.mobile .radga-slides::-webkit-scrollbar {
+  display: none; /* Hides scrollbar for smooth touch experience */
+}
+
 @media (max-width: 768px) {
   .radga-img-container {
     width: 100vw;
