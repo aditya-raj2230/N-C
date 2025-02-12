@@ -31,48 +31,55 @@ const RadgaHorizontalScroll = () => {
 
     if (!section || !slidesContainer || slides.length === 0) return;
 
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 🔥 Kill all previous ScrollTriggers before applying new ones
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
     const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
 
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: () => `+=${totalWidth}`,
-      pin: true,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      animation: gsap.to(slidesContainer, {
-        x: () => -totalWidth,
-        ease: "none",
-      }),
+    // ✅ Horizontal Scroll Effect
+    gsap.to(slidesContainer, {
+      x: () => -totalWidth,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: `+=${totalWidth * 1.2}`, // 🔥 Slightly larger to allow smooth scroll
+        pin: true,
+        scrub: true,
+        anticipatePin: 1,
+        id: "horizontalScroll",
+      },
+    });
+
+    // ✅ Staggered Scaling Effect (One After Another)
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: slidesContainer,
+        start: "left center",
+        end: "right center",
+        scrub: true,
+        id: "slide-animation",
+      },
     });
 
     slides.forEach((slide, index) => {
-      const image = slide.querySelector(".radga-img img");
-      if (image) {
-        gsap.fromTo(
-          image,
-          { scale: 1 },
-          {
-            scale: 1.2,
-            ease: "power1.out",
-            scrollTrigger: {
-              trigger: slide,
-              start: "left center",
-              end: "left+=200 center",
-              scrub: 1,
-              toggleActions: "play reverse play reverse",
-            },
-          }
-        );
-      }
+      tl.fromTo(
+        slide,
+        { scale: 0.8, opacity: 1 },
+        { scale: 0.8, opacity: 1, duration: 1.2, ease: "power2.out" },
+        index * 1 // 🔥 Stagger effect to animate one after another
+      );
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Cleanup
+    };
   }, [isMobile]);
 
   return (
     <section ref={sectionRef} className={`radga-section ${isMobile ? "mobile" : ""}`}>
-      <div className="radga-heading">
-        <h1>Featured Projects</h1>
-      </div>
       <div ref={slidesContainerRef} className="radga-slides">
         {[1, 2, 3, 4, 5].map((num, index) => (
           <div

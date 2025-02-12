@@ -300,9 +300,9 @@ const Home = () => {
         </section>
 
         {/* <section className="anim">
-
+        </section> */}
        <RadgaHorizontalScroll/>
-       </section> */}
+       
        <section className="anim2">
        <QuindustrialScroll/>
        </section>

@@ -127,80 +127,43 @@
   height: 10%;
 }
 
-/* RESPONSIVENESS */
-
-/* Large Tablets */
-@media (max-width: 1024px) {
-  .radga-heading h1,
-  .radga-title h1 {
-    font-size: 2.5rem;
-  }
-
-  .radga-title h2 {
-    font-size: 1rem;
-  }
-
-  .radga-extra-info {
-    width: 80%;
-  }
-}
-
+/* Small Tablets & Mobile */
 /* Small Tablets & Mobile */
 @media (max-width: 768px) {
-  .radga-heading {
-    max-width: 80vw;
+  .radga-img-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
   }
 
-  .radga-heading h1,
-  .radga-title h1 {
+  .radga-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Keep only the heading */
+  .radga-heading {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    text-align: left;
+    color: white;
+    z-index: 2;
+  }
+
+  .radga-heading h1 {
     font-size: 2rem;
   }
 
-  .radga-title h2 {
-    font-size: 0.9rem;
-  }
-
-  .radga-middle-texts {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 90%;
-  }
-
-  .radga-view-project {
-    font-size: 0.7rem;
-    padding: 8px 16px;
-  }
-
+  /* Hide all other text elements */
+  .radga-middle-texts,
+  .radga-view-project,
+  .radga-title,
   .radga-extra-info {
-    width: 90%;
-    font-size: 0.8rem;
-    padding: 8px;
-  }
-}
-
-/* Small Mobile */
-@media (max-width: 480px) {
-  .radga-heading h1,
-  .radga-title h1 {
-    font-size: 1.8rem;
-  }
-
-  .radga-title h2 {
-    font-size: 0.8rem;
-  }
-
-  .radga-middle-texts span {
-    font-size: 0.7rem;
-  }
-
-  .radga-view-project {
-    font-size: 0.6rem;
-    padding: 6px 12px;
-  }
-
-  .radga-extra-info {
-    font-size: 0.7rem;
-    width: 95%;
+    display: none !important;
   }
 }
