@@ -299,10 +299,10 @@ const Home = () => {
          
         </section>
 
-        <section className="anim">
+        {/* <section className="anim">
 
        <RadgaHorizontalScroll/>
-       </section>
+       </section> */}
        <section className="anim2">
        <QuindustrialScroll/>
        </section>
