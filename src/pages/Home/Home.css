@@ -714,7 +714,7 @@ section.anim2{
     margin-bottom: 300vh;
   }
   section.anim2{
-    margin-bottom: 150vh;
+    margin-bottom: 50vh;
   }
   .header {
     flex-direction: column;
@@ -724,6 +724,8 @@ section.anim2{
   .projects {
     flex-direction: column;
   }
+ 
+  
 
   .project {
     opacity: 1 !important;
@@ -841,4 +843,5 @@ section.anim2{
   .footer-email h2 {
     font-size: 2rem;
   }
+
 }
