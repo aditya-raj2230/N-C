@@ -1,83 +1,123 @@
 .radga-section {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: black;
-  }
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.radga-heading {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  max-width: 50vw; /* Ensures text moves to next line after 50% of screen width */
+  text-align: left;
+}
+
+.radga-heading h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: normal;
+  word-wrap: break-word;
+  color: white;
+}
+
+.radga-slides {
+  display: flex;
+  width: max-content;
+}
+
+.radga-slide {
+  position: relative;
+  min-width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.radga-img-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.radga-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.radga-middle-texts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.radga-middle-texts span {
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: white;
+  opacity: 0.8;
+}
+
+.radga-view-project {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  font-size: 0.4rem;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.radga-title {
   
-  .radga-slider {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  .radga-slides {
-    position: relative;
-    display: flex;
-    width: 500%;
-    height: 100%;
-  }
-  
-  .radga-slide {
-    position: relative;
-    flex: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
-  .radga-img-container {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  .radga-img {
-    position: absolute;
-    width: 120%;  /* Make images slightly larger for overlap effect */
-    height: 100%;
-    left: -10%; /* Shift left to cover previous images */
-    object-fit: cover;
-    z-index: 1; /* Ensure images are in the background */
-  }
-  
-  .radga-title {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 2; /* Ensure text is above images */
-    color: #fff;
-    mix-blend-mode: difference; /* Makes text readable over images */
-  }
-  
-  .radga-title h1 {
-    font-size: 75px;
-    font-weight: 900;
-    letter-spacing: -2px;
-    line-height: 0.9;
-  }
-  
-  .radga-title h2 {
-    font-size: 50px;
-    font-weight: 500;
-  }
-  .button{
-    height: 40px;
-    font-size: 1rem;
-    padding: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
-    border: 2px solid black;
-    border-radius: 30px;
-    cursor: pointer;
-  }
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  max-width: 50vw; 
+  color: white;
+}
+
+.radga-title h1 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.radga-title h2 {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.radga-extra-info {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 60%;
+  height: 10%;
+}

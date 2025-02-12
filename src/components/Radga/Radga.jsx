@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 import "./Radga.css";
 
 const RadgaHorizontalScroll = () => {
@@ -12,101 +11,73 @@ const RadgaHorizontalScroll = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const lenis = new Lenis();
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
-
-    const stickySection = sectionRef.current;
+    const section = sectionRef.current;
     const slidesContainer = slidesContainerRef.current;
     const slides = slidesRef.current;
 
-    const slideWidth = slides[0]?.offsetWidth || 0;
-    const stickyHeight = slideWidth * slides.length;
+    if (!section || !slidesContainer || slides.length === 0) return;
 
-    // 🔹 Fix: Ensure all slides are visible at start
-    gsap.set(slides, { opacity: 1 });
+    const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
 
-    // 🔹 Horizontal Scroll Animation
-    gsap.to(slidesContainer, {
-      x: () => -slideWidth * (slides.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: stickySection,
-        start: "top top",
-        end: `+=${stickyHeight}px`,
-        scrub: 1,
-        pin: true,
-        snap: {
-          snapTo: (progress) => Math.round(progress * slides.length) / slides.length,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        invalidateOnRefresh: true,
-      },
-    });
-
-    // 🔹 Image Slide-in Overlapping Effect
-    slides.forEach((slide, index) => {
-      if (index === 0) return; // First slide stays visible
-
-      const prevSlide = slides[index - 1];
-      const image = slide.querySelector(".radga-img img");
-
-      gsap.set(slide, { zIndex: slides.length - index });
-
-      gsap.fromTo(
-        slide,
-        { x: "100%", opacity: 0 },
-        {
-          x: "0%",
-          opacity: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: prevSlide,
-            start: "top center",
-            end: "top top",
-            scrub: 1.5,
-            invalidateOnRefresh: true,
-            onEnterBack: () => {
-              // 🔹 Fix: Ensure previous slides fade back in
-              gsap.to(prevSlide, { opacity: 1, duration: 0.3 });
-            },
-          },
-        }
-      );
-
-      // 🔹 Image Scaling Effect
-      gsap.to(image, {
-        scale: 1.8,
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top top",
+      end: () => `+=${totalWidth}`,
+      pin: true,
+      scrub: 1,
+      invalidateOnRefresh: true,
+      animation: gsap.to(slidesContainer, {
+        x: () => -totalWidth,
         ease: "none",
-        scrollTrigger: {
-          trigger: slidesContainer,
-          start: () => `left+=${index * slideWidth} right`,
-          end: () => `right+=${(index + 1) * slideWidth} left`,
-          scrub: 1.5,
-          invalidateOnRefresh: true,
-        },
-      });
+      }),
     });
 
-    ScrollTrigger.refresh();
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+    slides.forEach((slide, index) => {
+      const image = slide.querySelector(".radga-img img");
+      if (image) {
+        gsap.fromTo(
+          image,
+          { scale: 1 },
+          {
+            scale: 1.2,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: slide,
+              start: "left center",
+              end: "left+=200 center",
+              scrub: 1,
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+      }
+    });
   }, []);
 
   return (
-    <section ref={sectionRef} className="radga-section radga-sticky">
+    <section ref={sectionRef} className="radga-section">
+      <div className="radga-heading">
+        <h1>Featured Projects</h1>
+      </div>
       <div ref={slidesContainerRef} className="radga-slides">
         {[1, 2, 3, 4, 5].map((num, index) => (
-          <div ref={(el) => (slidesRef.current[index] = el)} key={index} className="radga-slide">
+          <div
+            ref={(el) => (slidesRef.current[index] = el)}
+            key={index}
+            className="radga-slide"
+          >
             <div className="radga-img-container">
               <div className="radga-img">
                 <img src={`./radga/img${num}.jpeg`} alt={`Slide ${num}`} />
               </div>
             </div>
+            <div className="radga-middle-texts">
+              <span>Text 1</span>
+              <span>Text 2</span>
+              <span>Text 3</span>
+              <span>Text 4</span>
+            </div>
+            <button className="radga-view-project">View Project</button>
             <div className="radga-title">
               <h1>
                 {num === 1 && "Verb Coffee Roasters"}
@@ -122,7 +93,9 @@ const RadgaHorizontalScroll = () => {
                 {num === 4 && "Modern Flow"}
                 {num === 5 && "Natural Light"}
               </h2>
-              <button className="button">View Project</button>
+            </div>
+            <div className="radga-extra-info">Extra Information Here
+              <span>text 2</span>
             </div>
           </div>
         ))}
