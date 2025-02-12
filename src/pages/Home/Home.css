@@ -144,8 +144,9 @@ section.work {
 section.anim{
   margin-bottom: 1100vh;
 }
+
 section.anim2{
-  margin-bottom: 350vh;
+  margin-bottom: 400vh;
 }
 
 
@@ -710,7 +711,7 @@ section.anim2{
 
 @media (max-width: 900px) {
   section.anim{
-    margin-bottom: 400vh;
+    margin-bottom: 300vh;
   }
   section.anim2{
     margin-bottom: 100vh;

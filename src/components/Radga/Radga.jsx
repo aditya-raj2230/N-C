@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "./Radga.css";
@@ -7,9 +7,23 @@ const RadgaHorizontalScroll = () => {
   const sectionRef = useRef(null);
   const slidesContainerRef = useRef(null);
   const slidesRef = useRef([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
 
     const section = sectionRef.current;
     const slidesContainer = slidesContainerRef.current;
@@ -52,10 +66,10 @@ const RadgaHorizontalScroll = () => {
         );
       }
     });
-  }, []);
+  }, [isMobile]);
 
   return (
-    <section ref={sectionRef} className="radga-section">
+    <section ref={sectionRef} className={`radga-section ${isMobile ? "mobile" : ""}`}>
       <div className="radga-heading">
         <h1>Featured Projects</h1>
       </div>
@@ -94,8 +108,8 @@ const RadgaHorizontalScroll = () => {
                 {num === 5 && "Natural Light"}
               </h2>
             </div>
-            <div className="radga-extra-info">Extra Information Here
-              <span>text 2</span>
+            <div className="radga-extra-info">
+              Extra Information Here <span>text 2</span>
             </div>
           </div>
         ))}
