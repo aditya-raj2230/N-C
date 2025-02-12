@@ -5,7 +5,7 @@
 }
 
 html, body {
-  font-family: "PP Neue Montreal";
+  font-family: "PP Neue Montreal", sans-serif;
   width: 100%;
   min-height: 100vh;
 }
@@ -32,25 +32,17 @@ html, body {
   line-height: 150%;
 }
 
-/* Image Styles */
-.quind-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Hero Section */
+/* Hero Section - Removed Background Image */
 .quind-hero {
   width: 100%;
-  min-height: 100vh; /* Ensures it fills the screen */
-  background: url(./quindustrial/hero.jpg) no-repeat center center;
-  background-size: cover;
+  min-height: auto; /* Adjusted height to remove gaps */
   padding: 2em;
   box-sizing: border-box;
-  display: flex; /* Ensures content is visible */
+  display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000; /* Fallback color */
+  background-color: transparent; /* No background */
+  text-align: center;
 }
 
 /* Footer */
@@ -83,6 +75,7 @@ html, body {
   padding: 1em;
 }
 
+/* Services */
 .quind-service {
   display: flex;
   gap: 2em;
@@ -115,7 +108,7 @@ html, body {
   overflow: hidden;
 }
 
-/* Lenis Smooth Scroll Fix */
+/* Lenis Scroll Fix */
 html.lenis, html.lenis body {
   height: auto;
 }
@@ -139,7 +132,26 @@ html.lenis, html.lenis body {
 /* Mobile Fix */
 @media (max-width: 768px) {
   .quind-hero {
-      min-height: 100vh; /* Ensure full height on mobile */
-      padding: 1em; /* Reduce padding for smaller screens */
+      display: none; /* Hide the hero section completely on mobile */
+  }
+
+  .quind-services {
+      padding: 2em; /* Reduce padding to remove gaps */
+  }
+
+  .quind-services-header {
+      flex-direction: column; /* Stack elements in mobile view */
+      gap: 1em;
+  }
+
+  .quind-service {
+      flex-direction: column;
+      height: auto;
+      gap: 1em;
+  }
+
+  .quind-service-info, .quind-service-img {
+      flex: 1;
+      padding: 0.5em;
   }
 }
