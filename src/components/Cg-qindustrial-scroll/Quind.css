@@ -139,7 +139,7 @@
   }
   .quind-footer {
     position: relative; /* Ensure it stays in the flow */
-    margin-top: 50vh; /* Adjust to make sure it appears */
+    margin-top: 0vh; /* Adjust to make sure it appears */
     width: 100vw;
     height: 80vh;
    object-fit: cover;
