@@ -34,22 +34,24 @@
     object-fit: cover;
   }
   
-  .quind-hero {
+  .quind-hero img {
     margin-top: 20vh;
     width: 100vw;
     height: 100vh;
-    background: url(./quindustrial/hero.jpg) no-repeat 50% 50%;
-    background-size: cover;
-    padding: 2em;
+    object-fit: cover;
+   
+   
   }
   
-  .quind-footer {
+  .quind-footer img{
 
-    margin-top: 200vh;
+    
     width: 100vw;
       height: 100vh;
-      background: url(./quindustrial/footer.jpg) no-repeat 50% 50%;
-      background-size: cover;
+     
+      
+     
+      object-fit: cover; 
   
   }
   
@@ -131,7 +133,7 @@
   }
   /* Mobile Fix */
 @media (max-width: 768px) {
-  .quind-hero {
+  .quind-hero img{
      height: 80vh;
      width: 100vw;
   }
@@ -140,8 +142,7 @@
     margin-top: 50vh; /* Adjust to make sure it appears */
     width: 100vw;
     height: 80vh;
-    background: url(./quindustrial/footer.jpg) no-repeat 50% 50%;
-    background-size: cover;
+   object-fit: cover;
     display: block; /* Ensures visibility */
 }
 
