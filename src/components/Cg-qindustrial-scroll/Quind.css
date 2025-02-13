@@ -35,6 +35,7 @@
   }
   
   .quind-hero {
+    margin-top: 20vh;
     width: 100vw;
     height: 100vh;
     background: url(./quindustrial/hero.jpg) no-repeat 50% 50%;
@@ -43,10 +44,13 @@
   }
   
   .quind-footer {
-    width: 100%;
-    height: 100vh;
-    
-    background-size: cover;
+
+    margin-top: 200vh;
+    width: 100vw;
+      height: 100vh;
+      background: url(./quindustrial/footer.jpg) no-repeat 50% 50%;
+      background-size: cover;
+  
   }
   
   .quind-services {
@@ -128,8 +132,19 @@
   /* Mobile Fix */
 @media (max-width: 768px) {
   .quind-hero {
-      display: none; /* Hide the hero section completely on mobile */
+     height: 80vh;
+     width: 100vw;
   }
+  .quind-footer {
+    position: relative; /* Ensure it stays in the flow */
+    margin-top: 50vh; /* Adjust to make sure it appears */
+    width: 100vw;
+    height: 80vh;
+    background: url(./quindustrial/footer.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    display: block; /* Ensures visibility */
+}
+
 
   .quind-services {
       padding: 2em; /* Reduce padding to remove gaps */
