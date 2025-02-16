@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import "./Radga.css";
+import './Radga.css' // Keeping your existing styling
 
-const RadgaHorizontalScroll = () => {
+export default function RadgaHorizontalScroll() {
   const sectionRef = useRef(null);
   const slidesContainerRef = useRef(null);
   const slidesRef = useRef([]);
@@ -53,15 +53,41 @@ const RadgaHorizontalScroll = () => {
       },
     });
 
+    slides.forEach((slide) => {
+      gsap.fromTo(
+        slide,
+        { scale: 1 },
+        {
+          scale: 1.1,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: slide,
+            start: "left center",
+            end: "right center",
+            scrub: true,
+            onEnter: () => gsap.to(slide, { scale: 1.1, duration: 0.5 }),
+            onLeaveBack: () => gsap.to(slide, { scale: 1, duration: 0.5 }),
+          },
+        }
+      );
+    });
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: "left right",
+      end: "right left",
+      onLeave: () => slides.forEach((slide) => gsap.to(slide, { scale: 1 })),
+      onEnterBack: () => slides.forEach((slide) => gsap.to(slide, { scale: 1 })),
+    });
+
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [isMobile]);
 
   return (
-    <section ref={sectionRef} className="radga-section">
+    <main ref={sectionRef} className="radga-section">
       {!isMobile ? (
-        // Desktop Version with Horizontal Scroll (Unchanged)
         <div ref={slidesContainerRef} className="radga-slides">
           {[1, 2, 3, 4, 5].map((num, index) => (
             <div
@@ -104,7 +130,6 @@ const RadgaHorizontalScroll = () => {
           ))}
         </div>
       ) : (
-        // Mobile Version with Image, Title, and Button
         <div className="radga-mobile-list">
           {[1, 2, 3, 4, 5].map((num) => (
             <div key={num} className="radga-mobile-item">
@@ -123,8 +148,6 @@ const RadgaHorizontalScroll = () => {
           ))}
         </div>
       )}
-    </section>
+    </main>
   );
-};
-
-export default RadgaHorizontalScroll;
+}

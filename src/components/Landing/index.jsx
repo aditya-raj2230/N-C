@@ -70,8 +70,7 @@ export default function Landing() {
             fill="white"
           />
         </svg>
-        <p>Website Development</p>
-        <p>Media Solutions</p>
+      
       </div>
     </motion.main>
   );
