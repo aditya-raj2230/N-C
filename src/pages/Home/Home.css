@@ -146,7 +146,7 @@ section.anim{
 }
 
 section.anim2{
-  margin-bottom: 400vh;
+  margin-bottom: 200vh;
 }
 
 
@@ -715,7 +715,7 @@ section.anim2{
     margin-bottom: 300vh;
   }
   section.anim2{
-    margin-bottom: 200vh;
+    margin-bottom: 50vh;
   }
   .header {
     flex-direction: column;

@@ -136,7 +136,7 @@ const QuindustriallScroll = () => {
 
   return (
     <div className="quind-container">
-      <section className="quind-hero"><img src="./quindustrial/hero.jpg" alt="" /></section>
+      {/* <section className="quind-hero"><img src="./quindustrial/hero.jpg" alt="" /></section> */}
       <section className="quind-services">
         <div className="quind-services-header">
           <div className="quind-col"></div>
@@ -158,7 +158,7 @@ const QuindustriallScroll = () => {
           </div>
         ))}
       </section>
-      <section className="quind-footer"><img src="./quindustrial/footer.jpg" alt="" /></section>
+      {/* <section className="quind-footer"><img src="./quindustrial/footer.jpg" alt="" /></section> */}
     </div>
   );
 };

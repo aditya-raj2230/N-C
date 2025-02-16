@@ -21,6 +21,9 @@ import GentleWater from "../../components/GentleWater/GentleWater";
 import QuindustrialScroll from "../../components/Cg-qindustrial-scroll/QuindustrialScroll.jsx";
 import ScrollAnimations from "../../components/NewProjects/ScrollAnimation";
 import RadgaHorizontalScroll from "../../components/Radga/Radga.jsx";
+import Preloader from "../../components/Preloader/index.jsx";
+import Landing from "../../components/Landing/index.jsx";
+import { AnimatePresence } from "framer-motion";
 
 const Home = () => {
   const manifestoRef = useRef(null);
@@ -235,6 +238,21 @@ const Home = () => {
     };
   }, [isMobile]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect( () => {
+    (
+      async () => {
+         
+
+          setTimeout( () => {
+            setIsLoading(false);
+            document.body.style.cursor = 'default'
+            window.scrollTo(0,0);
+          }, 2000)
+      }
+    )()
+  }, [])
 
 
      
@@ -249,10 +267,15 @@ const Home = () => {
       <div className="home">
         <Cursor />
         <NavBar />
+        <AnimatePresence mode='wait'>
+        {isLoading && <Preloader />}
+      </AnimatePresence>
        
-        <section className="hero disable-cursor" id="hero">
-         <GentleWater/>
-        </section>
+        <Landing/>
+       
+       {!isMobile && <section className="hero disable-cursor" id="hero">
+  {!isMobile && <GentleWater />}
+</section>}
 
       
 {/* Manifesto Section */}
@@ -308,14 +331,6 @@ const Home = () => {
        </section>
        
           
-          
-
-        
-
-      
-
-        
-
       {/* See What We Can Build Scroll and Video Link */}
 
         <div className="marquee">
