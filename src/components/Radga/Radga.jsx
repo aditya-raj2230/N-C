@@ -56,39 +56,40 @@ export default function RadgaHorizontalScroll() {
         );
       });
     } else {
-      // Mobile: Enable smooth native scrolling
-      slidesContainer.style.overflowX = "scroll";
-      slidesContainer.style.scrollSnapType = "x mandatory";
-      slidesContainer.style.scrollBehavior = "smooth";
-      document.body.style.overflowY = "auto";
+      // Mobile: Horizontal scroll with ScrollTrigger
+      const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
 
-      let touchStartX = 0;
-      let touchEndX = 0;
+      gsap.to(slidesContainer, {
+        x: () => -totalWidth,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: section,
+          start: "center center",
+          end: () => `+=${totalWidth}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          id: "horizontalScrollMobile",
+        },
+      });
 
-      const handleTouchStart = (e) => {
-        touchStartX = e.touches[0].clientX;
-      };
-
-      const handleTouchMove = (e) => {
-        touchEndX = e.touches[0].clientX;
-      };
-
-      const handleTouchEnd = () => {
-        const scrollAmount = slidesContainer.scrollLeft;
-        const slideWidth = slidesContainer.clientWidth;
-        const nearestSlide = Math.round(scrollAmount / slideWidth) * slideWidth;
-        slidesContainer.scrollTo({ left: nearestSlide, behavior: "smooth" });
-      };
-
-      slidesContainer.addEventListener("touchstart", handleTouchStart);
-      slidesContainer.addEventListener("touchmove", handleTouchMove);
-      slidesContainer.addEventListener("touchend", handleTouchEnd);
-
-      return () => {
-        slidesContainer.removeEventListener("touchstart", handleTouchStart);
-        slidesContainer.removeEventListener("touchmove", handleTouchMove);
-        slidesContainer.removeEventListener("touchend", handleTouchEnd);
-      };
+      slides.forEach((slide) => {
+        gsap.fromTo(
+          slide,
+          { opacity: 1, scale: 0.9 },
+          {
+            opacity: 1,
+            scale: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: slide,
+              start: "left center",
+              end: "right center",
+              scrub: true,
+            },
+          }
+        );
+      });
     }
 
     return () => {
