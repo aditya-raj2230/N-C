@@ -25,37 +25,61 @@ const QuindustriallScroll = () => {
   }, []);
 
   useEffect(() => {
-    if (isMobile) {
-      // ✅ Mobile Animation Fix (Now Images Are Always Visible)
-      gsap.registerPlugin(ScrollTrigger);
+    // Clear all existing ScrollTrigger instances
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-      const services = gsap.utils.toArray(".quind-service");
+    const services = gsap.utils.toArray(".quind-service");
 
-      services.forEach((service) => {
+    // Animation function for both desktop and mobile
+    const animateServices = () => {
+      services.forEach((service, index) => {
         const imgContainer = service.querySelector(".quind-img");
+        const img = imgContainer.querySelector("img");
+        let prevService = index === 0 ? null : services[index - 1];
 
-        gsap.fromTo(
-          imgContainer,
-          { scale: 0.9, opacity: 1 }, // Start visible
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 1.2,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: service,
-              start: "top 85%", // Adjusted for better triggering
-              end: "top 40%",
-              scrub: 1,
-              toggleActions: "play none none reverse",
+        // Height Animation
+        const heightAnimation = gsap.timeline({
+          scrollTrigger: {
+            trigger: service,
+            start: isMobile ? "top 85%" : (prevService ? `top+=80% bottom` : "bottom bottom"),
+            end: isMobile ? "top 40%" : "top center",
+            scrub: 1,
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        heightAnimation.to(service, { height: "300px", duration: 1, ease: "none" });
+        heightAnimation.to(imgContainer, { height: "270px", width: "150px", duration: 1, ease: "none" }, "<");
+        heightAnimation.to(img, { objectFit: "cover", duration: 1, ease: "none" }, "<");
+
+        // Width Animation
+        const widthAnimation = gsap.timeline({
+          scrollTrigger: {
+            trigger: service,
+            start: isMobile ? "top 85%" : "top center",
+            end: "top top",
+            scrub: 1,
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        widthAnimation.to(imgContainer, { width: "800px", duration: 1, ease: "none" });
+
+        if (!isMobile && prevService) {
+          ScrollTrigger.create({
+            trigger: prevService,
+            start: "top+=80% bottom",
+            onEnter: () => {
+              ScrollTrigger.refresh();
             },
-          }
-        );
+          });
+        }
       });
 
       ScrollTrigger.refresh();
-    } else {
-      // ✅ Desktop Animation (Unchanged)
+    };
+
+    if (!isMobile) {
       const lenis = new Lenis({
         lerp: 0.1,
         smoothTouch: true,
@@ -77,57 +101,9 @@ const QuindustriallScroll = () => {
       });
 
       ScrollTrigger.refresh();
-
-      const services = gsap.utils.toArray(".quind-service");
-
-      services.forEach((service, index) => {
-        const imgContainer = service.querySelector(".quind-img");
-        const img = imgContainer.querySelector("img");
-
-        let prevService = index === 0 ? null : services[index - 1];
-
-        // Height Animation
-        const heightAnimation = gsap.timeline({
-          scrollTrigger: {
-            trigger: service,
-            start: prevService ? `top+=80% bottom` : "bottom bottom",
-            end: "top center",
-            scrub: 1,
-            toggleActions: "play none none reverse",
-          },
-        });
-
-        heightAnimation.to(service, { height: "300px", duration: 1, ease: "none" });
-        heightAnimation.to(imgContainer, { height: "270px", width: "150px", duration: 1, ease: "none" }, "<");
-        heightAnimation.to(img, { objectFit: "cover", duration: 1, ease: "none" }, "<");
-
-        // Width Animation
-        const widthAnimation = gsap.timeline({
-          scrollTrigger: {
-            trigger: service,
-            start: "top center",
-            end: "top top",
-            scrub: 1,
-            toggleActions: "play none none reverse",
-          },
-        });
-
-        widthAnimation.to(imgContainer, { width: "800px", duration: 1, ease: "none" });
-
-        // Fix animation not triggering on mobile
-        if (prevService) {
-          ScrollTrigger.create({
-            trigger: prevService,
-            start: "top+=80% bottom",
-            onEnter: () => {
-              ScrollTrigger.refresh();
-            },
-          });
-        }
-      });
-
-      ScrollTrigger.refresh();
     }
+
+    animateServices();
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
