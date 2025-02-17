@@ -25,6 +25,7 @@ import Preloader from "../../components/Preloader/index.jsx";
 import Landing from "../../components/Landing/index.jsx";
 import { AnimatePresence } from "framer-motion";
 
+
 const Home = () => {
   const manifestoRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -324,8 +325,10 @@ const Home = () => {
 
       
         <RadgaHorizontalScroll/>
+   
       
        
+      
        
        <section className="anim2">
        <QuindustrialScroll/>

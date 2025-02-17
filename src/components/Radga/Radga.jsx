@@ -65,20 +65,30 @@ export default function RadgaHorizontalScroll() {
       let touchStartX = 0;
       let touchEndX = 0;
 
-      slidesContainer.addEventListener("touchstart", (e) => {
+      const handleTouchStart = (e) => {
         touchStartX = e.touches[0].clientX;
-      });
+      };
 
-      slidesContainer.addEventListener("touchmove", (e) => {
+      const handleTouchMove = (e) => {
         touchEndX = e.touches[0].clientX;
-      });
+      };
 
-      slidesContainer.addEventListener("touchend", () => {
+      const handleTouchEnd = () => {
         const scrollAmount = slidesContainer.scrollLeft;
         const slideWidth = slidesContainer.clientWidth;
         const nearestSlide = Math.round(scrollAmount / slideWidth) * slideWidth;
         slidesContainer.scrollTo({ left: nearestSlide, behavior: "smooth" });
-      });
+      };
+
+      slidesContainer.addEventListener("touchstart", handleTouchStart);
+      slidesContainer.addEventListener("touchmove", handleTouchMove);
+      slidesContainer.addEventListener("touchend", handleTouchEnd);
+
+      return () => {
+        slidesContainer.removeEventListener("touchstart", handleTouchStart);
+        slidesContainer.removeEventListener("touchmove", handleTouchMove);
+        slidesContainer.removeEventListener("touchend", handleTouchEnd);
+      };
     }
 
     return () => {
