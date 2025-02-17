@@ -20,9 +20,10 @@ export default function RadgaHorizontalScroll() {
 
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-    const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
-
     if (!isMobile) {
+      // Desktop GSAP animation
+      const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
+
       gsap.to(slidesContainer, {
         x: () => -totalWidth,
         ease: "power1.inOut",
@@ -40,7 +41,7 @@ export default function RadgaHorizontalScroll() {
       slides.forEach((slide) => {
         gsap.fromTo(
           slide,
-          { opacity: 0.5, scale: 0.9 },
+          { opacity: 1, scale: 0.9 },
           {
             opacity: 1,
             scale: 1,
@@ -55,31 +56,29 @@ export default function RadgaHorizontalScroll() {
         );
       });
     } else {
-      let scrolling = false;
+      // Mobile: Enable smooth native scrolling
+      slidesContainer.style.overflowX = "scroll";
+      slidesContainer.style.scrollSnapType = "x mandatory";
+      slidesContainer.style.scrollBehavior = "smooth";
+      document.body.style.overflowY = "auto";
 
-      const enableHorizontalScroll = () => {
-        document.body.style.overflow = "hidden"; // Disable vertical scroll
-        slidesContainer.style.overflowX = "scroll";
-      };
+      let touchStartX = 0;
+      let touchEndX = 0;
 
-      const disableHorizontalScroll = () => {
-        document.body.style.overflow = "auto"; // Re-enable vertical scroll
-        slidesContainer.style.overflowX = "hidden";
-      };
+      slidesContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+      });
 
-      const checkScroll = () => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 0 && rect.bottom > window.innerHeight) {
-          enableHorizontalScroll();
-          scrolling = true;
-        } else if (scrolling) {
-          disableHorizontalScroll();
-          scrolling = false;
-        }
-      };
+      slidesContainer.addEventListener("touchmove", (e) => {
+        touchEndX = e.touches[0].clientX;
+      });
 
-      window.addEventListener("scroll", checkScroll);
-      return () => window.removeEventListener("scroll", checkScroll);
+      slidesContainer.addEventListener("touchend", () => {
+        const scrollAmount = slidesContainer.scrollLeft;
+        const slideWidth = slidesContainer.clientWidth;
+        const nearestSlide = Math.round(scrollAmount / slideWidth) * slideWidth;
+        slidesContainer.scrollTo({ left: nearestSlide, behavior: "smooth" });
+      });
     }
 
     return () => {
