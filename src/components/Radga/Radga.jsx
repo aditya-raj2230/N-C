@@ -91,18 +91,6 @@ export default function RadgaHorizontalScroll() {
         );
       });
 
-      // Switch back to vertical scrolling after the last slide
-      ScrollTrigger.create({
-        trigger: slides[slides.length - 1],
-        start: "right center",
-        end: "right center",
-        onEnter: () => {
-          document.body.style.overflow= "auto";
-        },
-        onLeaveBack: () => {
-          document.body.style.overflow = "hidden";
-        },
-      });
     }
 
     return () => {

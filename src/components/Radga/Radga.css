@@ -123,6 +123,7 @@
 @media (max-width: 768px) {
   .radga-section{
     overflow-x: auto;
+    overflow-y: hidden;
     height: 50vh;
   }
   .radga-img img {
