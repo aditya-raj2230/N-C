@@ -121,6 +121,9 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+  .radga-slides{
+    height: 50vh;
+  }
   .radga-section{
     overflow-x: auto;
     overflow-y: hidden;
