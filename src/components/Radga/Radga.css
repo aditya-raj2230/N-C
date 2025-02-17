@@ -122,7 +122,7 @@
 /* Mobile Styles */
 @media (max-width: 768px) {
   .radga-section{
-    overflow: auto;
+    overflow-x: auto;
     height: 50vh;
   }
   .radga-img img {
