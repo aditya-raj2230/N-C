@@ -14,13 +14,13 @@ export default function RadgaHorizontalScroll() {
     const section = sectionRef.current;
     const slidesContainer = slidesContainerRef.current;
     const slides = slidesRef.current;
+    const isMobile = window.innerWidth <= 768;
 
     if (!section || !slidesContainer || slides.length === 0) return;
 
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
-    const isMobile = window.innerWidth <= 768;
 
     if (!isMobile) {
       gsap.to(slidesContainer, {
@@ -54,6 +54,32 @@ export default function RadgaHorizontalScroll() {
           }
         );
       });
+    } else {
+      let scrolling = false;
+
+      const enableHorizontalScroll = () => {
+        document.body.style.overflow = "hidden"; // Disable vertical scroll
+        slidesContainer.style.overflowX = "scroll";
+      };
+
+      const disableHorizontalScroll = () => {
+        document.body.style.overflow = "auto"; // Re-enable vertical scroll
+        slidesContainer.style.overflowX = "hidden";
+      };
+
+      const checkScroll = () => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 0 && rect.bottom > window.innerHeight) {
+          enableHorizontalScroll();
+          scrolling = true;
+        } else if (scrolling) {
+          disableHorizontalScroll();
+          scrolling = false;
+        }
+      };
+
+      window.addEventListener("scroll", checkScroll);
+      return () => window.removeEventListener("scroll", checkScroll);
     }
 
     return () => {
