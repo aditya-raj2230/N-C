@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import './Radga.css';
+import "./Radga.css";
 
 export default function RadgaHorizontalScroll() {
   const sectionRef = useRef(null);
@@ -20,38 +20,41 @@ export default function RadgaHorizontalScroll() {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
+    const isMobile = window.innerWidth <= 768;
 
-    gsap.to(slidesContainer, {
-      x: () => -totalWidth,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: `+=${totalWidth * 1.2}`,
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-        id: "horizontalScroll",
-      },
-    });
+    if (!isMobile) {
+      gsap.to(slidesContainer, {
+        x: () => -totalWidth,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: `+=${totalWidth * 1.2}`,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          id: "horizontalScroll",
+        },
+      });
 
-    slides.forEach((slide) => {
-      gsap.fromTo(
-        slide,
-        { opacity: 0.5, scale: 0.9 },
-        {
-          opacity: 1,
-          scale: 1,
-          ease: "power1.out",
-          scrollTrigger: {
-            trigger: slide,
-            start: "left center",
-            end: "right center",
-            scrub: true,
-          },
-        }
-      );
-    });
+      slides.forEach((slide) => {
+        gsap.fromTo(
+          slide,
+          { opacity: 0.5, scale: 0.9 },
+          {
+            opacity: 1,
+            scale: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: slide,
+              start: "left center",
+              end: "right center",
+              scrub: true,
+            },
+          }
+        );
+      });
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -60,13 +63,12 @@ export default function RadgaHorizontalScroll() {
 
   return (
     <main ref={sectionRef} className="radga-section">
-      <div ref={slidesContainerRef} className="radga-slides" style={{ overflowX: 'auto', display: 'flex', scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
+      <div ref={slidesContainerRef} className="radga-slides">
         {[1, 2, 3, 4, 5].map((num, index) => (
           <div
             ref={(el) => (slidesRef.current[index] = el)}
             key={index}
             className="radga-slide"
-            style={{ flex: '0 0 100vw', scrollSnapAlign: 'center' }}
           >
             <div className="radga-img-container">
               <div className="radga-img">

@@ -1,3 +1,4 @@
+/* Container */
 .radga-section {
   position: relative;
   overflow: hidden;
@@ -11,11 +12,16 @@
 /* Horizontal Scroll Container */
 .radga-slides {
   display: flex;
-  width: 500vw; /* Enough width for 5 slides */
   height: 100vh;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.radga-slides::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Webkit-based browsers */
 }
 
 /* Individual Slide */
@@ -27,6 +33,7 @@
   align-items: center;
   justify-content: center;
   scroll-snap-align: center;
+  position: relative;
 }
 
 /* Image Container */
@@ -74,8 +81,8 @@
   transform: translate(-50%, -50%);
   background: white;
   color: black;
-  font-size: 0.4rem;
-  padding: 5px 10px;
+  font-size: 0.8rem;
+  padding: 8px 15px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
@@ -108,22 +115,20 @@
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.8);
-  padding: 10
+  padding: 10px;
+  color: white;
 }
-@media (max-width: 768px) {
- 
 
-  /* Hide middle text on mobile */
+/* Mobile Styles */
+@media (max-width: 768px) {
   .radga-middle-texts {
     display: none;
   }
 
-  /* Hide extra info on mobile */
   .radga-extra-info {
     display: none;
   }
 
-  /* Adjust title for mobile */
   .radga-title {
     top: 10%;
     left: 50%;
@@ -140,7 +145,6 @@
     font-size: 1rem;
   }
 
-  /* Keep the "View Project" button visible */
   .radga-view-project {
     top: 50%;
     left: 50%;
