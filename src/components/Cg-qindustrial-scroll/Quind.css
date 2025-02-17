@@ -137,6 +137,10 @@
      height: 80vh;
      width: 100vw;
   }
+  .quind-services {
+    background: #000;
+    gap: 6em;
+  }
   .quind-footer {
     position: relative; /* Ensure it stays in the flow */
     margin-top: 0vh; /* Adjust to make sure it appears */
@@ -148,9 +152,11 @@
 
 
   .quind-services {
-      padding: 2em; /* Reduce padding to remove gaps */
+      padding: 2em;
+       /* Reduce padding to remove gaps */
   }
 
+  
   .quind-services-header {
       flex-direction: column; /* Stack elements in mobile view */
       gap: 1em;

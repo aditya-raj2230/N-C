@@ -711,11 +711,9 @@ section.anim2{
 }
 
 @media (max-width: 900px) {
-  section.anim{
-    margin-bottom: 300vh;
-  }
+ 
   section.anim2{
-    margin-bottom: 50vh;
+    margin-bottom: 150vh;
   }
   .header {
     flex-direction: column;

@@ -5,103 +5,89 @@ import Lenis from "lenis";
 import "./Quind.css";
 
 const QuindustriallScroll = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const handleResize = () => {
+    const updateSize = () => {
       setIsMobile(window.innerWidth <= 768);
-      ScrollTrigger.refresh(); // Refresh ScrollTrigger on resize
     };
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
+    window.addEventListener("resize", updateSize);
+    updateSize();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      window.removeEventListener("resize", updateSize);
     };
   }, []);
 
   useEffect(() => {
-    // Clear all existing ScrollTrigger instances
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     const services = gsap.utils.toArray(".quind-service");
 
-    // Animation function for both desktop and mobile
     const animateServices = () => {
       services.forEach((service, index) => {
         const imgContainer = service.querySelector(".quind-img");
         const img = imgContainer.querySelector("img");
-        let prevService = index === 0 ? null : services[index - 1];
 
-        // Height Animation
-        const heightAnimation = gsap.timeline({
+        gsap.timeline({
           scrollTrigger: {
             trigger: service,
-            start: isMobile ? "top 85%" : (prevService ? `top+=80% bottom` : "bottom bottom"),
-            end: isMobile ? "top 40%" : "top center",
+            start: isMobile ? "top 85%" : "top 80%",
+            end: isMobile ? "top 40%" : "top 50%",
             scrub: 1,
             toggleActions: "play none none reverse",
           },
-        });
+        })
+          .to(service, { height: isMobile ? "200px" : "300px", duration: 1, ease: "none" })
+          .to(
+            imgContainer,
+            {
+              height: isMobile ? "150px" : "270px",
+              width: isMobile ? "100px" : "150px",
+              duration: 1,
+              ease: "none",
+            },
+            "<"
+          )
+          .to(img, { objectFit: "cover", duration: 1, ease: "none" }, "<");
 
-        heightAnimation.to(service, { height: "300px", duration: 1, ease: "none" });
-        heightAnimation.to(imgContainer, { height: "270px", width: "150px", duration: 1, ease: "none" }, "<");
-        heightAnimation.to(img, { objectFit: "cover", duration: 1, ease: "none" }, "<");
-
-        // Width Animation
-        const widthAnimation = gsap.timeline({
+        gsap.timeline({
           scrollTrigger: {
             trigger: service,
-            start: isMobile ? "top 85%" : "top center",
+            start: "top 85%",
             end: "top top",
             scrub: 1,
             toggleActions: "play none none reverse",
           },
-        });
-
-        widthAnimation.to(imgContainer, { width: "800px", duration: 1, ease: "none" });
-
-        if (!isMobile && prevService) {
-          ScrollTrigger.create({
-            trigger: prevService,
-            start: "top+=80% bottom",
-            onEnter: () => {
-              ScrollTrigger.refresh();
-            },
-          });
-        }
+        }).to(imgContainer, { width: isMobile ? "350px" : "800px", duration: 1, ease: "none" });
       });
 
       ScrollTrigger.refresh();
     };
 
-    if (!isMobile) {
-      const lenis = new Lenis({
-        lerp: 0.1,
-        smoothTouch: true,
-      });
+    // Smooth Scroll using Lenis
+    const lenis = new Lenis({
+      lerp: 0.1,
+      smoothTouch: true,
+    });
 
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
+    function raf(time) {
+      lenis.raf(time);
       requestAnimationFrame(raf);
-
-      ScrollTrigger.scrollerProxy(document.body, {
-        scrollTop(value) {
-          return arguments.length ? lenis.scrollTo(value, { immediate: true }) : lenis.scroll;
-        },
-        getBoundingClientRect() {
-          return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-        },
-      });
-
-      ScrollTrigger.refresh();
     }
+    requestAnimationFrame(raf);
+
+    ScrollTrigger.scrollerProxy(document.body, {
+      scrollTop(value) {
+        return arguments.length ? lenis.scrollTo(value, { immediate: true }) : lenis.scroll;
+      },
+      getBoundingClientRect() {
+        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+      },
+    });
 
     animateServices();
 
@@ -112,7 +98,6 @@ const QuindustriallScroll = () => {
 
   return (
     <div className="quind-container">
-      {/* <section className="quind-hero"><img src="./quindustrial/hero.jpg" alt="" /></section> */}
       <section className="quind-services">
         <div className="quind-services-header">
           <div className="quind-col"></div>
@@ -134,7 +119,6 @@ const QuindustriallScroll = () => {
           </div>
         ))}
       </section>
-      {/* <section className="quind-footer"><img src="./quindustrial/footer.jpg" alt="" /></section> */}
     </div>
   );
 };
