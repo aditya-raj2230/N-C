@@ -123,6 +123,7 @@
 @media (max-width: 768px) {
   .radga-slides{
     height: 50vh;
+    overflow: hidden;
   }
   .radga-section{
     overflow-x: auto;
