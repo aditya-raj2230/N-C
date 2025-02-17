@@ -322,7 +322,7 @@ const Home = () => {
          
         </section>
 
-        
+      
         <RadgaHorizontalScroll/>
       
        

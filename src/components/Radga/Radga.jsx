@@ -1,32 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import './Radga.css' // Keeping your existing styling
+import './Radga.css';
 
 export default function RadgaHorizontalScroll() {
   const sectionRef = useRef(null);
   const slidesContainerRef = useRef(null);
   const slidesRef = useRef([]);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (isMobile) {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      return;
-    }
 
     const section = sectionRef.current;
     const slidesContainer = slidesContainerRef.current;
@@ -34,20 +17,19 @@ export default function RadgaHorizontalScroll() {
 
     if (!section || !slidesContainer || slides.length === 0) return;
 
-    gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
 
     gsap.to(slidesContainer, {
       x: () => -totalWidth,
-      ease: "none",
+      ease: "power1.inOut",
       scrollTrigger: {
         trigger: section,
         start: "top top",
         end: `+=${totalWidth * 1.2}`,
         pin: true,
-        scrub: true,
+        scrub: 1,
         anticipatePin: 1,
         id: "horizontalScroll",
       },
@@ -56,86 +38,49 @@ export default function RadgaHorizontalScroll() {
     slides.forEach((slide) => {
       gsap.fromTo(
         slide,
-        { scale: 1 },
+        { opacity: 0.5, scale: 0.9 },
         {
-          scale: 1.1,
+          opacity: 1,
+          scale: 1,
           ease: "power1.out",
           scrollTrigger: {
             trigger: slide,
             start: "left center",
             end: "right center",
             scrub: true,
-            onEnter: () => gsap.to(slide, { scale: 1.1, duration: 0.5 }),
-            onLeaveBack: () => gsap.to(slide, { scale: 1, duration: 0.5 }),
           },
         }
       );
     });
 
-    ScrollTrigger.create({
-      trigger: section,
-      start: "left right",
-      end: "right left",
-      onLeave: () => slides.forEach((slide) => gsap.to(slide, { scale: 1 })),
-      onEnterBack: () => slides.forEach((slide) => gsap.to(slide, { scale: 1 })),
-    });
-
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [isMobile]);
+  }, []);
 
   return (
     <main ref={sectionRef} className="radga-section">
-      {!isMobile ? (
-        <div ref={slidesContainerRef} className="radga-slides">
-          {[1, 2, 3, 4, 5].map((num, index) => (
-            <div
-              ref={(el) => (slidesRef.current[index] = el)}
-              key={index}
-              className="radga-slide"
-            >
-              <div className="radga-img-container">
-                <div className="radga-img">
-                  <img src={`./radga/img${num}.jpeg`} alt={`Slide ${num}`} />
-                </div>
-              </div>
-              <div className="radga-middle-texts">
-                <span>Text 1</span>
-                <span>Text 2</span>
-                <span>Text 3</span>
-                <span>Text 4</span>
-              </div>
-              <button className="radga-view-project">View Project</button>
-              <div className="radga-title">
-                <h1>
-                  {num === 1 && "Verb Coffee Roasters"}
-                  {num === 2 && "Yeti Cycles Dust To Dust"}
-                  {num === 3 && "Abus Security"}
-                  {num === 4 && "Curved Elements Modern Flow"}
-                  {num === 5 && "Minimal Design Natural Light"}
-                </h1>
-                <h2>
-                  {num === 1 && "Coffee Roasters"}
-                  {num === 2 && "Cycles Dust"}
-                  {num === 3 && "Security"}
-                  {num === 4 && "Modern Flow"}
-                  {num === 5 && "Natural Light"}
-                </h2>
-              </div>
-              <div className="radga-extra-info">
-                Extra Information Here <span>text 2</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="radga-mobile-list">
-          {[1, 2, 3, 4, 5].map((num) => (
-            <div key={num} className="radga-mobile-item">
-              <div className="radga-mobile-img">
+      <div ref={slidesContainerRef} className="radga-slides" style={{ overflowX: 'auto', display: 'flex', scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
+        {[1, 2, 3, 4, 5].map((num, index) => (
+          <div
+            ref={(el) => (slidesRef.current[index] = el)}
+            key={index}
+            className="radga-slide"
+            style={{ flex: '0 0 100vw', scrollSnapAlign: 'center' }}
+          >
+            <div className="radga-img-container">
+              <div className="radga-img">
                 <img src={`./radga/img${num}.jpeg`} alt={`Slide ${num}`} />
               </div>
+            </div>
+            <div className="radga-middle-texts">
+              <span>Text 1</span>
+              <span>Text 2</span>
+              <span>Text 3</span>
+              <span>Text 4</span>
+            </div>
+            <button className="radga-view-project">View Project</button>
+            <div className="radga-title">
               <h1>
                 {num === 1 && "Verb Coffee Roasters"}
                 {num === 2 && "Yeti Cycles Dust To Dust"}
@@ -143,11 +88,20 @@ export default function RadgaHorizontalScroll() {
                 {num === 4 && "Curved Elements Modern Flow"}
                 {num === 5 && "Minimal Design Natural Light"}
               </h1>
-              <button className="radga-view-project">View Project</button>
+              <h2>
+                {num === 1 && "Coffee Roasters"}
+                {num === 2 && "Cycles Dust"}
+                {num === 3 && "Security"}
+                {num === 4 && "Modern Flow"}
+                {num === 5 && "Natural Light"}
+              </h2>
             </div>
-          ))}
-        </div>
-      )}
+            <div className="radga-extra-info">
+              Extra Information Here <span>text 2</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </main>
   );
 }
