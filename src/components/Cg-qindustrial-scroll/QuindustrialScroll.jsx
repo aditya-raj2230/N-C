@@ -23,7 +23,7 @@ const QuindustriallScroll = () => {
   }, []);
 
   useEffect(() => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    ScrollTrigger.getById("quind-triggers")?.kill();
 
     const services = gsap.utils.toArray(".quind-service");
 
@@ -92,9 +92,12 @@ const QuindustriallScroll = () => {
     animateServices();
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getById("quind-triggers")?.kill();
     };
   }, [isMobile]);
+
+ 
+  
 
   return (
     <div className="quind-container">
