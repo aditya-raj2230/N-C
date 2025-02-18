@@ -28,7 +28,7 @@ const QuindustriallScroll = () => {
     const services = gsap.utils.toArray(".quind-service");
 
     const animateServices = () => {
-      services.forEach((service, index) => {
+      services.forEach((service) => {
         const imgContainer = service.querySelector(".quind-img");
         const img = imgContainer.querySelector("img");
 
@@ -37,32 +37,32 @@ const QuindustriallScroll = () => {
             trigger: service,
             start: isMobile ? "top 85%" : "top 90%",
             end: isMobile ? "top 85%" : "top 60%",
-            scrub: 1,
+            scrub: true,
             toggleActions: "play none none reverse",
           },
         })
-          .to(service, { height: isMobile ? "200px" : "320px", duration: 1, ease: "none" })
+          .to(service, { height: isMobile ? "200px" : "320px", duration: 1.2, ease: "power3.inOut" })
           .to(
             imgContainer,
             {
               height: isMobile ? "150px" : "270px",
               width: isMobile ? "150px" : "150px",
-              duration: 1,
-              ease: "none",
+              duration: 1.2,
+              ease: "power3.inOut",
             },
             "<"
           )
-          .to(img, { objectFit: "cover", duration: 1, ease: "none" }, "<");
+          .to(img, { objectFit: "cover", duration: 1.2, ease: "power3.inOut" }, "<");
 
         gsap.timeline({
           scrollTrigger: {
             trigger: service,
             start: "top 90%",
             end: "top 20%",
-            scrub: 1,
+            scrub: true,
             toggleActions: "play none none reverse",
           },
-        }).to(imgContainer, { width: isMobile ? "300px" : "600px", duration: 1, ease: "none" });
+        }).to(imgContainer, { width: isMobile ? "300px" : "600px", duration: 1.2, ease: "power3.inOut" });
       });
 
       ScrollTrigger.refresh();
@@ -70,8 +70,10 @@ const QuindustriallScroll = () => {
 
     // Smooth Scroll using Lenis
     const lenis = new Lenis({
-      lerp: 0.08,
+      lerp: 0.1,
+      smooth: true,
       smoothTouch: true,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
     });
 
     function raf(time) {
