@@ -50,4 +50,14 @@
       }
     }
   }
-  
+  @media (max-width: 768px) {
+    .landing{
+    .slider p{
+      position: relative;
+      margin: 0px;
+      color: white;
+      font-size: 60px;
+      font-weight: 500;
+      padding-right: 50px;
+    }}
+  }

@@ -36,6 +36,10 @@ const Home = () => {
  
 
 
+
+
+
+
   useEffect(() => {
     const scrollTimeout = setTimeout(() => {
       window.scrollTo({
@@ -43,9 +47,11 @@ const Home = () => {
         behavior: "instant",
       });
     }, 0);
+    
 
     return () => clearTimeout(scrollTimeout);
   }, []);
+
 
 
 
@@ -263,7 +269,7 @@ const Home = () => {
 
   return (
     
-    <ReactLenis root>
+    <ReactLenis root options={{ lerp: 0.08, smooth:true }}>
 
       <div className="home">
         <Cursor />

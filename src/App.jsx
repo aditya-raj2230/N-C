@@ -11,7 +11,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <ReactLenis root>
+    <ReactLenis root >
       <div className="app">
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>

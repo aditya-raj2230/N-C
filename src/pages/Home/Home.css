@@ -711,6 +711,11 @@ section.anim2{
 }
 
 @media (max-width: 900px) {
+  .about-copy p {
+    font-size: 1.5rem;
+   
+    
+  }
  
   section.anim2{
   margin-bottom: 130vh;
@@ -749,7 +754,7 @@ section.anim2{
   }
 
   .manifesto-title h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
   }
 
   .process-info {
