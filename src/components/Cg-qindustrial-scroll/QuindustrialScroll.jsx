@@ -35,18 +35,18 @@ const QuindustriallScroll = () => {
         gsap.timeline({
           scrollTrigger: {
             trigger: service,
-            start: isMobile ? "top 85%" : "top 80%",
-            end: isMobile ? "top 40%" : "top 50%",
+            start: isMobile ? "top 85%" : "top 90%",
+            end: isMobile ? "top 85%" : "top 60%",
             scrub: 1,
             toggleActions: "play none none reverse",
           },
         })
-          .to(service, { height: isMobile ? "200px" : "300px", duration: 1, ease: "none" })
+          .to(service, { height: isMobile ? "200px" : "320px", duration: 1, ease: "none" })
           .to(
             imgContainer,
             {
               height: isMobile ? "150px" : "270px",
-              width: isMobile ? "100px" : "150px",
+              width: isMobile ? "150px" : "150px",
               duration: 1,
               ease: "none",
             },
@@ -57,12 +57,12 @@ const QuindustriallScroll = () => {
         gsap.timeline({
           scrollTrigger: {
             trigger: service,
-            start: "top 85%",
-            end: "top top",
+            start: "top 90%",
+            end: "top 20%",
             scrub: 1,
             toggleActions: "play none none reverse",
           },
-        }).to(imgContainer, { width: isMobile ? "350px" : "800px", duration: 1, ease: "none" });
+        }).to(imgContainer, { width: isMobile ? "300px" : "600px", duration: 1, ease: "none" });
       });
 
       ScrollTrigger.refresh();
@@ -70,7 +70,7 @@ const QuindustriallScroll = () => {
 
     // Smooth Scroll using Lenis
     const lenis = new Lenis({
-      lerp: 0.1,
+      lerp: 0.08,
       smoothTouch: true,
     });
 
@@ -95,9 +95,6 @@ const QuindustriallScroll = () => {
       ScrollTrigger.getById("quind-triggers")?.kill();
     };
   }, [isMobile]);
-
- 
-  
 
   return (
     <div className="quind-container">
