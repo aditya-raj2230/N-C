@@ -11,9 +11,9 @@
     .logo{
       position: absolute;
       object-fit: fill;
-      width: 8vw;
-      height: 24vh;
-      top: 5%;
+      width: 7vw;
+      height: 9vw;
+      top: 8%;
       left:3%
     }
 
@@ -32,8 +32,8 @@
       position: relative;
       margin: 0px;
       color: white;
-      padding-top: 10vh;
-      font-size: 230px;
+      padding-top: 8vh;
+      font-size: 210px;
       font-weight: 500;
       padding-right: 50px;
     }
