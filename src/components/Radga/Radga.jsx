@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "./Radga.css";
@@ -8,7 +8,7 @@ export default function RadgaHorizontalScroll() {
   const slidesContainerRef = useRef(null);
   const slidesRef = useRef([]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const section = sectionRef.current;
@@ -16,85 +16,77 @@ export default function RadgaHorizontalScroll() {
     const slides = slidesRef.current;
     const isMobile = window.innerWidth <= 768;
 
-    if (!section || !slidesContainer || slides.length === 0) return;
-
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-
-    if (!isMobile) {
-      // Desktop GSAP animation
-      const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
-
-      gsap.to(slidesContainer, {
-        x: () => -totalWidth,
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: `+=${totalWidth * 1.2}`,
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          id: "horizontalScroll",
-        },
-      });
-
-      slides.forEach((slide) => {
-        gsap.fromTo(
-          slide,
-          { opacity: 1, scale: 0.9 },
-          {
-            opacity: 1,
-            scale: 1,
-            ease: "power1.out",
-            scrollTrigger: {
-              trigger: slide,
-              start: "left center",
-              end: "right center",
-              scrub: true,
-            },
-          }
-        );
-      });
-    } else {
-      // Mobile: Horizontal scroll with ScrollTrigger
-      const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
-
-      gsap.to(slidesContainer, {
-        x: () => -totalWidth,
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: section,
-          start: "center center",
-          end: () => `+=${totalWidth}`,
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          id: "horizontalScrollMobile",
-        },
-      });
-
-      slides.forEach((slide) => {
-        gsap.fromTo(
-          slide,
-          { opacity: 1, scale: 0.9 },
-          {
-            opacity: 1,
-            scale: 1,
-            ease: "power1.out",
-            scrollTrigger: {
-              trigger: slide,
-              start: "left center",
-              end: "right center",
-              scrub: true,
-            },
-          }
-        );
-      });
-
+    if (!section || !slidesContainer || slides.length === 0) {
+      return;
     }
 
+    // Kill only our specific ScrollTrigger instance
+    const scrollTriggerId = isMobile ? "horizontalScrollMobile" : "horizontalScroll";
+    const existingTrigger = ScrollTrigger.getById(scrollTriggerId);
+    if (existingTrigger) {
+      existingTrigger.kill();
+    }
+
+    gsap.killTweensOf(slidesContainer);
+    gsap.killTweensOf(slides);
+
+    const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
+
+    const horizontalScrollTrigger = gsap.to(slidesContainer, {
+      x: () => -totalWidth,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: section,
+        start: isMobile ? "center center" : "top top",
+        end: () => `+=${totalWidth * 1.2}`,
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+        id: scrollTriggerId, // Assign ID to the ScrollTrigger
+        invalidateOnRefresh: true, // Ensures it updates on resize
+        onEnter: () => {
+          console.log('Is Mobile:', isMobile);
+          console.log('Total Width:', totalWidth);
+        },
+        onLeaveBack: () => {
+          console.log('Leaving viewport');
+        },
+      },
+    });
+
+    slides.forEach((slide, index) => {
+      gsap.fromTo(
+        slide,
+        { opacity: 1, scale: 0.9 },
+        {
+          opacity: 1,
+          scale: 1,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: slide,
+            start: "left center",
+            end: "right center",
+            scrub: true,
+            invalidateOnRefresh: true,
+            onEnter: () => {
+              console.log('Animating slide:', index);
+            },
+            onLeaveBack: () => {
+              console.log('Slide leaving viewport:', index);
+            },
+          },
+        }
+      );
+    });
+
+    ScrollTrigger.refresh(); // Ensure smooth updates
+
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // Kill only our specific ScrollTrigger instance on cleanup
+      const cleanupTrigger = ScrollTrigger.getById(scrollTriggerId);
+      if (cleanupTrigger) {
+        cleanupTrigger.kill();
+      }
     };
   }, []);
 
