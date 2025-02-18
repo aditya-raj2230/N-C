@@ -51,7 +51,10 @@ export default function Landing() {
         alt="background"
         className={styles.backgroundImage} // Ensure styles include this
       />
+      <img src="/logo.png" alt=""  className={styles.logo}/>
+      
       <div className={styles.sliderContainer}>
+        
         <div ref={slider} className={styles.slider}>
           <p ref={firstText}>neer & cronin -</p>
           <p ref={secondText}>neer & cronin-</p>

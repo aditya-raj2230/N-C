@@ -4,9 +4,19 @@
     height: 100vh;
     overflow: hidden;
 
-    img{
+
+    .backgroundImage{
       object-fit: cover;
     }
+    .logo{
+      position: absolute;
+      object-fit: fill;
+      width: 8vw;
+      height: 24vh;
+      top: 5%;
+      left:3%
+    }
+
     
     .sliderContainer{
       position: absolute;
@@ -54,10 +64,18 @@
     .landing{
     .slider p{
       position: relative;
+      padding-top: 10vh;
       margin: 0px;
       color: white;
       font-size: 60px;
       font-weight: 500;
       padding-right: 50px;
+    }
+    .logo{
+      
+      width: 30vw;
+      height: 30vh;
+      top: 23%;
+      left:38%
     }}
   }
