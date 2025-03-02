@@ -35,7 +35,7 @@ export default function RadgaHorizontalScroll() {
         edgeResistance: 0.8,
         throwProps: true,
         onPress: () => autoScroll.pause(), // Pause auto-scroll on user interaction
-        onDragEnd: () => resumeAutoScroll(), // Resume after drag ends
+        onDragEnd: () => autoScroll.play(), // Resume after drag ends
       })[0];
 
       let autoScroll = gsap.to(slidesContainer, {
