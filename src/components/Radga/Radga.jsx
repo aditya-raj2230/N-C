@@ -28,7 +28,15 @@ export default function RadgaHorizontalScroll() {
 
     if (isMobile) {
       // MOBILE: Draggable + Auto-scrolling
-   
+      const draggable = Draggable.create(slidesContainer, {
+        type: "x",
+        bounds: section,
+        inertia: true,
+        edgeResistance: 0.8,
+        throwProps: true,
+        onPress: () => autoScroll.pause(), // Pause auto-scroll on user interaction
+        onDragEnd: () => resumeAutoScroll(), // Resume after drag ends
+      })[0];
 
       let autoScroll = gsap.to(slidesContainer, {
         x: () => -(slidesContainer.scrollWidth - window.innerWidth), // Scroll till end
@@ -37,6 +45,9 @@ export default function RadgaHorizontalScroll() {
         repeat: -1, // Infinite scrolling
       });
 
+      function resumeAutoScroll() {
+        autoScroll.restart(true); // Restart the auto-scroll immediately
+      }
     } else {
       // DESKTOP: ScrollTrigger horizontal scroll
       const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
