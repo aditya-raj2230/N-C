@@ -7,7 +7,7 @@ import "./Radga.css";
 export default function RadgaHorizontalScroll() {
   const sectionRef = useRef(null);
   const slidesContainerRef = useRef(null);
-  const slidesRef = useRef([]);
+  const slidesRef = useRef([]); // ✅ Ensure it's correctly initialized as an array
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -27,19 +27,34 @@ export default function RadgaHorizontalScroll() {
     });
 
     if (isMobile) {
-      // Mobile: Use Draggable for horizontal scrolling
-      Draggable.create(slidesContainer, {
+      // MOBILE: Draggable + Auto-scrolling
+      const draggable = Draggable.create(slidesContainer, {
         type: "x",
         bounds: section,
         inertia: true,
         edgeResistance: 0.8,
         throwProps: true,
+        onPress: () => autoScroll.pause(), // Pause auto-scroll on user interaction
+        onDragEnd: () => resumeAutoScroll(), // Resume after drag ends
+      })[0];
+
+      let autoScroll = gsap.to(slidesContainer, {
+        x: () => -(slidesContainer.scrollWidth - window.innerWidth), // Scroll till end
+        duration: 20, // Slow animation
+        ease: "linear",
+        repeat: -1, // Infinite scrolling
+        onUpdate: () => {
+          if (draggable.isDragging) {
+            autoScroll.pause(); // Stop when dragging
+          }
+        },
       });
 
-      // Remove pinning on mobile
-      document.body.style.overflowX = "auto";
+      function resumeAutoScroll() {
+        gsap.delayedCall(2, () => autoScroll.play()); // Resume after 2s delay
+      }
     } else {
-      // Desktop: Use ScrollTrigger
+      // DESKTOP: ScrollTrigger horizontal scroll
       const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
 
       gsap.to(slidesContainer, {
@@ -93,7 +108,7 @@ export default function RadgaHorizontalScroll() {
       <div ref={slidesContainerRef} className="radga-slides">
         {[1, 2, 3, 4, 5].map((num, index) => (
           <div
-            ref={(el) => (slidesRef.current[index] = el)}
+            ref={(el) => (slidesRef.current[index] = el)} // ✅ Correctly assigning refs
             key={index}
             className="radga-slide"
           >
