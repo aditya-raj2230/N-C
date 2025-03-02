@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Draggable from "gsap/Draggable";
 import "./Radga.css";
 
 export default function RadgaHorizontalScroll() {
@@ -9,7 +10,7 @@ export default function RadgaHorizontalScroll() {
   const slidesRef = useRef([]);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, Draggable);
 
     const section = sectionRef.current;
     const slidesContainer = slidesContainerRef.current;
@@ -18,10 +19,27 @@ export default function RadgaHorizontalScroll() {
 
     if (!section || !slidesContainer || slides.length === 0) return;
 
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    // Clear existing instances
+    ScrollTrigger.getById("horizontalScroll")?.kill();
+    ScrollTrigger.getById("horizontalScrollMobile")?.kill();
+    slides.forEach((_, index) => {
+      ScrollTrigger.getById(`slide-${index}`)?.kill();
+    });
 
-    if (!isMobile) {
-      // Desktop GSAP animation
+    if (isMobile) {
+      // Mobile: Use Draggable for horizontal scrolling
+      Draggable.create(slidesContainer, {
+        type: "x",
+        bounds: section,
+        inertia: true,
+        edgeResistance: 0.8,
+        throwProps: true,
+      });
+
+      // Remove pinning on mobile
+      document.body.style.overflowX = "auto";
+    } else {
+      // Desktop: Use ScrollTrigger
       const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
 
       gsap.to(slidesContainer, {
@@ -38,7 +56,7 @@ export default function RadgaHorizontalScroll() {
         },
       });
 
-      slides.forEach((slide) => {
+      slides.forEach((slide, index) => {
         gsap.fromTo(
           slide,
           { opacity: 1, scale: 0.9 },
@@ -51,55 +69,27 @@ export default function RadgaHorizontalScroll() {
               start: "left center",
               end: "right center",
               scrub: true,
-            },
-          }
-        );
-      });
-    } else {
-      // Mobile: Horizontal scroll with ScrollTrigger
-      const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
-
-      gsap.to(slidesContainer, {
-        x: () => -totalWidth,
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: section,
-          start: "center center",
-          end: () => `+=${totalWidth}`,
-          pin: true,
-          scrub: 1,
-          anticipatePin: 1,
-          id: "horizontalScrollMobile",
-        },
-      });
-
-      slides.forEach((slide) => {
-        gsap.fromTo(
-          slide,
-          { opacity: 1, scale: 0.9 },
-          {
-            opacity: 1,
-            scale: 1,
-            ease: "power1.out",
-            scrollTrigger: {
-              trigger: slide,
-              start: "left center",
-              end: "right center",
-              scrub: true,
+              id: `slide-${index}`,
             },
           }
         );
       });
 
+      document.body.style.overflowX = "hidden";
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getById("horizontalScroll")?.kill();
+      ScrollTrigger.getById("horizontalScrollMobile")?.kill();
+      slides.forEach((_, index) => {
+        ScrollTrigger.getById(`slide-${index}`)?.kill();
+      });
+      document.body.style.overflowX = "auto";
     };
   }, []);
 
   return (
-    <main ref={sectionRef} className="radga-section">
+    <main ref={sectionRef} className="radga-section" style={{ minHeight: "100vh" }}>
       <div ref={slidesContainerRef} className="radga-slides">
         {[1, 2, 3, 4, 5].map((num, index) => (
           <div
