@@ -28,31 +28,15 @@ export default function RadgaHorizontalScroll() {
 
     if (isMobile) {
       // MOBILE: Draggable + Auto-scrolling
-      const draggable = Draggable.create(slidesContainer, {
-        type: "x",
-        bounds: section,
-        inertia: true,
-        edgeResistance: 0.8,
-        throwProps: true,
-        onPress: () => autoScroll.pause(), // Pause auto-scroll on user interaction
-        onDragEnd: () => resumeAutoScroll(), // Resume after drag ends
-      })[0];
+   
 
       let autoScroll = gsap.to(slidesContainer, {
         x: () => -(slidesContainer.scrollWidth - window.innerWidth), // Scroll till end
         duration: 20, // Slow animation
         ease: "linear",
         repeat: -1, // Infinite scrolling
-        onUpdate: () => {
-          if (draggable.isDragging) {
-            autoScroll.pause(); // Stop when dragging
-          }
-        },
       });
 
-      function resumeAutoScroll() {
-        gsap.delayedCall(2, () => autoScroll.play()); // Resume after 2s delay
-      }
     } else {
       // DESKTOP: ScrollTrigger horizontal scroll
       const totalWidth = slidesContainer.scrollWidth - window.innerWidth;
